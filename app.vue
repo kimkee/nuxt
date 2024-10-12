@@ -13,6 +13,6 @@
 </template>
 <style lang="scss" scoped>
 .kimkee {
-  @apply bg-slate-950
+  @apply bg-slate-900
 }
 </style>
