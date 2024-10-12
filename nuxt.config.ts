@@ -6,6 +6,15 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vite-pwa/nuxt'
   ],
+  vite: {
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: "modern-compiler"
+            }
+        }
+    }
+  },
   pwa: {
     // 
   }
