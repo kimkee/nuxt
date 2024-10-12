@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/tailwindcss'
-  ],
+  ]/* ,
   vite: {
     css: {
         preprocessorOptions: {
@@ -13,5 +13,5 @@ export default defineNuxtConfig({
             }
         }
     }
-  }
+  } */
 })
