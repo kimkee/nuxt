@@ -12,13 +12,11 @@
   "dependencies": {
     "@vite-pwa/nuxt": "^0.10.5",
     "nuxt": "^3.13.0",
-    "sass": "^1.79.5",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "rollup-plugin-sass-migrator": "^1.0.5",
     "sass-embedded": "^1.79.5"
   }
 }
