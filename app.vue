@@ -14,13 +14,11 @@
 <style lang="css" scoped>
 .kimkee {
   @apply bg-slate-900;
-
   h1 { 
-    @apply text-yellow-500;
-
-  }
-  &:hover {
-    @apply text-white
+    @apply text-white;
+    &:hover {
+      @apply text-yellow-500;
+    }
   }
 }
 </style>
