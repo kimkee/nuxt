@@ -11,7 +11,7 @@
     
   </div>
 </template>
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .kimkee {
   @apply bg-slate-900;
 
