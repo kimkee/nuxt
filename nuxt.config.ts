@@ -4,7 +4,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/tailwindcss'
-  ]/* ,
+  ],
+  nitro: {
+    prerender: {
+      autoSubfolderIndex: false
+    }
+  },
   vite: {
     css: {
         preprocessorOptions: {
@@ -13,5 +18,5 @@ export default defineNuxtConfig({
             }
         }
     }
-  } */
+  }
 })
