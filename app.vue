@@ -12,7 +12,7 @@
     
   </div>
 </template>
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .kimkee {
   background: #0d0;
   &__h1{ 
