@@ -3,11 +3,18 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@vesp/nuxt-fontawesome'
   ],
   nitro: {
     prerender: {
       autoSubfolderIndex: false
+    }
+  },
+  fontawesome: {
+    icons: {
+      solid: ['dollar-sign', 'cog', 'circle', 'check', 'calendar','coffee'],
+      regular: ['user' ]
     }
   },
   vite: {
