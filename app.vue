@@ -1,28 +1,32 @@
 <template>
-  <div class="kimkee">
+  <div class="kimkee p-4">
     <NuxtRouteAnnouncer />
-    <div class="flex flex-col  items-center justify-center p-16">
-      <div class="text-center">
-        <img class="w-20 h-20" src="~/assets/img/icon.png" alt="dd">
+    <header class="flex justify-center px-1 py-1">
+      <div class="text-center mb-5 pt-3">
+        <img class="w-25" src="//nuxt.com/assets/design-kit/logo-green-white.svg" alt="dd">
       </div>
+    </header>
+    <div class="flex flex-col  items-center justify-center p-16">
       <div class="flex justify-center grid-flow-col auto-cols-fr gap-10 w-full text-center text-white text-4xl mt-3">
-        <i><font-awesome :icon="['fas', 'house']" /></i>
-        <i><font-awesome :icon="['fas', 'box']" /></i>
-        <i><font-awesome :icon="['fas', 'magnifying-glass']" /></i>
-        <i><font-awesome :icon="['far', 'user']" /></i>
+        <i class="min-w-12"><font-awesome :icon="['fas', 'house']" /></i>
+        <i class="min-w-12"><font-awesome :icon="['fas', 'box']" /></i>
+        <i class="min-w-12"><font-awesome :icon="['fas', 'magnifying-glass']" /></i>
+        <i class="min-w-12"><font-awesome :icon="['far', 'user']" /></i>
       </div>
       <h1 class="title font-semibold text-4xl text-white mt-6">Nuxton!!</h1>
       <p class="text-lg text-gray-500 leading-10">Get started</p>
     </div>
    
 
-    <NuxtWelcome />
+    <div class="">
+      <NuxtWelcome />
+    </div>
     
   </div>
 </template>
 <style lang="css" scoped>
 .kimkee {
-  @apply bg-gray-900;
+  
   h1 { 
     @apply text-white cursor-pointer selection:not-sr-only;
     &:hover {

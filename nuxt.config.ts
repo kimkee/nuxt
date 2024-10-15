@@ -11,6 +11,9 @@ export default defineNuxtConfig({
       autoSubfolderIndex: false
     }
   },
+  css: [
+    '~/assets/scss/global.scss'
+  ],
   fontawesome: {
     icons: {
       solid: ['magnifying-glass','dollar-sign','box','house', 'cog', 'circle', 'check', 'calendar','coffee'],
