@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     }
   },
   css: [
-    '~/assets/scss/global.scss'
+    '~/assets/css/global.css'
   ],
   fontawesome: {
     icons: {
