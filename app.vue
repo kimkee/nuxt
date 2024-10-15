@@ -3,17 +3,18 @@
     <NuxtRouteAnnouncer />
     <div class="flex flex-col  items-center justify-center p-16">
       <div class="text-center">
-        <fa-icon  />
-        <fa-layers />
-        <fa-layers-text />
-        <font-awesome :icon="['fas', 'coffee']" class="text-white text-4xl hover:text-yellow-500" />
-        <font-awesome :icon="['far', 'user']" class="text-white text-4xl" />
         <img class="w-20 h-20" src="~/assets/img/icon.png" alt="dd">
       </div>
-      <h1 class="title font-semibold text-4xl text-white">Nuxton!!</h1>
+      <div class="flex justify-center grid-flow-col auto-cols-fr gap-10 w-full text-center text-white text-4xl mt-3">
+        <i><font-awesome :icon="['fas', 'house']" /></i>
+        <i><font-awesome :icon="['fas', 'box']" /></i>
+        <i><font-awesome :icon="['fas', 'magnifying-glass']" /></i>
+        <i><font-awesome :icon="['far', 'user']" /></i>
+      </div>
+      <h1 class="title font-semibold text-4xl text-white mt-6">Nuxton!!</h1>
       <p class="text-lg text-gray-500 leading-10">Get started</p>
     </div>
-
+   
 
     <NuxtWelcome />
     

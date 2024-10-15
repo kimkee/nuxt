@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   },
   fontawesome: {
     icons: {
-      solid: ['dollar-sign', 'cog', 'circle', 'check', 'calendar','coffee'],
+      solid: ['magnifying-glass','dollar-sign','box','house', 'cog', 'circle', 'check', 'calendar','coffee'],
       regular: ['user' ]
     }
   },
