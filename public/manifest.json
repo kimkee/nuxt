@@ -1,0 +1,20 @@
+{
+    "name": "VUE FIREBASE",
+    "short_name": "VUE FIREBASE",
+    "icons": [
+        {
+          "src": "/img/favicon.ico",
+          "sizes": "32x32",
+          "type": "image/x-icon"
+        },
+        {
+          "src": "/img/icon_app.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ],
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#1d2736",
+    "theme_color": "#1d2736"
+}
