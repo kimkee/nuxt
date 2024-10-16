@@ -14,8 +14,8 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts'],
   googleFonts: {
     families: {
-      'Noto+Sans+KR': [300,400, 500, 700],
-      'Roboto': [300,400,500, 700]
+      'Noto+Sans+KR': [200,300,400, 500, 700,900],
+      'Roboto': [200,300,400,500, 700,900]
     }
   },
   nitro: {
