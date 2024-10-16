@@ -2,8 +2,8 @@
   <div class="kimkee p-4">
     <NuxtRouteAnnouncer />
     <header class="flex justify-center px-1 py-1">
-      <div class="text-center mb-5 pt-3">
-        <img class="w-25" src="//nuxt.com/assets/design-kit/logo-green-white.svg" alt="dd">
+      <div class="text-center py-3">
+        <img class="w-25 mb-1" src="//nuxt.com/assets/design-kit/logo-green-white.svg" alt="dd">
       </div>
     </header>
     <div class="flex flex-col  items-center justify-center p-16">
