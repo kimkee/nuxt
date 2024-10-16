@@ -3,7 +3,7 @@
     <NuxtRouteAnnouncer />
     <header class="flex justify-center px-1 py-1">
       <div class="text-center py-3">
-        <img class="w-25 mb-1" src="//nuxt.com/assets/design-kit/logo-green-white.svg" alt="dd">
+        <img class="w-25 mb-2" src="//nuxt.com/assets/design-kit/logo-green-white.svg" alt="dd">
       </div>
     </header>
     <div class="flex flex-col  items-center justify-center p-16">
