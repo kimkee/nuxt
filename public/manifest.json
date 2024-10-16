@@ -1,20 +1,20 @@
 {
-    "name": "VUE FIREBASE",
-    "short_name": "VUE FIREBASE",
-    "icons": [
-        {
-          "src": "/img/favicon.ico",
-          "sizes": "32x32",
-          "type": "image/x-icon"
-        },
-        {
-          "src": "/img/icon_app.png",
-          "type": "image/png",
-          "sizes": "512x512"
-        }
-      ],
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#1d2736",
-    "theme_color": "#1d2736"
+  "name": "My Nuxt PWA",
+  "short_name": "NuxtPWA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "A Nuxt PWA example",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
