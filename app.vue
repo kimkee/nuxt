@@ -28,18 +28,18 @@ useSeoMeta({
         <i class="min-w-8"><font-awesome :icon="['fas', 'magnifying-glass']" /></i>
         <i class="min-w-8"><font-awesome :icon="['far', 'user']" /></i>
       </div>
-      <h1 class="font-['Roboto']        font-extrabold text-3xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-bold text-3xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-medium text-3xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-normal text-3xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-light text-3xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-extralight text-3xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-extrabold text-3xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-bold text-3xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-medium text-3xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-normal text-3xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-light text-3xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-extralight text-3xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
+      <h1 class="font-['Roboto']        font-extrabold text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
+      <h1 class="font-['Roboto']        font-bold text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
+      <h1 class="font-['Roboto']        font-medium text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
+      <h1 class="font-['Roboto']        font-normal text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
+      <h1 class="font-['Roboto']        font-light text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
+      <h1 class="font-['Roboto']        font-extralight text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-extrabold text-xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-bold text-xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-medium text-xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-normal text-xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-light text-xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-extralight text-xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
       <p class="text-lg text-gray-500 leading-10 mt-6">Get started</p>
     </div>
    
