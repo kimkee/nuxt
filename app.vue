@@ -28,7 +28,14 @@ useSeoMeta({
         <i class="min-w-8"><font-awesome :icon="['fas', 'magnifying-glass']" /></i>
         <i class="min-w-8"><font-awesome :icon="['far', 'user']" /></i>
       </div>
-      <h1 class="title font-semibold text-4xl text-white mt-6">NuxTon</h1>
+      <h1 class="font-['Roboto']        font-bold text-5xl text-white mt-6">NuxT</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-medium text-5xl text-white mt-6">NuxT</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-normal text-5xl text-white mt-6">NuxT</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-light text-5xl text-white mt-6">NuxT</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-bold text-5xl text-white mt-6">넉스트</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-medium text-5xl text-white mt-6">넉스트</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-normal text-5xl text-white mt-6">넉스트</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-light text-5xl text-white mt-6">넉스트</h1>
       <p class="text-lg text-gray-500 leading-10">Get started</p>
     </div>
    

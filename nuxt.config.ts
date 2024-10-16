@@ -11,7 +11,13 @@ export default defineNuxtConfig({
       ]
     }
   },
-  modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome'],
+  modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts'],
+  googleFonts: {
+    families: {
+      'Noto+Sans+KR': [300,400, 500, 700],
+      'Roboto': [300,400,500, 700]
+    }
+  },
   nitro: {
     prerender: {
       autoSubfolderIndex: false
