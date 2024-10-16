@@ -4,6 +4,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
       link: [
         { rel: 'manifest', href: '/manifest.json' }
       ]
@@ -22,15 +24,6 @@ export default defineNuxtConfig({
     icons: {
       solid: ['magnifying-glass','dollar-sign','box','house', 'cog', 'circle', 'check', 'calendar','coffee'],
       regular: ['user' ]
-    }
-  },
-  vite: {
-    css: {
-        preprocessorOptions: {
-            scss: {
-                api: "modern-compiler"
-            }
-        }
     }
   }
 })
