@@ -30,8 +30,8 @@ useSeoMeta({
   </main>
 </template>
 
-<style scoped>
-.kimkee {
+<style lang="css" scoped>
+.container {
   h1 { 
     @apply text-white cursor-pointer selection:not-sr-only;
     &:hover {

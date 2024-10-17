@@ -3,7 +3,7 @@
   "short_name": "Nuxton",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0d111b",
+  "background_color": "#1f2937",
   "theme_color": "#1f2937",
   "description": "A Nuxt PWA example",
   "icons": [
