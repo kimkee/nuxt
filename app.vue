@@ -12,7 +12,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="kimkee p-2">
+  <div class="kimkee p-3 pt-4">
     <NuxtRouteAnnouncer />
     <header class="flex justify-start px-3 py-1 h-14">
       <a href="javascript:;" class="text-center py-1 inline-flex items-center">
@@ -21,7 +21,7 @@ useSeoMeta({
         <span class="text-white font-bold text-2xl">Nuxt</span>
       </a>
     </header>
-    <div class="flex flex-col  items-center justify-center p-6">
+    <div class="flex flex-col  items-center justify-center py-6">
       <div class="flex justify-center grid-flow-col auto-cols-fr gap-10 w-full text-center text-white text-2xl mt-3">
         <i class="min-w-8"><font-awesome :icon="['fas', 'house']" /></i>
         <i class="min-w-8"><font-awesome :icon="['fas', 'box']" /></i>

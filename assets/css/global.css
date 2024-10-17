@@ -6,7 +6,7 @@ body{
     @apply bg-slate-900;
 }
 header {
-    background-image: linear-gradient(90deg, #18181b, #18181b), linear-gradient(90deg, #00dc82, #1de0b1, #36e4da);
+    background-image: linear-gradient(0deg, #000000, #1c1c1c), linear-gradient(90deg, #00dc82, #1de0b1, #36e4da);
     background-clip: padding-box, border-box;
     background-origin: padding-box, border-box;
     border-color: transparent;
