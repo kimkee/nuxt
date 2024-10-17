@@ -1,0 +1,17 @@
+<template>
+    <header class="flex flex-col justify-center min-h-14 bg-gray-800 safe-top-pd box-content">
+      
+      <div class="flex items-center safe-top-pd px-6 min-h-14 border-b bg-gray-800 border-slate-950 fixed top-0 left-0 right-0">
+        
+        <div class="flex items-center justify-between w-full min-h-14">
+          <NuxtLink to="/" class="text-center py-1 -ml-2 inline-flex items-center">
+            <img class="w-8 mr-1" src="~/assets/img/logo.svg" alt="dd">
+            <span class="text-white font-bold text-2xl">Nuxt</span>
+          </NuxtLink>
+          <button class="w-8 h-8">
+            <i class="min-w-8 text-white text-2xl"><font-awesome :icon="['far', 'user']" /></i>
+          </button>
+        </div>
+      </div>
+    </header>
+</template>

@@ -13,23 +13,9 @@ useSeoMeta({
 <template>
   <div class="kimkee">
     
-    <header class="flex flex-col justify-center min-h-14 bg-gray-800 safe-top-pd box-content">
-      
-      <div class="flex items-center safe-top-pd px-6 min-h-14 border-b bg-gray-800 border-slate-950 fixed top-0 left-0 right-0">
-        
-        <div class="flex items-center justify-between w-full min-h-14">
-          <NuxtLink to="/about" class="text-center py-1 -ml-2 inline-flex items-center">
-            <img class="w-8 mr-1" src="~/assets/img/logo.svg" alt="dd">
-            <span class="text-white font-bold text-2xl">Nuxt</span>
-          </NuxtLink>
-          <button class="w-8 h-8">
-            <i class="min-w-8 text-white text-2xl"><font-awesome :icon="['fas', 'bars']" /></i>
-          </button>
-        </div>
-      </div>
-    </header>
+     
     <div class="flex flex-col  items-center justify-center py-6">
-      <div class="flex justify-center grid-flow-col auto-cols-fr gap-10 w-full text-center text-white text-2xl mt-3">
+      <div class="flex justify-center grid-flow-col auto-cols-fr gap-4 w-full text-center text-white text-2xl mt-3 px-4">
         <NuxtLink to="/about"><i class="min-w-8"><font-awesome :icon="['fas', 'house']" /></i>About</NuxtLink>
         <NuxtLink to="/list"><i class="min-w-8"><font-awesome :icon="['fas', 'box']" /></i>List</NuxtLink>
         <NuxtLink to="/404"><i class="min-w-8"><font-awesome :icon="['fas', 'magnifying-glass']" /></i> 404</NuxtLink>
