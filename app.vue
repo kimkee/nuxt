@@ -18,7 +18,7 @@ useSeoMeta({
       
       <div class="flex items-center py-1 px-6 min-h-14 border-b bg-gray-800 border-slate-950 fixed top-0 left-0 right-0">
         
-        <div class="flex items-center justify-between ">
+        <div class="flex items-center justify-between w-full">
           <a href="javascript:;" class="text-center py-1 -ml-2 inline-flex items-center">
             <img class="w-8 mr-1" src="~/assets/img/logo.svg" alt="dd">
             <span class="text-white font-bold text-2xl">Nuxt</span>
