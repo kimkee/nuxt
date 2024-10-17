@@ -9,7 +9,7 @@
             <span class="text-white font-bold text-2xl">Nuxt</span>
           </NuxtLink>
           <button class="w-8 h-8">
-            <i class="min-w-8 text-white text-2xl"><font-awesome :icon="['far', 'user']" /></i>
+            <i class="min-w-8 text-white text-xl"><font-awesome :icon="['far', 'user']" /></i>
           </button>
         </div>
       </div>
