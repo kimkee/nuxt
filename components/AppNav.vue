@@ -1,6 +1,6 @@
 <template>
     <nav class="flex flex-col justify-center min-h-14 bg-gray-800 safe-bottom-pd ">
-      <div class="flex justify-center grid-flow-col auto-cols-fr gap-4 w-full text-center text-white text-xl pt-2 px-6">
+      <div class="flex justify-center grid-flow-col auto-cols-fr gap-4 w-full text-center text-white text-xl pt-2 pb-1 px-6">
         <NuxtLink to="/" class="w-1/4 h-14 flex flex-col justify-start">
           <i><font-awesome :icon="['fas', 'house']" /></i><div class="text-xs">Home</div>
         </NuxtLink>
