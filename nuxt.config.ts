@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   app: {
     head: {
       charset: 'utf-8',
@@ -49,11 +49,8 @@ export default defineNuxtConfig({
   router: {
     options: {
       linkActiveClass: 'active-link',
-      linkExactActiveClass: 'exact-active-link'
+      linkExactActiveClass: 'active-link'
     }
-  },
-  generate: {
-    routes: [ '/404' ] // 404 페이지를 생성해서 새로고침 시 문제를 해결
   }
 })
 

@@ -29,3 +29,5 @@ body{
 .safe-top-mg{margin-top: var(--safe-top);}
 .safe-bottom-pd{padding-bottom: var(--safe-bottom);}
 .safe-bottom-mg{margin-bottom: var(--safe-bottom);}
+
+.container{overflow-y: auto;}

@@ -11,17 +11,8 @@ useSeoMeta({
 
 </script>
 <template>
-  <div class="kimkee">
-    
-     
+  <main class="container flex-1">
     <div class="flex flex-col  items-center justify-center py-6">
-      <div class="flex justify-center grid-flow-col auto-cols-fr gap-4 w-full text-center text-white text-2xl mt-3 px-4">
-        <NuxtLink to="/about"><i class="min-w-8"><font-awesome :icon="['fas', 'house']" /></i>About</NuxtLink>
-        <NuxtLink to="/list"><i class="min-w-8"><font-awesome :icon="['fas', 'box']" /></i>List</NuxtLink>
-        <NuxtLink to="/404"><i class="min-w-8"><font-awesome :icon="['fas', 'magnifying-glass']" /></i> 404</NuxtLink>
-        <NuxtLink to="/kkk"><i class="min-w-8"><font-awesome :icon="['fas', 'bars']" /></i>kkk</NuxtLink>
-        <i class="min-w-8"><font-awesome :icon="['far', 'user']" /></i>
-      </div>
       <h1 class="font-['Roboto']        font-extrabold text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
       <h1 class="font-['Roboto']        font-bold text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
       <h1 class="font-['Roboto']        font-medium text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
@@ -36,12 +27,10 @@ useSeoMeta({
       <h1 class="font-['Noto_Sans_KR']  font-extralight text-xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
       <p class="text-lg text-gray-500 leading-10 mt-6">Get started</p>
     </div>
-   
-    
-  </div>
+  </main>
 </template>
- 
-<style lang="css" scoped>
+
+<style scoped>
 .kimkee {
   h1 { 
     @apply text-white cursor-pointer selection:not-sr-only;

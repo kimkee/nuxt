@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <main class="container flex-1">
     <h1>Page Not Found</h1>
     <NuxtLink to="/">Go to Home</NuxtLink>
-  </div>
+  </main>
 </template>
 
 <script>
