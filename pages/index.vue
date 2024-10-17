@@ -30,10 +30,10 @@ useSeoMeta({
     </header>
     <div class="flex flex-col  items-center justify-center py-6">
       <div class="flex justify-center grid-flow-col auto-cols-fr gap-10 w-full text-center text-white text-2xl mt-3">
-        <NuxtLink to="/about"><i class="min-w-8"><font-awesome :icon="['fas', 'house']" /></i></NuxtLink>
-        <NuxtLink to="/list"><i class="min-w-8"><font-awesome :icon="['fas', 'box']" /></i></NuxtLink>
-        <i class="min-w-8"><font-awesome :icon="['fas', 'magnifying-glass']" /></i>
-        <i class="min-w-8"><font-awesome :icon="['fas', 'bars']" /></i>
+        <NuxtLink to="/about"><i class="min-w-8"><font-awesome :icon="['fas', 'house']" /></i>About</NuxtLink>
+        <NuxtLink to="/list"><i class="min-w-8"><font-awesome :icon="['fas', 'box']" /></i>List</NuxtLink>
+        <NuxtLink to="/404"><i class="min-w-8"><font-awesome :icon="['fas', 'magnifying-glass']" /></i> 404</NuxtLink>
+        <NuxtLink to="/kkk"><i class="min-w-8"><font-awesome :icon="['fas', 'bars']" /></i>kkk</NuxtLink>
         <i class="min-w-8"><font-awesome :icon="['far', 'user']" /></i>
       </div>
       <h1 class="font-['Roboto']        font-extrabold text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
