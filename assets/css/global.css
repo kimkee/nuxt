@@ -3,7 +3,7 @@ body {
     font-family: 'Roboto','Noto Sans KR', sans-serif;
   }
 body{
-    @apply bg-black;
+    @apply bg-slate-900;
 }
 header {
     background-image: linear-gradient(90deg, #18181b, #18181b), linear-gradient(90deg, #00dc82, #1de0b1, #36e4da);
