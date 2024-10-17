@@ -5,7 +5,7 @@ body {
 body{
     @apply bg-slate-900;
 }
-header {
+.border-custom {
     background-image: linear-gradient(0deg, #000000, #1c1c1c), linear-gradient(90deg, #00dc82, #1de0b1, #36e4da);
     background-clip: padding-box, border-box;
     background-origin: padding-box, border-box;
@@ -13,3 +13,15 @@ header {
     border-radius: 6px;
     border-width: 1px;
 }
+:root {
+    --safe-top: calc(env(safe-area-inset-top));
+    --safe-bottom: calc(env(safe-area-inset-bottom));
+    --safe-watch: 0rem;
+    --mwide: 480rem;
+    --scrPad: 0rem;
+    --active-color: #3ecf8e;
+    --inpu-bgc: #0c0c0c;
+    --inpu-bdc: #303030;
+    --inpu-bdr: 4rem
+}
+div.safe-top{height: var(--safe-top); width: 100%; display :flex}

@@ -12,20 +12,29 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="kimkee p-3 pt-4">
-    <NuxtRouteAnnouncer />
-    <header class="flex justify-start px-3 py-1 h-14">
-      <a href="javascript:;" class="text-center py-1 inline-flex items-center">
-        <!-- <img class="w-20 mb-1" src="//nuxt.com/assets/design-kit/logo-green-white.svg" alt="dd"> -->
-        <img class="w-8 mr-1" src="~/assets/img/logo.svg" alt="dd">
-        <span class="text-white font-bold text-2xl">Nuxt</span>
-      </a>
+  <div class="kimkee">
+    
+    <header class="flex flex-col justify-center min-h-14 bg-gray-800">
+      
+      <div class="flex items-center py-1 px-6 min-h-14 border-b bg-gray-800 border-slate-950 fixed top-0 left-0 right-0">
+        
+        <div class="flex items-center justify-between ">
+          <a href="javascript:;" class="text-center py-1 -ml-2 inline-flex items-center">
+            <img class="w-8 mr-1" src="~/assets/img/logo.svg" alt="dd">
+            <span class="text-white font-bold text-2xl">Nuxt</span>
+          </a>
+          <button class="w-8 h-8">
+            <i class="min-w-8 text-white text-2xl"><font-awesome :icon="['fas', 'bars']" /></i>
+          </button>
+        </div>
+      </div>
     </header>
     <div class="flex flex-col  items-center justify-center py-6">
       <div class="flex justify-center grid-flow-col auto-cols-fr gap-10 w-full text-center text-white text-2xl mt-3">
         <i class="min-w-8"><font-awesome :icon="['fas', 'house']" /></i>
         <i class="min-w-8"><font-awesome :icon="['fas', 'box']" /></i>
         <i class="min-w-8"><font-awesome :icon="['fas', 'magnifying-glass']" /></i>
+        <i class="min-w-8"><font-awesome :icon="['fas', 'bars']" /></i>
         <i class="min-w-8"><font-awesome :icon="['far', 'user']" /></i>
       </div>
       <h1 class="font-['Roboto']        font-extrabold text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
