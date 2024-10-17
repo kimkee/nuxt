@@ -24,4 +24,7 @@ body{
     --inpu-bdc: #303030;
     --inpu-bdr: 4rem
 }
-div.safe-top{height: var(--safe-top); width: 100%; display :flex}
+.safe-top-pd{padding-top: var(--safe-top);}
+.safe-top-mg{margin-top: var(--safe-top);}
+.safe-bottom-pd{padding-bottom: var(--safe-bottom);}
+.safe-bottom-mg{margin-bottom: var(--safe-bottom);}
