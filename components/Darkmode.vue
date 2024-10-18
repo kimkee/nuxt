@@ -18,6 +18,17 @@
 // const locDark  = JSON.parse(localStorage.getItem('darkmode'));
 
 // const initDark = ()=> locDark === null ? setDark( darkMode.matches ) : setDark( locDark ) ;
+const changeThemeColor = (color)=> {
+  const themeMeta = document.querySelector('meta[name="theme-color"]')
+  if (themeMeta) {
+    themeMeta.setAttribute('content', color)
+  } else {
+    const newThemeMeta = document.createElement('meta')
+    newThemeMeta.setAttribute('name', 'theme-color')
+    newThemeMeta.setAttribute('content', color)
+    document.head.appendChild(newThemeMeta)
+  }
+}
 const togDark  = ()=> setDark( !htmlCls.contains('dark') );
 const setDark  = (isDark)=> {
     chkTogs.forEach( tog => tog.checked = isDark );
@@ -31,9 +42,15 @@ const toggleDarkMode = () => {
   if (isDarkMode.value) {
     document.documentElement.classList.add('dark')
     localStorage.setItem('darkmode',true);
+
+    changeThemeColor('#1f2937')
+
+
+
   } else {
     document.documentElement.classList.remove('dark')
     localStorage.setItem('darkmode',false);
+    changeThemeColor('#ffffff')
   }
 }
 // document.addEventListener('DOMContentLoaded', initDark);
@@ -45,9 +62,11 @@ onMounted(()=>{
   if (isDarkMode.value) {
     document.documentElement.classList.add('dark')
     localStorage.setItem('darkmode',true);
+    changeThemeColor('#1f2937')
   } else {
     document.documentElement.classList.remove('dark')
     localStorage.setItem('darkmode',false);
+    changeThemeColor('#ffffff')
   }
 })
 </script>
