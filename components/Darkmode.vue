@@ -14,44 +14,31 @@
 </template>
 
 <script setup>
+
+const changeThemeColor = (color) => document.querySelector('meta[name="theme-color"]').setAttribute('content', color);
+
+const setDarkMode = (isDark) => {
+  document.documentElement.classList.toggle('dark', isDark);
+  localStorage.setItem('darkmode', isDark);
+  changeThemeColor(isDark ? '#1f2937' : '#ffffff');
+};
+
+const isDarkMode = ref(false);
+
+const toggleDarkMode = () => {
+  isDarkMode.value = !isDarkMode.value;
+  setDarkMode(isDarkMode.value);
+};
+
+onMounted(() => {
+  isDarkMode.value = JSON.parse(localStorage.getItem('darkmode') ?? window.matchMedia('(prefers-color-scheme: dark)').matches);
+  setDarkMode(isDarkMode.value);
+});
 // const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
 // const locDark  = JSON.parse(localStorage.getItem('darkmode'));
 // document.addEventListener('DOMContentLoaded', initDark);
 // darkMode.addEventListener('change', initDark);
-// const initDark = ()=> locDark === null ? setDark( darkMode.matches ) : setDark( locDark ) ;
-const changeThemeColor = (color)=> {
-  const themeMeta = document.querySelector('meta[name="theme-color"]')
-  if (themeMeta) {
-    themeMeta.setAttribute('content', color)
-  } else {
-    const newThemeMeta = document.createElement('meta')
-    newThemeMeta.setAttribute('name', 'theme-color')
-    newThemeMeta.setAttribute('content', color)
-    document.head.appendChild(newThemeMeta)
-  }
-}
 
-const setDark  = (isDark)=> {
-  if (isDark) {
-    document.documentElement.classList.add('dark')
-    localStorage.setItem('darkmode',true);
-    changeThemeColor('#1f2937')
-  } else {
-    document.documentElement.classList.remove('dark')
-    localStorage.setItem('darkmode',false);
-    changeThemeColor('#ffffff')
-  }
-}
-const isDarkMode = ref(false)
-
-const toggleDarkMode = () => {
-  isDarkMode.value = !isDarkMode.value
-  setDark(isDarkMode.value)
-}
-onMounted(()=>{
-  isDarkMode.value = JSON.parse(localStorage.getItem('darkmode') || window.matchMedia('(prefers-color-scheme: dark)').matches);
-  setDark(isDarkMode.value)
-})
 </script>
 
 <style>
