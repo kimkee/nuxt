@@ -9,7 +9,8 @@ export default defineNuxtConfig({
       link: [
         { rel: 'manifest', href: '/manifest.json' }
       ]
-    }
+    },
+    buildAssetsDir: `_nuxt/kkkkkkk/`,
   },
   modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts'],
   googleFonts: {
