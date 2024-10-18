@@ -1,5 +1,5 @@
 <template>
-  <button 
+  <button type="button"
     class="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 inline-flex justify-center items-center drop-shadow-sm" 
     @click="toggleDarkMode"
   >
@@ -9,7 +9,6 @@
         <font-awesome :icon="['fas', 'sun']" />
       </i>  
     </span>
-
   </button>
 </template>
 

@@ -11,21 +11,16 @@ useSeoMeta({
 
 </script>
 <template>
-  <main class="container flex-1">
-    <div class="flex flex-col  items-center justify-center py-6">
-      
-      <h1 class="font-['Roboto']        font-extrabold text-xl mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-bold text-xl mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-medium text-xl mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-normal text-xl mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-light text-xl mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-extralight text-xl mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-extrabold text-xl mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-bold text-xl mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-medium text-xl mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-normal text-xl mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-light text-xl mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-extralight text-xl mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
+  <main class="container flex-1 items-center justify-center flex flex-col">
+    <div class="flex flex-col  items-center justify-center py-6 text-center">
+      <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white"> 
+      The Intuitive<br>
+      <span class="text-primary block lg:inline-block">Vue Framework</span>
+    </h1>
+    <p class="mt-6 text-lg max-w-xl mx-auto text-gray-500 dark:text-gray-400 text-center">
+      Nuxt is a hybrid Vue framework that gives you the best of both server-side and client-side rendering.
+    </p>
+
       <p class="text-lg text-gray-500 leading-10 mt-6">Get started</p>
     </div>
   </main>

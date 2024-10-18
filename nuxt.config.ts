@@ -15,7 +15,7 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/manifest.json' }
       ]
     },
-    buildAssetsDir: `_nuxt/${dayjs().format('YYYYMMDDHHmmss')}/`,
+    buildAssetsDir: `_nuxt/${dayjs().format('YYYY-MM-DD-HH-mm-ss')}/`,
   },
   modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts'],
   googleFonts: {
