@@ -3,6 +3,11 @@ body {
     font-family: 'Roboto','Noto Sans KR', sans-serif;
   }
 body{
+    background-color: #ffffff;
+    color: #334155;
+    transition: background-color 0.2s;
+}
+.dark body{
     background-color: #0d111b;
     color: #dddddd;
 }
@@ -30,5 +35,7 @@ body{
 .safe-bottom-pd{padding-bottom: var(--safe-bottom);}
 .safe-bottom-mg{margin-bottom: var(--safe-bottom);}
 
-.container{overflow-y: auto;}
+.container{overflow-y: auto; 
+    @apply px-6 py-4
+}
 

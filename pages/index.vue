@@ -16,18 +16,18 @@ useSeoMeta({
       <AppAlert>
       This is an auto-imported component
     </AppAlert>
-      <h1 class="font-['Roboto']        font-extrabold text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-bold text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-medium text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-normal text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-light text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Roboto']        font-extralight text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-extrabold text-xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-bold text-xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-medium text-xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-normal text-xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-light text-xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
-      <h1 class="font-['Noto_Sans_KR']  font-extralight text-xl text-white mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
+      <h1 class="font-['Roboto']        font-extrabold text-xl mt-6">NuxT - 넉스트 [Roboto]</h1>
+      <h1 class="font-['Roboto']        font-bold text-xl mt-6">NuxT - 넉스트 [Roboto]</h1>
+      <h1 class="font-['Roboto']        font-medium text-xl mt-6">NuxT - 넉스트 [Roboto]</h1>
+      <h1 class="font-['Roboto']        font-normal text-xl mt-6">NuxT - 넉스트 [Roboto]</h1>
+      <h1 class="font-['Roboto']        font-light text-xl mt-6">NuxT - 넉스트 [Roboto]</h1>
+      <h1 class="font-['Roboto']        font-extralight text-xl mt-6">NuxT - 넉스트 [Roboto]</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-extrabold text-xl mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-bold text-xl mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-medium text-xl mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-normal text-xl mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-light text-xl mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
+      <h1 class="font-['Noto_Sans_KR']  font-extralight text-xl mt-6">NuxT - 넉스트 [Noto_Sans_KR]</h1>
       <p class="text-lg text-gray-500 leading-10 mt-6">Get started</p>
     </div>
   </main>
@@ -36,7 +36,6 @@ useSeoMeta({
 <style lang="css" scoped>
 .container {
   h1 { 
-    @apply text-white cursor-pointer selection:not-sr-only;
     &:hover {
       @apply text-yellow-500;
     }
