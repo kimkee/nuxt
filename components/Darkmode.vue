@@ -16,7 +16,8 @@
 <script setup>
 // const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
 // const locDark  = JSON.parse(localStorage.getItem('darkmode'));
-
+// document.addEventListener('DOMContentLoaded', initDark);
+// darkMode.addEventListener('change', initDark);
 // const initDark = ()=> locDark === null ? setDark( darkMode.matches ) : setDark( locDark ) ;
 const changeThemeColor = (color)=> {
   const themeMeta = document.querySelector('meta[name="theme-color"]')
@@ -29,46 +30,30 @@ const changeThemeColor = (color)=> {
     document.head.appendChild(newThemeMeta)
   }
 }
-const togDark  = ()=> setDark( !htmlCls.contains('dark') );
+
 const setDark  = (isDark)=> {
-    chkTogs.forEach( tog => tog.checked = isDark );
-    htmlCls.toggle('dark', isDark);
-    localStorage.setItem('darkmode',isDark);
+  if (isDark) {
+    document.documentElement.classList.add('dark')
+    localStorage.setItem('darkmode',true);
+    changeThemeColor('#1f2937')
+  } else {
+    document.documentElement.classList.remove('dark')
+    localStorage.setItem('darkmode',false);
+    changeThemeColor('#ffffff')
+  }
 }
 const isDarkMode = ref(false)
 
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value
-  if (isDarkMode.value) {
-    document.documentElement.classList.add('dark')
-    localStorage.setItem('darkmode',true);
-
-    changeThemeColor('#1f2937')
-
-
-
-  } else {
-    document.documentElement.classList.remove('dark')
-    localStorage.setItem('darkmode',false);
-    changeThemeColor('#ffffff')
-  }
+  setDark(isDarkMode.value)
 }
-// document.addEventListener('DOMContentLoaded', initDark);
-// darkMode.addEventListener('change', initDark);
 onMounted(()=>{
   const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
   const locDark  = JSON.parse(localStorage.getItem('darkmode') || mediaQuery.matches);
   console.log(locDark);
   isDarkMode.value = locDark 
-  if (isDarkMode.value) {
-    document.documentElement.classList.add('dark')
-    localStorage.setItem('darkmode',true);
-    changeThemeColor('#1f2937')
-  } else {
-    document.documentElement.classList.remove('dark')
-    localStorage.setItem('darkmode',false);
-    changeThemeColor('#ffffff')
-  }
+  setDark(isDarkMode.value)
 })
 </script>
 
