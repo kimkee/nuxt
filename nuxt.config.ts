@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import dayjs from "dayjs";
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false },
@@ -10,7 +12,7 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/manifest.json' }
       ]
     },
-    buildAssetsDir: `_nuxt/kkkkkkk/`,
+    buildAssetsDir: `_nuxt/${dayjs().format('YYYYMMDDHHmmss')}/`,
   },
   modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts'],
   googleFonts: {
