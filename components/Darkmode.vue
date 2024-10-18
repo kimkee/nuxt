@@ -49,10 +49,7 @@ const toggleDarkMode = () => {
   setDark(isDarkMode.value)
 }
 onMounted(()=>{
-  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-  const locDark  = JSON.parse(localStorage.getItem('darkmode') || mediaQuery.matches);
-  console.log(locDark);
-  isDarkMode.value = locDark 
+  isDarkMode.value = JSON.parse(localStorage.getItem('darkmode') || window.matchMedia('(prefers-color-scheme: dark)').matches);
   setDark(isDarkMode.value)
 })
 </script>
