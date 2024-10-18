@@ -7,6 +7,9 @@
         <NuxtLink to="/about" class="w-1/4 h-11 flex flex-col justify-start">
           <i><font-awesome :icon="['fas', 'box']" /></i><div class="text-xs">About</div>
         </NuxtLink>
+        <div class="w-1/4 h-11 flex flex-col justify-start pt-1 items-center">
+          <Darkmode />
+        </div>
         <NuxtLink to="/list" class="w-1/4 h-11 flex flex-col justify-start">
           <i><font-awesome :icon="['fas', 'bars']" /></i><div class="text-xs">List</div>
         </NuxtLink>
