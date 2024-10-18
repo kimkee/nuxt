@@ -13,6 +13,9 @@ useSeoMeta({
 <template>
   <main class="container flex-1">
     <div class="flex flex-col  items-center justify-center py-6">
+      <AppAlert>
+      This is an auto-imported component
+    </AppAlert>
       <h1 class="font-['Roboto']        font-extrabold text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
       <h1 class="font-['Roboto']        font-bold text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
       <h1 class="font-['Roboto']        font-medium text-xl text-white mt-6">NuxT - 넉스트 [Roboto]</h1>
