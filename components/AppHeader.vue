@@ -8,6 +8,7 @@
             <img class="w-8 mr-1" src="~/assets/img/logo.svg" alt="dd">
             <span class="text-white font-bold text-2xl">Nuxt</span>
           </NuxtLink>
+          <Darkmode />
           <button class="w-8 h-8">
             <i class="min-w-8 text-white text-xl"><font-awesome :icon="['far', 'user']" /></i>
           </button>
