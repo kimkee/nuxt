@@ -56,9 +56,10 @@ const toggleDarkMode = () => {
 // document.addEventListener('DOMContentLoaded', initDark);
 // darkMode.addEventListener('change', initDark);
 onMounted(()=>{
-  const locDark  = JSON.parse(localStorage.getItem('darkmode'));
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+  const locDark  = JSON.parse(localStorage.getItem('darkmode') || mediaQuery.matches);
   console.log(locDark);
-  isDarkMode.value = locDark
+  isDarkMode.value = locDark 
   if (isDarkMode.value) {
     document.documentElement.classList.add('dark')
     localStorage.setItem('darkmode',true);
