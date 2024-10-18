@@ -3,10 +3,10 @@
     class="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 inline-flex justify-center items-center drop-shadow-sm" 
     @click="toggleDarkMode"
   >
-    <span class="w-6 h-6 rounded-full bg-white dark:bg-gray-900 text-yellow-400 inline-flex justify-center items-center text-sm">
-      <i class="leading-3">
-        <font-awesome v-if="isDarkMode" :icon="['fas', 'moon']" />
-        <font-awesome  v-else :icon="['fas', 'sun']" />
+    <span class="w-6 h-6 rounded-full bg-white dark:bg-gray-900 text-yellow-400 inline-flex justify-center items-center text-sm overflow-hidden relative">
+      <i class="sun-moon leading-3 absolute left-1.55 -top-[21px] dark:top-1 flex flex-col gap-3 transition-all  duration-300">
+        <font-awesome :icon="['fas', 'moon']" />
+        <font-awesome :icon="['fas', 'sun']" />
       </i>  
     </span>
 
@@ -72,5 +72,5 @@ onMounted(()=>{
 </script>
 
 <style>
-/* 여기에 추가적인 스타일링을 추가할 수 있어 */
+
 </style>
