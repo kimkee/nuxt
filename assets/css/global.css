@@ -39,7 +39,7 @@ body{
 .safe-bottom-pd{padding-bottom: var(--safe-bottom);}
 .safe-bottom-mg{margin-bottom: var(--safe-bottom);}
 
-.container{overflow: scroll; max-width: inherit;
+.container{overflow-y: scroll; max-width: inherit;
     @apply px-6 py-4
 }
 
