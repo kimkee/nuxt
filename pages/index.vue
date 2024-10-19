@@ -1,4 +1,5 @@
 <script setup>
+import GithubButton from "./components/GithuButton.vue";
 useSeoMeta({
   title: '넉스토어:Nuxtore',
   ogTitle: 'My Amazing Site',
@@ -7,8 +8,6 @@ useSeoMeta({
   ogImage: 'https://example.com/image.png',
   twitterCard: 'summary_large_image',
 })
-
-
 </script>
 <template>
   <main class="container flex-1 items-center justify-center flex flex-col">
@@ -21,7 +20,7 @@ useSeoMeta({
       Nuxt is a hybrid Vue framework that gives you the best of both server-side and client-side rendering.
     </p>
 
-      <p class="text-lg text-gray-500 leading-10 mt-6">Get started</p>
+      <p class="text-lg text-gray-500 leading-10 mt-6"><GithubButton /></p>
     </div>
   </main>
 </template>

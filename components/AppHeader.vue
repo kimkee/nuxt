@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between safe-top-pd px-5 min-h-14 box-content border-b 
       bg-gradient-to-t from-white/20 to-white 
       dark:bg-gradient-to-t dark:from-gray-800/80 dark:to-[#1f2937] 
-      backdrop-blur-sm border-gray-200 dark:border-gray-800 fixed top-0 left-0 right-0 drop-shadow-sm">
+      backdrop-blur-sm border-gray-200 dark:border-gray-800 fixed top-0 left-0 right-0">
         
         
           <NuxtLink to="/" class="text-center py-1 -ml-2 inline-flex items-center">
