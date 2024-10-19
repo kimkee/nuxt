@@ -20,8 +20,8 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts'],
   googleFonts: {
     families: {
-      'Noto+Sans+KR': [200,300,400, 500, 700,900],
-      'Roboto': [200,300,400,500, 700,900]
+      'Noto+Sans+KR': [100,300,400, 500, 700,900],
+      'Roboto': [100,300,400,500, 700,900]
     }
   },
   nitro: {
