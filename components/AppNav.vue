@@ -1,20 +1,20 @@
 <template>
-    <nav class="flex flex-col justify-center min-h-14 bg-white dark:bg-gray-800 safe-bottom-pd drop-shadow-sm">
-      <div class="flex justify-center grid-flow-col auto-cols-fr gap-4 w-full text-center border-t border-gray-200 dark:border-gray-800 text-gray-600 dark:text-white text-base pt-2 pb-2 px-6">
-        <NuxtLink to="/" class="w-1/4 h-11 flex flex-col justify-start">
+    <nav class="min-h-16 safe-bottom-pd box-content">
+      <div class="flex min-h-16 pt-2 pb-2 px-6 gap-4 safe-bottom-pd w-full text-center border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-800  text-gray-600 dark:text-white fixed bottom-0 drop-shadow-lg">
+        <NuxtLink to="/" class="w-1/4 h-11 flex flex-col justify-start gap-1">
           <i><font-awesome :icon="['fas', 'house']" /></i><div class="text-xs">Home</div>
         </NuxtLink>
-        <NuxtLink to="/about" class="w-1/4 h-11 flex flex-col justify-start">
+        <NuxtLink to="/about" class="w-1/4 h-11 flex flex-col justify-start gap-1">
           <i><font-awesome :icon="['fas', 'box']" /></i><div class="text-xs">About</div>
         </NuxtLink>
-        <div class="w-1/4 h-11 flex flex-col justify-start pt-1 items-center">
+        <!-- <div class="w-1/4 h-11 flex flex-col justify-start pt-1 items-center gap-1">
           <Darkmode />
-        </div>
-        <NuxtLink to="/list" class="w-1/4 h-11 flex flex-col justify-start">
+        </div> -->
+        <NuxtLink to="/list" class="w-1/4 h-11 flex flex-col justify-start gap-1">
           <i><font-awesome :icon="['fas', 'bars']" /></i><div class="text-xs">List</div>
         </NuxtLink>
-        <NuxtLink to="/404" class="w-1/4 h-11 flex flex-col justify-start">
-          <i><font-awesome :icon="['fas', 'magnifying-glass']" /></i><div class="text-xs"> 404</div>
+        <NuxtLink to="/404" class="w-1/4 h-11 flex flex-col justify-start gap-1">
+          <i><font-awesome :icon="['fas', 'user']" /></i><div class="text-xs"> My</div>
         </NuxtLink>
       </div> 
      

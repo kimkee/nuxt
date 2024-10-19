@@ -48,7 +48,7 @@ export default defineNuxtConfig({
   },
   fontawesome: {
     icons: {
-      solid: ['sun','moon','magnifying-glass','dollar-sign','bars','box','house', 'cog', 'circle', 'check', 'calendar','coffee'],
+      solid: ['user','sun','moon','magnifying-glass','dollar-sign','bars','box','house', 'cog', 'circle', 'check', 'calendar','coffee'],
       regular: ['user' ]
     }
   },
