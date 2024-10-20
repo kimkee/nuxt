@@ -37,6 +37,12 @@ body{
     --inpu-bdc: #303030;
     --inpu-bdr: 4px
 }
+a, button, input {
+    user-select: auto;
+    touch-action: auto;
+    -webkit-tap-highlight-color: initial;
+}
+
 .safe-top-pd{padding-top: var(--safe-top);}
 .safe-top-mg{margin-top: var(--safe-top);}
 .safe-bottom-pd{padding-bottom: var(--safe-bottom);}
