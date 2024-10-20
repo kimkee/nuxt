@@ -8,11 +8,16 @@ html{
 }
 body {
     font-family: 'Roboto','Noto Sans KR','Spoqa Han Sans Neo', sans-serif;
-  }
+}
 body{
+    background: url(https://tailwindcss.com/_next/static/media/docs-dark@tinypng.1bbe175e.png) no-repeat;
+    background-size:100% auto;
+    background-position: 0px 0px;
+    background-attachment : fixed ;
     background-color: #ffffff;
     color: #334155;
     transition: background-color 0.2s;
+
 }
 .dark body{
     background-color: #0d111b;
@@ -49,18 +54,19 @@ a, button, input {
 .safe-bottom-mg{margin-bottom: var(--safe-bottom);}
 
 .container{ max-width: inherit;
-    @apply px-6 py-4
+    @apply px-6 py-4 my-auto;
+
 }
 
 
 ::-webkit-scrollbar{  width:10px;  height:10px;}
-::-webkit-scrollbar-track{background-color: transparent;}
+::-webkit-scrollbar-track{background-color: #ededed;}
 ::-webkit-scrollbar-corner{background-color: transparent;}
 ::-webkit-scrollbar-button{display: none;}
 ::-webkit-scrollbar-thumb{width: 10px; border-radius:7px; background-color: #00000044;border: solid 3px transparent; background-clip: content-box;}
 ::-webkit-scrollbar-thumb:hover{background-color:#aaaaaa;}
 
-.dark ::-webkit-scrollbar-track{}
+.dark ::-webkit-scrollbar-track{background-color: #151515;}
 .dark ::-webkit-scrollbar-thumb{background-color: #ffffff22;}
 .dark ::-webkit-scrollbar-thumb:hover{background-color:#444;}
 /*  */
