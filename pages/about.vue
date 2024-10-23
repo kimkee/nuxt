@@ -36,21 +36,15 @@ alert( `명도 치수는  ${hexToLuminance(hex)}  % 입니다.`)
       <GithubButton />
       <p class="grid grid-flow-col gap-2">
         <button class="btn" @click="copyToClipboard">복사</button>
-        <a class="btn" @click="()=>color('#FFFFFF')">#FFFFFF</a>
+        <button class="btn" @click="()=>color('#FFFFFF')">#FFFFFF</button>
       </p>
       <p>
-        <NuxtLink to="/" class="btn-black"
-          href="/docs/guide/going-further/modules">Home</NuxtLink>
+        <NuxtLink to="/" class="btn btn-primary" href="/docs/guide/going-further/modules">Home</NuxtLink>
       </p>
     </div>
   </main>
 </template>
 
 <style lang="css" scoped>
-.btn{
-  @apply flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5 px-2.5 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 text-gray-700 dark:text-gray-200 bg-gray-50 hover:bg-gray-100 disabled:bg-gray-50 aria-disabled:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700/50 dark:disabled:bg-gray-800 dark:aria-disabled:bg-gray-800 focus-visible:ring-2 inline-flex items-center;
-  &-black{
-    @apply  aria-disabled:opacity-75 flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5 px-2.5 py-1.5 shadow-sm text-white dark:text-gray-900 bg-gray-900 hover:bg-gray-800 disabled:bg-gray-900 aria-disabled:bg-gray-900 dark:bg-white dark:hover:bg-gray-100 dark:disabled:bg-white dark:aria-disabled:bg-white focus-visible:ring-inset  
-  }
-}
+
 </style>

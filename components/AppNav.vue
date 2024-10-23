@@ -11,7 +11,7 @@
           <NuxtLink to="/list" class="w-full h-12 flex flex-col justify-start gap-1">
             <i><font-awesome :icon="['fas', 'bars']" /></i><div class="text-xs">List</div>
           </NuxtLink>
-          <NuxtLink to="/404" class="w-full h-12 flex flex-col justify-start gap-1">
+          <NuxtLink to="/login" class="w-full h-12 flex flex-col justify-start gap-1">
             <i><font-awesome :icon="['fas', 'user']" /></i><div class="text-xs">MY</div>
           </NuxtLink>
         </div>
