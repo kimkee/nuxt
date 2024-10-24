@@ -31,15 +31,28 @@ alert( `명도 치수는  ${hexToLuminance(hex)}  % 입니다.`)
 </script>
 <template>
   <main class="container flex-1 items-center justify-center flex flex-col">
-    <div class="flex flex-col items-center gap-2">
+    <div class="flex flex-col items-center gap-6">
       <h1 class="text-4xl">About</h1>
       <GithubButton />
       <p class="grid grid-flow-col gap-2">
         <button class="btn" @click="copyToClipboard">복사</button>
         <button class="btn" @click="()=>color('#FFFFFF')">#FFFFFF</button>
       </p>
-      <p>
-        <NuxtLink to="/" class="btn btn-primary" href="/docs/guide/going-further/modules">Home</NuxtLink>
+      <p class="grid grid-flow-col gap-4">
+        <button class="btn btn-xs">버튼</button>
+        <button class="btn btn-xs btn-primary">버튼</button>
+      </p>
+      <p class="grid grid-flow-col gap-4">
+        <button class="btn">버튼</button>
+        <button class="btn btn-primary">버튼</button>
+      </p>
+      <p class="grid grid-flow-col gap-4">
+        <button class="btn btn-lg">버튼 btn-lg</button>
+        <button class="btn btn-lg btn-primary">버튼 btn-lg</button>
+      </p>
+      <p class="grid grid-flow-col gap-4">
+        <button class="btn btn-xl">버튼 btn-xl</button>
+        <button class="btn btn-xl btn-primary">버튼 btn-xl</button>
       </p>
     </div>
   </main>
