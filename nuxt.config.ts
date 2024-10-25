@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     buildAssetsDir: `_nuxt/${dayjs().format('YYYY-MM-DD-HH-mm-ss')}/`,
   },
   modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts'],
+  plugins: ['~/plugins/ui.js'],
   googleFonts: {
     families: {
       'Noto+Sans+KR': [100,300,400, 500, 700,900],

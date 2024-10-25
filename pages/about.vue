@@ -26,7 +26,7 @@ const luminance = hexToLuminance('#777777');
 console.log(`명도 값: ${luminance}`);
 
 const color = (hex)=>{
-alert( `명도 치수는  ${hexToLuminance(hex)}  % 입니다.`)
+alert( `명도 수치는  ${hexToLuminance(hex)}  % 입니다.`)
 }
 </script>
 <template>
