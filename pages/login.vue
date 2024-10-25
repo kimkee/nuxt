@@ -5,8 +5,8 @@
       <div class="mb-1">
         <img class="w-16" src="~/assets/img/logo.svg" alt="dd" />
       </div>
-      <div class="my-4 text-center mb-4 relative before:absolute before:left-0 before:right-0 before:border-t before:border-gray-500/30 before:top-1/2 before:z-0 w-full">
-        <p class="text-green-600 dark:text-green-400 relative px-2 z-1 bg-white dark:bg-[#0d111b]">로그인 {{ $ui.add(1, 2) }}</p>
+      <div class="my-4 text-center mb-4 relative before:absolute before:left-0 before:right-0 before:border-t before:border-gray-500/40 before:top-1/2 before:z-0 w-full">
+        <em class="text-green-600 dark:text-green-400 relative px-2 z-1 bg-white dark:bg-[#0d111b]">로그인</em>
       </div>
       <div class="grid grid-cols-2 gap-2 w-full">
         <button class="btn btn-md" @click="$ui.greet('Github')">
