@@ -36,15 +36,23 @@ alert( `명도 수치는  ${hexToLuminance(hex)}  % 입니다.`)
       <GithubButton />
       <p class="grid grid-flow-col gap-2">
         <button class="btn" @click="copyToClipboard">복사</button>
-        <button class="btn" @click="()=>color('#FFFFFF')">#FFFFFF</button>
+        <button class="btn" @click="() => color('#FFFFFF')">#FFFFFF</button>
       </p>
       <p class="grid grid-flow-col gap-4">
         <button class="btn btn-xs">버튼</button>
         <button class="btn btn-xs btn-primary">버튼</button>
       </p>
       <p class="grid grid-flow-col gap-4">
+        <button class="btn btn-sm">버튼</button>
+        <button class="btn btn-sm btn-primary">버튼</button>
+      </p>
+      <p class="grid grid-flow-col gap-4">
         <button class="btn">버튼</button>
         <button class="btn btn-primary">버튼</button>
+      </p>
+      <p class="grid grid-flow-col gap-4">
+        <button class="btn btn-md">버튼 btn-md</button>
+        <button class="btn btn-md btn-primary">버튼 btn-md</button>
       </p>
       <p class="grid grid-flow-col gap-4">
         <button class="btn btn-lg">버튼 btn-lg</button>

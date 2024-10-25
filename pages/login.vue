@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
   <main class="container flex-1 items-center justify-center flex flex-col">
-    <div class="flex flex-col max-w-[20rem] w-full justify-center items-center py-6 -mt-12">
+    <div class="flex flex-col max-w-[16rem] w-full justify-center items-center py-6 -mt-12">
       <div class="mb-1">
         <img class="w-16" src="~/assets/img/logo.svg" alt="dd" />
       </div>
@@ -9,19 +9,19 @@
         <p class="text-green-600 dark:text-green-400 relative px-2 z-1 bg-white dark:bg-[#0d111b]">로그인 {{ $ui.add(1, 2) }}</p>
       </div>
       <div class="grid grid-cols-2 gap-2 w-full">
-        <button @click="$ui.greet('Github')" type="button" class="btn btn-lg">
+        <button class="btn btn-md" @click="$ui.greet('Github')">
           <i><font-awesome :icon="['fab', 'github']" /></i>
           <em>Github</em>
         </button>
-        <button type="button" class="btn btn-lg">
+        <button class="btn btn-md">
           <i><font-awesome :icon="['fab', 'google']" /></i>
           <em>Google</em>
         </button>
-        <button type="button" class="btn btn-lg">
+        <button class="btn btn-md">
           <i><font-awesome :icon="['fab', 'kickstarter-k']" /></i>
           <em>Kakao</em>
         </button>
-        <button type="button" class="btn btn-lg">
+        <button class="btn btn-md">
           <i><font-awesome :icon="['fab', 'twitter']" /></i>
           <em>Twitter</em>
         </button>

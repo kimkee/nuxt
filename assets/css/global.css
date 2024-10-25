@@ -61,12 +61,18 @@ a, button, input {
 }
 
 .btn{
-    @apply flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5 px-2.5 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 text-gray-700 dark:text-gray-200 bg-gray-50 hover:bg-gray-100 disabled:bg-gray-50 aria-disabled:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700/50 dark:disabled:bg-gray-800 dark:aria-disabled:bg-gray-800 focus-visible:ring-2 inline-flex items-center justify-center;
+    @apply flex-shrink-0 rounded-md text-sm gap-x-1.5 px-2.5 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 text-gray-700 dark:text-gray-200 bg-gray-50 hover:bg-gray-100 disabled:bg-gray-50 aria-disabled:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700/50 dark:disabled:bg-gray-800 dark:aria-disabled:bg-gray-800 focus-visible:ring-2 inline-flex items-center justify-center;
     &.btn-primary{
         @apply  text-white bg-green-600 hover:bg-green-600 ring-green-600 hover:ring-green-500 dark:ring-green-700 dark:hover:ring-green-600
     }
     &-xs{
-        @apply text-xs px-1.5 py-1 rounded font-normal
+        @apply text-[0.7rem] px-1.5 py-0.5 rounded font-normal
+    }
+    &-sm{
+        @apply text-xs px-1.5 py-1.5 rounded font-normal
+    }
+    &-md{
+        @apply text-sm px-2.5 py-1.5
     }
     &-lg{
         @apply text-base px-3.5 py-2
