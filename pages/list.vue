@@ -1,6 +1,33 @@
+<script setup>
+const config = useRuntimeConfig();
+const SUPABASE_URL = config.public.SUPABASE_URL;
+const supabase = useSupabaseClient()
+const products = ref([])
+const { data, error } = await useAsyncData('products', async () => {
+  const { data, error } = await supabase .from('products') .select('*') .order('id', { ascending: true })
+  if (error) {
+    console.error('Supabase Error:', error)
+    return []
+  }
+  return data ?? []
+})
+
+if (data.value) {
+  products.value = data.value
+}
+</script>
+
 <template>
-  <main class="container flex-1 space-y-4">
-    
+  <main class="container flex-1">
+    <ul class="grid grid-cols-3 gap-4">
+      <li v-for="item in products" :key="item.id" class="border border-gray-300 dark:border-gray-700 p-3">
+          <div class="relative pb-[100%] block overflow-hidden">
+            <img :src="SUPABASE_URL+item.images_url[0]" :alt="item.title" class="h-full w-full object-cover absolute left-0 top-0">
+        </div>
+        <h1 class="mt-3"> {{ item.title }}</h1> 
+        <p class="text-xs line-clamp-2 mt-1">{{ item.description }}</p>
+      </li>
+    </ul>
     <h1 class="font-['Roboto']        font-normal text-xl">NuxT - 넉스트률걁 - 0123456</h1>
     <h1 class="font-['Noto_Sans_KR']  font-normal text-xl">NuxT - 넉스트률걁 - 0123456</h1>
     <h1 class="font-['Spoqa_Han_Sans_Neo']  font-normal text-xl">NuxT - 넉스트률걁 - 0123456</h1>

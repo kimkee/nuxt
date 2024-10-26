@@ -17,7 +17,24 @@ export default defineNuxtConfig({
     },
     buildAssetsDir: `_nuxt/${dayjs().format('YYYY-MM-DD-HH-mm-ss')}/`,
   },
-  modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts'],
+  runtimeConfig: {
+    public: {
+      TITLE: process.env.TITLE,  // 공개 환경 변수로 설정
+      SUPABASE_URL: process.env.SUPABASE_URL,  // 공개 환경 변수로 설정
+      SUPABASE_KEY: process.env.SUPABASE_KEY,  // 공개 환경 변수로 설정
+    },
+  },
+  supabase: {
+    // Options
+    redirectOptions: {
+      login: '/login',
+      callback: '/confirm',
+      include: undefined,
+      exclude: ['/*'],
+      cookieRedirect: false,
+    },
+  },
+  modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts', '@nuxtjs/supabase'],
   plugins: ['~/plugins/ui.js'],
   googleFonts: {
     families: {
@@ -61,5 +78,3 @@ export default defineNuxtConfig({
     }
   }
 })
-
-
