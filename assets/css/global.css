@@ -80,6 +80,10 @@ a, button, input {
     &-xl{
         @apply text-xl px-5 py-3
     }
+    &:disabled{
+        @apply opacity-70 text-opacity-50 cursor-not-allowed;
+        
+    }
 }
 
 ::-webkit-scrollbar{  width:10px;  height:10px;}

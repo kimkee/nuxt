@@ -49,6 +49,8 @@ alert( `명도 수치는  ${hexToLuminance(hex)}  % 입니다.`)
       <p class="grid grid-flow-col gap-4">
         <button class="btn">버튼</button>
         <button class="btn btn-primary">버튼</button>
+        <button class="btn" disabled>버튼</button>
+        <button class="btn btn-primary" disabled>버튼</button>
       </p>
       <p class="grid grid-flow-col gap-4">
         <button class="btn btn-md">버튼 btn-md</button>

@@ -17,11 +17,11 @@
           <i><font-awesome :icon="['fab', 'google']" /></i>
           <em>Google</em>
         </button>
-        <button class="btn btn-md">
+        <button class="btn btn-md" disabled>
           <i><font-awesome :icon="['fab', 'kickstarter-k']" /></i>
           <em>Kakao</em>
         </button>
-        <button class="btn btn-md">
+        <button class="btn btn-md" disabled>
           <i><font-awesome :icon="['fab', 'twitter']" /></i>
           <em>Twitter</em>
         </button>
