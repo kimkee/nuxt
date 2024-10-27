@@ -66,7 +66,7 @@ export default defineNuxtConfig({
   },
   fontawesome: {
     icons: {
-      solid: ['envelope','user','sun','moon','magnifying-glass','dollar-sign','bars','box','house', 'cog', 'circle', 'check', 'calendar','coffee'],
+      solid: ['right-to-bracket','envelope','user','sun','moon','magnifying-glass','dollar-sign','bars','box','house', 'cog', 'circle', 'check', 'calendar','coffee'],
       regular: ['user' ],
       brands: ['github', 'google', 'kickstarter-k', 'twitter']
     }
