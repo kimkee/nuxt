@@ -1,6 +1,20 @@
 <script setup>
 const config = useRuntimeConfig();
 const TITLE = config.public.TITLE;
+
+
+const supabase = useSupabaseClient()
+
+const signInWithOAuth = async (txt) => {
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: txt,
+    // options: {
+    //   redirectTo: 'http://localhost:3000/confirm',
+    // },
+  })
+  if (error) console.log(error)
+}
+
 </script>
 <template>
   <main class="container flex-1 items-center justify-center flex flex-col">
@@ -13,11 +27,11 @@ const TITLE = config.public.TITLE;
       </div>
       {{ TITLE  }}
       <div class="grid grid-cols-2 gap-2 w-full">
-        <button class="btn btn-md" @click="$ui.greet('Github')">
+        <button class="btn btn-md" @click="signInWithOAuth('github')">
           <i><font-awesome :icon="['fab', 'github']" /></i>
           <em>Github</em>
         </button>
-        <button class="btn btn-md">
+        <button class="btn btn-md" @click="signInWithOAuth('google')">
           <i><font-awesome :icon="['fab', 'google']" /></i>
           <em>Google</em>
         </button>

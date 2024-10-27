@@ -28,10 +28,10 @@ export default defineNuxtConfig({
     // Options
     redirectOptions: {
       login: '/login',
-      callback: '/confirm',
-      include: undefined,
-      exclude: ['/*'],
-      cookieRedirect: false,
+      callback: '',
+      include: ['/user'],
+      exclude: [],
+      cookieRedirect: true,
     },
   },
   modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts', '@nuxtjs/supabase'],
