@@ -23,11 +23,11 @@ console.log(userInfo.value);
         </NuxtLink>
         <NuxtLink  v-if="userInfo" to="/user" class="w-full h-12 flex flex-col justify-start gap-1">
           <i><img :src="userInfo.user_metadata.avatar_url" alt="" class="h-6 rounded-full inline-block"></i>
-          <div class="text-xs">{{ userInfo.user_metadata.name }}</div>        
+          <div class="text-xs">MY</div>        
         </NuxtLink>
         <NuxtLink  v-else to="/user" class="w-full h-12 flex flex-col justify-start gap-1">
           <i><font-awesome :icon="['fas', 'user']" /></i>
-          <div class="text-xs">My</div>
+          <div class="text-xs">MY</div>
         </NuxtLink>
       </div>
     </div>
