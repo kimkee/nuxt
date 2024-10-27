@@ -17,6 +17,10 @@ console.log(userInfo.value);
           <i><font-awesome :icon="['fas', 'box']" /></i>
           <div class="text-xs">About</div>
         </NuxtLink>
+        <NuxtLink to="/chat" class="w-full h-12 flex flex-col justify-start gap-1">
+          <i><font-awesome :icon="['far', 'comments']" /></i>
+          <div class="text-xs">Chat</div>
+        </NuxtLink>
         <NuxtLink to="/list" class="w-full h-12 flex flex-col justify-start gap-1">
           <i><font-awesome :icon="['fas', 'bars']" /></i>
           <div class="text-xs">List</div>
