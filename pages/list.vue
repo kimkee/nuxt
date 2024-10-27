@@ -60,7 +60,8 @@ if (process.env.NODE_ENV === 'development') {
     <ul class="grid grid-cols-3 gap-4">
       <li v-for="item in products" :key="item.id" class="border border-gray-300 dark:border-gray-700 p-3 relative">
         <div class="relative pb-[100%] block overflow-hidden">
-          <img :src="SUPABASE_URL+item.images_url[0]" :alt="item.title" class="h-full w-full object-cover absolute left-0 top-0">
+          <!-- <img :src="SUPABASE_URL+item.images_url[0]" :alt="item.title" class="h-full w-full object-cover absolute left-0 top-0"> -->
+          <NuxtImg :src="SUPABASE_URL+item.images_url[0]" format="webp" :alt="item.title" class="h-full w-full object-cover absolute left-0 top-0" />
         </div>
         <span class="absolute right-2 bottom-2 text-xs">{{ item.id }}</span>
         <h1 class="mt-3 line-clamp-1"> {{ item.title }}</h1> 

@@ -34,7 +34,10 @@ export default defineNuxtConfig({
       cookieRedirect: true,
     },
   },
-  modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts', '@nuxtjs/supabase'],
+  modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts', '@nuxtjs/supabase', '@nuxt/image'],
+  image: {
+    domains: ['avfgnkfopixyabmqqrqv.supabase.co'],
+  },
   plugins: ['~/plugins/ui.js'],
   googleFonts: {
     families: {
