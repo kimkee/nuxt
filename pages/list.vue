@@ -2,29 +2,68 @@
 const config = useRuntimeConfig();
 const SUPABASE_URL = config.public.SUPABASE_URL;
 const supabase = useSupabaseClient()
-const products = ref([])
-const { data, error } = await useAsyncData('products', async () => {
-  const { data, error } = await supabase .from('products') .select('*') .order('id', { ascending: true })
+
+const { data: products } = await useAsyncData('products', async () => {
+  const { data, error } = await supabase
+    .from('products')
+    .select('*')
+    .order('id', { ascending: false })
+  
   if (error) {
-    console.error('Supabase Error:', error)
+    console.error('Supabase 오류:', error)
     return []
   }
-  return data ?? []
+  
+  return data || []
 })
 
-if (data.value) {
-  products.value = data.value
+// 개발 모드에서만 콘솔 로그 출력
+if (process.env.NODE_ENV === 'development') {
+  console.log('제품 데이터:', products.value)
 }
+
 </script>
 
 <template>
   <main class="container flex-1">
+    
+    <div class="mb-3 flex justify-between items-center">
+      <div class=""><i class="mr-2"><font-awesome :icon="['fas', 'bars']" /></i> <span class="text-sm">Total : {{products.length}}</span> </div>
+      <div class="">
+        <button @click="()=>{
+          products.unshift({
+              'title': '무선 라우터',
+              'description': 'Netgear Nighthawk AX12 Wi-Fi 6',
+              'price': 350000,
+              'category': '네트워크 장비',
+              'condition': '중고',
+              'location': '울산',
+              'images': '[Image of Netgear Nighthawk AX12]',
+              'created_at': '2023-09-09T00:00:00+00:00',
+              'updated_at': '2023-09-10T00:00:00+00:00',
+              'status': '판매중',
+              'images_url': [
+                  '/storage/v1/object/public/products/goods_2.jpg',
+                  '/storage/v1/object/public/products/goods_6.jpg'
+              ],
+              'user_id': null,
+              'id': 43,
+              'location_id': '8',
+              'condition_id': '2',
+              'category_id': '1',
+              'status_id': '1'
+          })
+        }"
+        class="btn btn-sm">추가</button>
+      </div>
+    </div>
     <ul class="grid grid-cols-3 gap-4">
-      <li v-for="item in products" :key="item.id" class="border border-gray-300 dark:border-gray-700 p-3">
-          <div class="relative pb-[100%] block overflow-hidden">
-            <img :src="SUPABASE_URL+item.images_url[0]" :alt="item.title" class="h-full w-full object-cover absolute left-0 top-0">
+      <li v-for="item in products" :key="item.id" class="border border-gray-300 dark:border-gray-700 p-3 relative">
+        <div class="relative pb-[100%] block overflow-hidden">
+          <img :src="SUPABASE_URL+item.images_url[0]" :alt="item.title" class="h-full w-full object-cover absolute left-0 top-0">
         </div>
-        <h1 class="mt-3"> {{ item.title }}</h1> 
+        <span class="absolute right-2 bottom-2 text-xs">{{ item.id }}</span>
+        <h1 class="mt-3 line-clamp-1"> {{ item.title }}</h1> 
         <p class="text-xs line-clamp-2 mt-1">{{ item.description }}</p>
       </li>
     </ul>
