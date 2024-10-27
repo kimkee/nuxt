@@ -9,7 +9,7 @@ userInfo.value = user.value
 const signOut = async () => {
   const { error } = await supabase.auth.signOut();
   if (error) console.log(error);
-  router.push('/');
+  window.location.replace('/');
 }
 console.log(userInfo);
 

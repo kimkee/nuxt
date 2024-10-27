@@ -1,3 +1,10 @@
+<script setup>
+const user = useSupabaseUser(); 
+const userInfo = ref(null)
+userInfo.value = user.value
+console.log(userInfo.value);
+
+</script>
 <template>
   <nav class="min-h-16 safe-bottom-pd box-content">
     <div class="min-h-16 safe-bottom-pd box-content border-t border-gray-200 dark:border-gray-700 bg-white/70 dark:bg-gray-800/80 backdrop-blur-sm text-gray-600 dark:text-white fixed bottom-0 left-0 right-0">
@@ -14,9 +21,13 @@
           <i><font-awesome :icon="['fas', 'bars']" /></i>
           <div class="text-xs">List</div>
         </NuxtLink>
-        <NuxtLink to="/user" class="w-full h-12 flex flex-col justify-start gap-1">
-          <i><font-awesome :icon="['fas', 'user']" /></i>
-          <div class="text-xs">MY</div>
+        <NuxtLink  v-if="userInfo" to="/user" class="w-full h-12 flex flex-col justify-start gap-1">
+          <i><img :src="userInfo?.user_metadata.avatar_url" alt="" class="h-6 rounded-full inline-block"></i>
+          <div class="text-xs">{{ userInfo?.user_metadata.name }}</div>        
+        </NuxtLink>
+        <NuxtLink  v-else to="/user" class="w-full h-12 flex flex-col justify-start gap-1">
+            <i><font-awesome :icon="['fas', 'user']" /></i>
+            <div class="text-xs">My</div>
         </NuxtLink>
       </div>
     </div>
