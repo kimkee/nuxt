@@ -9,7 +9,7 @@ const signInWithOAuth = async (txt) => {
   const { error } = await supabase.auth.signInWithOAuth({
     provider: txt,
     options: {
-      redirectTo: 'https://nuxton.pages.dev/callback' // 콜백 URL을 명확하게 지정
+      redirectTo: '/callback' // 콜백 URL을 명확하게 지정
     },
   })
   if (error) console.log(error)
@@ -20,6 +20,7 @@ const signInWithKakao = async () => {
     provider: 'kakao',
     options: {
       scope: 'profile_nickname account_email profile_image', // 동의 항목 설정
+      redirectTo: '/callback' // 콜백 URL을 명확하게 지정
     },
   });
   if (error) console.log(error);
