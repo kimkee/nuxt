@@ -8,9 +8,9 @@ const supabase = useSupabaseClient()
 const signInWithOAuth = async (txt) => {
   const { error } = await supabase.auth.signInWithOAuth({
     provider: txt,
-    // options: {
-    //   redirectTo: 'http://localhost:3000/confirm',
-    // },
+    options: {
+      redirectTo: 'https://nuxton.pages.dev/callback' // 콜백 URL을 명확하게 지정
+    },
   })
   if (error) console.log(error)
 }
