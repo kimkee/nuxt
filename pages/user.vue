@@ -20,7 +20,7 @@ console.log(userInfo);
     <div class="flex flex-col gap-6 py-6">
       <div><img :src="userInfo.user_metadata.avatar_url" alt="" class="h-20 rounded-full"></div>
       <div class="grid gap-2 dark:text-gray-300">
-        <p>메일 : {{ userInfo.user_metadata.email }}</p>
+        <p>메일 : {{ userInfo.user_metadata.email }} - {{ userInfo.app_metadata.provider }}</p>
         <p>이름 : {{ userInfo.user_metadata.name }}</p>
         <p>가입 : {{ userInfo.created_at }}</p>
       </div>

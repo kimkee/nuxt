@@ -53,7 +53,7 @@ const signUpNewUser = async ()=> {
           <em>Google</em>
         </button>
         <button class="btn btn-lg" @click="signInWithKakao()">
-          <i><font-awesome :icon="['fab', 'kickstarter-k']" /></i>
+          <i><font-awesome :icon="['fas', 'comment']" /></i>
           <em>Kakao</em>
         </button>
         <button class="btn btn-lg" @click="signInWithOAuth('github')">

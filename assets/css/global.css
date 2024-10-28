@@ -75,10 +75,10 @@ a, button, input {
         @apply text-sm px-2.5 py-1.5
     }
     &-lg{
-        @apply text-base px-3.5 py-2
+        @apply text-sm px-3.5 py-2
     }
     &-xl{
-        @apply text-xl px-5 py-3
+        @apply text-base px-5 py-3
     }
     &:disabled{
         @apply opacity-70 text-opacity-50 cursor-not-allowed;
