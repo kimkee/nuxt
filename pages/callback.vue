@@ -26,6 +26,10 @@ const addUserToDatabase = async () => {
         {
           user_id: user.value.id,
           email: user.value.email,
+          username: user.value.user_metadata.full_name || user.value.user_metadata.user_name,
+          provider: user.value.app_metadata.provider,
+          profile_picture : user.value.user_metadata.avatar_url,
+          level : 10,
           created_at: new Date(),
         },
       ]);
@@ -34,7 +38,7 @@ const addUserToDatabase = async () => {
         console.error('Error inserting new user:', insertError);
         console.log(insertError.code);
         // alert(insertError.code)
-        eMsg = insertError.code
+        eMsg.value = insertError
       } else {
         console.log('User added successfully:', data);
       }
@@ -50,12 +54,12 @@ onMounted(() => {
 
 <template>
   <main class="container flex-1 items-center justify-center flex flex-col">
-    <div>
-        <h1>Callback Page</h1>
-        <p>Processing login...</p>
-        <p>{{eMsg }}</p>
-        <p>{{user.id }}</p>
-        <p>{{user.email }}</p>
+    <div class="w-full max-w-sm text-center">
+        <h1 class="text-green-500 text-xl">로그인 성공!</h1>
+        <!-- <p>Processing login...</p> -->
+        <!-- <p>{{eMsg }}</p> -->
+        <!-- <p>{{user.id }}</p> -->
+        <p class="mt-4">{{user.email }}</p>
     </div>
   </main>
 </template>
