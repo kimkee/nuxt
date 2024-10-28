@@ -22,6 +22,7 @@ export default defineNuxtConfig({
       TITLE: process.env.TITLE,  // 공개 환경 변수로 설정
       SUPABASE_URL: process.env.SUPABASE_URL,  // 공개 환경 변수로 설정
       SUPABASE_KEY: process.env.SUPABASE_KEY,  // 공개 환경 변수로 설정
+      SITE_URL: process.env.SITE_URL,  // 공개 환경 변수로 설정
     },
   },
   supabase: {

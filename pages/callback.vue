@@ -33,7 +33,7 @@ const addUserToDatabase = async () => {
       if (insertError) {
         console.error('Error inserting new user:', insertError);
         console.log(insertError.code);
-        alert(insertError.code)
+        // alert(insertError.code)
         eMsg = insertError.code
       } else {
         console.log('User added successfully:', data);

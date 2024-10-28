@@ -1,15 +1,20 @@
 <script setup>
 const config = useRuntimeConfig();
-const TITLE = config.public.TITLE;
+const SITE_URL = config.public.SITE_URL;
 
 
 const supabase = useSupabaseClient()
+let url;
+
+if (process.client) {
+  url = window.location.origin;
+}
 
 const signInWithOAuth = async (txt) => {
   const { error } = await supabase.auth.signInWithOAuth({
     provider: txt,
     options: {
-      redirectTo: '/callback' // 콜백 URL을 명확하게 지정
+      redirectTo: `${SITE_URL}/callback` // 콜백 URL을 명확하게 지정
     },
   })
   if (error) console.log(error)
@@ -20,7 +25,7 @@ const signInWithKakao = async () => {
     provider: 'kakao',
     options: {
       scope: 'profile_nickname account_email profile_image', // 동의 항목 설정
-      redirectTo: '/callback' // 콜백 URL을 명확하게 지정
+      redirectTo: `${SITE_URL}/callback` // 콜백 URL을 명확하게 지정
     },
   });
   if (error) console.log(error);
@@ -47,7 +52,7 @@ const signUpNewUser = async ()=> {
       <div class="my-4 text-center mb-7 relative before:absolute before:left-0 before:right-0 before:border-t before:border-gray-500/40 before:top-1/2 before:z-0 w-full">
         <em class="text-green-600 dark:text-green-400 relative px-2 z-1 bg-white dark:bg-[#0d111b]">로그인</em>
       </div>
-      <!-- {{ TITLE  }} -->
+      <p class="text-xs mb-4">{{ SITE_URL  }}</p>
       <div class="grid grid-cols-2 gap-4 w-full">
         <button class="btn btn-lg" @click="signInWithOAuth('google')">
           <i><font-awesome :icon="['fab', 'google']" /></i>
