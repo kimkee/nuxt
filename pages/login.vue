@@ -1,14 +1,7 @@
 <script setup>
 const config = useRuntimeConfig();
 const SITE_URL = config.public.SITE_URL;
-
-
 const supabase = useSupabaseClient()
-let url;
-
-if (process.client) {
-  url = window.location.origin;
-}
 
 const signInWithOAuth = async (txt) => {
   const { error } = await supabase.auth.signInWithOAuth({
