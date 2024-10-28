@@ -32,7 +32,7 @@ onUnmounted(() => {
 <template>
   <main class="container flex-1">
     <div v-if="chatusers">
-      <h1>Products</h1>
+      <h1>Chat</h1>
       <ul>
         <li v-for="chat in chatusers" :key="chat.id">{{ chat.id }} : {{ chat.message }}</li>
       </ul>
