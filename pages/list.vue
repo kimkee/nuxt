@@ -7,7 +7,7 @@ const { data: products } = await useAsyncData('products', async () => {
   const { data, error } = await supabase
     .from('products')
     .select('*')
-    .order('id', { ascending: false })
+    .order('updated_at', { ascending: false })
   
   if (error) {
     console.error('Supabase 오류:', error)
@@ -19,7 +19,7 @@ const { data: products } = await useAsyncData('products', async () => {
 
 // 개발 모드에서만 콘솔 로그 출력
 if (process.env.NODE_ENV === 'development') {
-  console.log('제품 데이터:', products.value)
+  console.log('제품 데이터:', ( products.value[0] ))
 }
 
 </script>
@@ -63,9 +63,9 @@ if (process.env.NODE_ENV === 'development') {
           <!-- <img :src="SUPABASE_URL+item.images_url[0]" :alt="item.title" class="h-full w-full object-cover absolute left-0 top-0"> -->
           <NuxtImg :src="SUPABASE_URL+item.images_url[0]" format="webp" :alt="item.title" class="h-full w-full object-cover absolute left-0 top-0" />
         </div>
-        <span class="absolute right-2 bottom-2 text-xs">{{ item.id }}</span>
+        <!-- <span class="absolute right-2 bottom-2 text-xs">{{ item.id }}</span> -->
         <h1 class="text-sm font-light mt-3 line-clamp-2"> {{ item.title }}</h1> 
-        <p class="text-xs line-clamp-2 mt-1">{{ item.description }}</p>
+        <p class="text-sm line-clamp-2 mt-1">{{ item.price }} <i class="text-xs">원</i></p>
       </li>
     </ul>
     <h1 class="font-['Roboto']        font-normal text-xl">NuxT - 넉스트률걁 - 0123456</h1>
