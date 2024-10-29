@@ -5,6 +5,10 @@ const ui = {
   add(a, b) {
     return a + b;
   },
+  commas:{
+    add: (str)=> str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','),
+    del: (str)=> parseInt(str.replace(/,/g , '') || 0)
+  },
 };
 
 export default defineNuxtPlugin((nuxtApp) => {

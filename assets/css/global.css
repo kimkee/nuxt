@@ -7,7 +7,7 @@ html{
     max-width: 100%;
 }
 body {
-    font-family: 'Spoqa Han Sans Neo', 'Roboto','Noto Sans KR',sans-serif;
+    font-family:'Roboto', 'Spoqa Han Sans Neo', 'Noto Sans KR',sans-serif;
 }
 body{
     background: url(https://tailwindcss.com/_next/static/media/docs-dark@tinypng.1bbe175e.png) no-repeat;

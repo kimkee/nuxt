@@ -64,8 +64,8 @@ if (process.env.NODE_ENV === 'development') {
           <NuxtImg :src="SUPABASE_URL+item.images_url[0]" format="webp" :alt="item.title" class="h-full w-full object-cover absolute left-0 top-0" />
         </div>
         <!-- <span class="absolute right-2 bottom-2 text-xs">{{ item.id }}</span> -->
-        <h1 class="text-sm font-light mt-3 line-clamp-2"> {{ item.title }}</h1> 
-        <p class="text-sm line-clamp-2 mt-1">{{ item.price }} <i class="text-xs">원</i></p>
+        <h1 class="text-sm mt-3 leading-tight line-clamp-2"> {{ item.title }}</h1> 
+        <p class="text-sm line-clamp-2 mt-1 font-['Spoqa_Han_Sans_Neo']">{{ $ui.commas.add(item.price) }} <i class="text-2xs">원</i></p>
       </li>
     </ul>
     <h1 class="font-['Roboto']        font-normal text-xl">NuxT - 넉스트률걁 - 0123456</h1>
