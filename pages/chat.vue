@@ -30,26 +30,31 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <main class="container flex-1 flex items-end !px-4 !py-6">
+  <main class="container flex-1 flex items-end !px-4 !pb-7">
     
     <div class="chat-view w-full">
       <article  v-for="chat in chatusers" :key="chat.id" class="chmsg op flex relative w-full">
-        <div class="name text-xt absolute left-10 -top-4">{{chat.name}}</div>
-        <a href="javascript:;" class="usr block w-8 h-8 absolute left-0 top-0"><img src="https://cdn-icons-png.flaticon.com/128/1154/1154473.png" class="img dsfsd"></a>
+        <div class="name text-xt absolute -top-4 text-slate-500 dark:text-slate-400">
+          {{chat.name}}
+        </div>
+        <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-0 top-0"><img :src="`${chat.profile_picture}`" class="img dsfsd"></a>
         <div class="msg  text-sm relative rounded-xl">
-          <div class="txt text-sm p-3 max-w-100vh break-all">{{chat.message}}</div>
-          <time class="tm absolute left-full bottom-0 whitespace-nowrap mx-1 mt-1">
-            <i class="fa-regular fa-calendar-days"></i> <i class="text-xt">10개월 전</i>
+          <div class="txt text-sm p-3 px-4 max-w-100vh break-all">{{chat.message}}</div>
+          <time class="tm absolute left-full bottom-0 whitespace-nowrap mx-1 mt-1 space-x-1">
+            <!-- <i><font-awesome :icon="['fas', 'calendar-days']" /></i> -->
+            <i class="text-xt text-slate-500 dark:text-slate-400">{{$ui.timeForm(chat.created_at,true)}}</i>
           </time>
         </div>
       </article>
       <article  class="chmsg me flex justify-end relative w-full">
-        <div class="name text-xt absolute right-10 -top-4 hidden">aaaaaaa</div>
-        <a href="javascript:;" class="usr block w-8 h-8 absolute right-0 top-0"><img src="https://cdn-icons-png.flaticon.com/128/1154/1154473.png" class="img dsfsd"></a>
+        <div class="name text-xt absolute -top-4 text-slate-500 dark:text-slate-400">
+          홍길동
+        </div>
+        <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute right-0 top-0"><img src="https://cdn-icons-png.flaticon.com/128/1154/1154473.png" class="img dsfsd"></a>
         <div class="msg  text-sm relative rounded-xl">
-          <div class="txt text-sm p-3 max-w-100vh break-all">동해 물과 백두산이 마르고 닳도록</div>
-          <time class="tm absolute right-full bottom-0 whitespace-nowrap mx-1 mt-1">
-            <i class="fa-regular fa-calendar-days"></i> <i class="text-xt">10개월 전</i>
+          <div class="txt text-sm p-3 px-4 max-w-100vh break-all">동해 물과 백두산이 마르고 닳도록</div>
+          <time class="tm absolute right-full bottom-0 whitespace-nowrap mx-1 mt-1 space-x-1">
+            <i class="text-xt text-slate-500 dark:text-slate-400">방금 전</i>
           </time>
         </div>
       </article>
@@ -93,8 +98,10 @@ onUnmounted(() => {
 .chat-view .chmsg.op + .chmsg.op.same{ @apply mt-3;}
 .chat-view .chmsg.op + .chmsg.op .msg{}
 .chat-view .chmsg.op .usr{}
+.chat-view .chmsg.op .name{@apply left-10}
 .chat-view .chmsg.op .msg{@apply rounded-tl-none}
 .chat-view .chmsg.op .tm{}
-.chat-view .chmsg.me{@apply pr-10 mt-4; }
+.chat-view .chmsg.me{@apply pr-10 mt-6; }
 .chat-view .chmsg.me .msg{ @apply bg-green-200 dark:bg-[#41b883]  rounded-tr-none;  }
+.chat-view .chmsg.me .name{@apply right-10 hidden}
 </style>
