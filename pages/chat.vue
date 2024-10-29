@@ -37,12 +37,18 @@ onUnmounted(() => {
         <div class="name text-xt absolute -top-4 text-slate-500 dark:text-slate-400">
           {{chat.name}}
         </div>
-        <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-0 top-0"><img :src="`${chat.profile_picture}`" class="img dsfsd"></a>
+        <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-0 top-0">
+          <img :src="`${chat.profile_picture}`" class="img block h-full bg-slate-500">
+        </a>
         <div class="msg  text-sm relative rounded-xl">
-          <div class="txt text-sm p-3 px-4 max-w-100vh break-all">{{chat.message}}</div>
+          <div 
+            class="txt text-sm p-3 px-4 max-w-100vh break-all" 
+            v-html="$ui.textHtml(chat.message,'incode')"
+          ></div>
           <time class="tm absolute left-full bottom-0 whitespace-nowrap mx-1 mt-1 space-x-1">
-            <!-- <i><font-awesome :icon="['fas', 'calendar-days']" /></i> -->
-            <i class="text-xt text-slate-500 dark:text-slate-400">{{$ui.timeForm(chat.created_at,true)}}</i>
+            <i class="text-10 text-slate-500 dark:text-slate-400">
+              {{$ui.timeForm(chat.created_at,true)}}
+            </i>
           </time>
         </div>
       </article>
@@ -54,7 +60,7 @@ onUnmounted(() => {
         <div class="msg  text-sm relative rounded-xl">
           <div class="txt text-sm p-3 px-4 max-w-100vh break-all">동해 물과 백두산이 마르고 닳도록</div>
           <time class="tm absolute right-full bottom-0 whitespace-nowrap mx-1 mt-1 space-x-1">
-            <i class="text-xt text-slate-500 dark:text-slate-400">방금 전</i>
+            <i class="text-10 text-slate-500 dark:text-slate-400">방금 전</i>
           </time>
         </div>
       </article>

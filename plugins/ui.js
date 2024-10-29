@@ -35,6 +35,11 @@ const ui = {
     // 모든 단위가 맞지 않을 시
     return "방금 전";
   },
+  textHtml: (text, opt) => {
+    // console.log(text,opt);
+    if (opt == 'incode') { return text.replace(/\u0020/g, '&nbsp;').replace(/\n/g, '<br>'); }
+    if (opt == 'decode') { return text.replace(/<br>/ig, '\n').replace(/&nbsp;/g, '\u0020'); }
+  },
 };
 
 export default defineNuxtPlugin((nuxtApp) => {
