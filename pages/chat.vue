@@ -28,19 +28,28 @@ onUnmounted(() => {
   supabase.removeChannel(realtimeChannel);
 });
 </script>
-
 <template>
-  <main class="container flex-1 flex items-end !px-4 !pb-7">
+  <!-- <p class="text-xt">text-xt - 11</p>
+  <p class="text-xs">text-xs - 12</p>
+  <p class="text-ss">text-ss - 13</p>
+  <p class="text-sm">text-sm - 14</p>
+  <p class="text-md">text-md - 15</p>
+  <p class="text-base">text-base - 16</p>
+  <p class="text-lg">text-lg - 18</p>
+  <p class="text-xl">text-xl - 20</p>
+  <p class="text-xx">text-xx - 22</p>
+  <p class="text-2xl">text-2xl - 24</p> -->
+  <main class="container flex-1 flex flex-col !p-0 bg-gray-100 dark:bg-gray-950">
     
-    <div class="chat-view w-full">
+    <div class="chat-view w-full flex-1 flex flex-col justify-end p-4 pb-7">
       <article  v-for="chat in chatusers" :key="chat.id" class="chmsg op flex relative w-full">
-        <div class="name text-xt absolute -top-4 text-slate-500 dark:text-slate-400">
+        <div class="name text-xt absolute -top-5 text-slate-500 dark:text-slate-400">
           {{chat.name}}
         </div>
         <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-0 top-0">
           <img :src="`${chat.profile_picture}`" class="img block h-full bg-slate-500">
         </a>
-        <div class="msg  text-sm relative rounded-xl">
+        <div class="msg  text-sm relative rounded-3xl drop-shadow-sm">
           <div 
             class="txt text-sm p-3 px-4 max-w-100vh break-all" 
             v-html="$ui.textHtml(chat.message,'incode')"
@@ -53,11 +62,11 @@ onUnmounted(() => {
         </div>
       </article>
       <article  class="chmsg me flex justify-end relative w-full">
-        <div class="name text-xt absolute -top-4 text-slate-500 dark:text-slate-400">
+        <div class="name text-xt absolute -top-5 text-slate-500 dark:text-slate-400">
           홍길동
         </div>
         <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute right-0 top-0"><img src="https://cdn-icons-png.flaticon.com/128/1154/1154473.png" class="img dsfsd"></a>
-        <div class="msg  text-sm relative rounded-xl">
+        <div class="msg  text-sm relative rounded-3xl drop-shadow-sm">
           <div class="txt text-sm p-3 px-4 max-w-100vh break-all">동해 물과 백두산이 마르고 닳도록</div>
           <time class="tm absolute right-full bottom-0 whitespace-nowrap mx-1 mt-1 space-x-1">
             <i class="text-10 text-slate-500 dark:text-slate-400">방금 전</i>
@@ -65,23 +74,25 @@ onUnmounted(() => {
         </div>
       </article>
     </div>
-    <!-- <p class="text-xt">text-xt - 11</p>
-    <p class="text-xs">text-xs - 12</p>
-    <p class="text-ss">text-ss - 13</p>
-    <p class="text-sm">text-sm - 14</p>
-    <p class="text-md">text-md - 15</p>
-    <p class="text-base">text-base - 16</p>
-    <p class="text-lg">text-lg - 18</p>
-    <p class="text-xl">text-xl - 20</p>
-    <p class="text-xx">text-xx - 22</p>
-    <p class="text-2xl">text-2xl - 24</p> -->
-    <!-- <div class="grid gap-1">
-      <li v-for="chat in chatusers" :key="chat.id" class="border p-2">
-        <p>{{ chat.name }}</p>
-        <p>{{ chat.message }}</p>
-      </li>
-    </div> -->
-    
+
+
+    <div class="min-h-16 safe-bottom-pd box-content">
+      <div class="min-h-16 safe-bottom-pd box-content border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white fixed bottom-0 left-0 right-0">
+        <div class="relative pl-14 pr-14 h-full pb-[11px] pt-[11px]">
+          <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-4 bottom-[16px]">
+            <img src="https://cdn-icons-png.flaticon.com/128/1154/1154473.png" class="img dsfsd">
+          </a>
+          <div class="form p-2 border dark:border-gray-700">
+            <textarea class="w-full h-6 bg-white inline-flex align-middle outline-none bg-transparent resize-none"></textarea>
+          </div>
+          <div class="bts absolute right-4 bottom-[16px]">
+            <button class="h-8 w-8 rounded-full bg-gray-400 dark:bg-[#41b883] text-white">
+              <i><font-awesome :icon="['fas', 'paper-plane']" /></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -93,7 +104,7 @@ onUnmounted(() => {
 .chat-view .chmsg+.chmsg{}
 .chat-view .chmsg .name{}
 .chat-view .chmsg .msg{
-  @apply bg-slate-100 dark:bg-slate-700;
+  @apply bg-white dark:bg-slate-700;
   max-width: calc(100vw - 11rem); 
 }
 
