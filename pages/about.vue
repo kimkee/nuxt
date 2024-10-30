@@ -3,8 +3,7 @@ import GithubButton from "./components/GithuButton.vue";
 
 
 const props = defineProps(['user']);
-const userInfo = ref(props.user || null);
-console.log(userInfo);
+const user = ref(props.user || null);
 
 
 const copyToClipboard = () => {
@@ -33,8 +32,9 @@ const luminance = hexToLuminance('#777777');
 // console.log(`명도 값: ${luminance}`);
 
 const color = (hex)=>{
-  alert( `${userRef.email}명도 수치는  ${hexToLuminance(hex)}  % 입니다.`)
+  alert( `명도 수치는  ${hexToLuminance(hex)}  % 입니다.`)
 }
+
 
 
 
@@ -43,6 +43,8 @@ const color = (hex)=>{
   <main class="container flex-1 items-center justify-center flex flex-col">
     <div class="flex flex-col items-center gap-6">
       <h1 class="text-4xl">About</h1>
+      <p>{{user?.name}}</p>
+      <!-- <pre class="text-sm p-10 overflow-hidden w-[400px] ">{{JSON.stringify(user, null, 1)}}</pre> -->
       <GithubButton />
       <p class="grid grid-flow-col gap-2">
         <button class="btn" @click="copyToClipboard">복사</button>

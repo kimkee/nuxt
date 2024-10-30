@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap   h-dvh flex flex-col">
+  <div class="wrap min-h-dvh flex flex-col">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

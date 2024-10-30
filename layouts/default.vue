@@ -1,7 +1,7 @@
 <template>
-    <AppHeader :user="user" v-if="showAppHeader" />
-    <NuxtPage :user="user" />
-    <AppNav :user="user" v-if="showAppNav" />
+    <AppHeader :user="user || {}" v-if="showAppHeader" />
+    <NuxtPage :user="user || {}" />
+    <AppNav :user="user || {}" v-if="showAppNav" />
 </template>
 
 <script setup>
