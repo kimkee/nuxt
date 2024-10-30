@@ -93,13 +93,11 @@ onUnmounted(() => {
           <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-4 bottom-[16px]">
             <img :src="userInfo.user_metadata.avatar_url" alt="" class="img dsfsd">
           </a>
-          <div class="form p-2 px-3 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
+          <div class="form p-2 px-3 pr-1 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
             <textarea
               placeholder="메시지를 입력해주세요"
               class="w-full h-6 inline-flex align-middle outline-none bg-transparent resize-none"
-            >
-
-            </textarea>
+            ></textarea>
           </div>
           <div class="bts absolute right-4 bottom-[16px]">
             <button class="h-8 w-8 rounded-full bg-gray-400 dark:bg-[#41b883] text-white">

@@ -112,3 +112,5 @@ i.ico{
 .dark ::-webkit-scrollbar-thumb:hover{background-color:#444;}
 /*  */
 
+textarea::-webkit-scrollbar-track{background-color: transparent;}
+.dark textarea::-webkit-scrollbar-track{background-color: transparent;}
