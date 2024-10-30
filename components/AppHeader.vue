@@ -5,7 +5,7 @@
       bg-gradient-to-t from-white/80 to-white 
       dark:bg-gradient-to-t dark:from-gray-800/80 dark:to-[#1f2937] 
       backdrop-blur-sm fixed top-0 left-0 right-0 z-50
-      after:h-[1px] after:absolute after:left-0 after:bottom-0 after:bg-gray-600/5
+      after:h-[1px] after:absolute after:left-0 after:bottom-0 after:bg-gray-900/5
       after:w-full
       "
       

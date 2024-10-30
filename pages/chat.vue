@@ -40,7 +40,7 @@ const autoHeight = ()=> { // 댓글에 자동높이 기능
 </script>
 <template>
 
-  <main class="container flex-1 flex flex-col h-full relative !p-0 bg-gray-100 dark:bg-gray-950">
+  <main class="container flex-1 flex flex-col h-full relative !p-0">
     <div class="flex flex-col justify-end absolute left-0 top-0 right-0 bottom-0">
       <div class="chat-view w-full flex-col justify-end p-4 pb-7 overflow-y-auto overflow-x-hidden">
         
@@ -78,10 +78,10 @@ const autoHeight = ()=> { // 댓글에 자동높이 기능
       </div>
 
 
-      <div class="min-h-16 safe-bottom-pd box-content">
-        <div class="min-h-16 safe-bottom-pd box-content border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
+      <div class="min-h-14  box-content">
+        <div class="min-h-14 box-content border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
           <div class="relative pl-14 pr-14 h-full pb-[11px] pt-[11px]">
-            <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-4 bottom-[16px]">
+            <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-4 bottom-[14px]">
               <img 
                 alt=""
                 class="img bg-gray-300/40 dark:bg-gray-300/30"
@@ -89,7 +89,7 @@ const autoHeight = ()=> { // 댓글에 자동높이 기능
                 @error="handleError"
               >
             </a>
-            <div class="form p-2 px-3 pr-1 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
+            <div class="form p-[6px] px-3 pr-1 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
               <textarea
                 :placeholder="`${user?.email ? '메시지를 입력해주세요' : '로그인이 필요합니다'}`"
                 class="w-full h-5 max-h-20 text-sm inline-flex align-middle outline-none bg-transparent resize-none"
@@ -97,7 +97,7 @@ const autoHeight = ()=> { // 댓글에 자동높이 기능
                 @input="autoHeight"
               ></textarea>
             </div>
-            <div class="bts absolute right-4 bottom-[16px]">
+            <div class="bts absolute right-4 bottom-[14px]">
               <button class="h-8 w-8 rounded-full bg-gray-400 dark:bg-[#41b883] text-white">
                 <i><font-awesome class="-scale-x-100" :icon="['fas', 'paper-plane']" /></i>
               </button>
@@ -117,7 +117,7 @@ const autoHeight = ()=> { // 댓글에 자동높이 기능
 .chat-view .chmsg+.chmsg{}
 .chat-view .chmsg .name{}
 .chat-view .chmsg .msg{
-  @apply bg-white dark:bg-slate-700;
+  @apply bg-slate-200/50 dark:bg-slate-700;
   max-width: calc(100vw - 11rem); 
 }
 
