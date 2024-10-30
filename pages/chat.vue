@@ -1,6 +1,6 @@
 <script setup >
 const props = defineProps(['user']);
-const userInfo = ref(props.user);
+const userInfo = ref(props.user || null);
 const supabase = useSupabaseClient();
 let realtimeChannel;
 
@@ -36,6 +36,11 @@ const autoHeight = ()=> { // 댓글에 자동높이 기능
     $el.style.height = $el.scrollHeight + 'px';
   }
 }
+const imgSrc = ref(userInfo?.user_metadata?.avatar_url);
+const defaultSrc = '/icon_app.png';
+const handleError = (event) => {
+  event.target.src = defaultSrc;
+};
 </script>
 <template>
 
@@ -90,12 +95,17 @@ const autoHeight = ()=> { // 댓글에 자동높이 기능
       <div class="min-h-16 safe-bottom-pd box-content border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white fixed bottom-[65px] left-0 right-0">
         <div class="relative pl-14 pr-14 h-full pb-[11px] pt-[11px]">
           <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-4 bottom-[16px]">
-            <img :src="userInfo.user_metadata.avatar_url" alt="" class="img dsfsd">
+            <img 
+              alt=""
+              class="img dsfsd"
+              :src="userInfo?.user_metadata?.avatar_url || '/icon_app.png'"
+              @error="handleError"
+            >
           </a>
           <div class="form p-2 px-3 pr-1 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
             <textarea
               placeholder="메시지를 입력해주세요"
-              class="w-full h-6 max-h-20 text-sm inline-flex align-middle outline-none bg-transparent resize-none"
+              class="w-full h-5 max-h-20 text-sm inline-flex align-middle outline-none bg-transparent resize-none"
               ref="msgbox"
               @input="autoHeight"
             ></textarea>
