@@ -1,3 +1,15 @@
+<script setup>
+const isBAckPath = ['/chat' ];
+
+// 현재 경로를 가져옵니다
+const route = useRoute();
+const router = useRouter();
+
+// 경로에 따라 헤더와 네비게이션 바를 보여줄지 여부를 계산합니다
+
+const isBtnBack = computed(() => isBAckPath.includes(route.path));
+
+</script>
 <template>
   <header class="flex flex-col justify-center min-h-14 safe-top-pd box-content">
     <div class="
@@ -8,13 +20,19 @@
       after:h-[1px] after:absolute after:left-0 after:bottom-0 after:bg-gray-900/5
       after:w-full
       "
-      
     >
-      <NuxtLink to="/" class="text-center py-1 -ml-2 inline-flex items-center">
-        <img class="w-8 mr-1" src="~/assets/img/logo.svg" alt="dd">
-        <span class="text-gray-600 dark:text-white font-bold text-2xl">Nuxton</span>
-      </NuxtLink>
-      <Darkmode />
+      <div class="pl-2">
+        <NuxtLink  v-if="!isBtnBack" to="/" class="text-center py-1 -ml-2 inline-flex items-center">
+          <img class="w-8 mr-1" src="~/assets/img/logo.svg" alt="dd">
+          <span class="text-gray-600 dark:text-white font-bold text-2xl">Nuxton</span>
+        </NuxtLink>
+        <button v-if="isBtnBack" @click="router.back(-1)" class="text-center py-1 -ml-2 inline-flex items-center text-2xl">
+          <i><font-awesome :icon="['fas', 'arrow-left']" /></i>
+        </button>
+      </div>
+      <div>
+        <Darkmode />
+      </div>
     </div>
   </header>
 </template>

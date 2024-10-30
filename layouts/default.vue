@@ -8,7 +8,7 @@
 
 // 각 경로에 맞는 숨김 조건을 배열로 설정합니다
 const hiddenPathsForHeader = ['', ''];
-const hiddenPathsForNav = [ ];
+const hiddenPathsForNav = ['/chat' ];
 
 // 현재 경로를 가져옵니다
 const route = useRoute();

@@ -78,8 +78,8 @@ const autoHeight = ()=> { // 댓글에 자동높이 기능
       </div>
 
 
-      <div class="min-h-14  box-content">
-        <div class="min-h-14 box-content border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
+      <div class="min-h-14 box-content">
+        <div class="min-h-14 box-content safe-bottom-pd border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
           <div class="relative pl-14 pr-14 h-full pb-[11px] pt-[11px]">
             <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-4 bottom-[14px]">
               <img 
