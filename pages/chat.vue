@@ -1,4 +1,6 @@
 <script setup >
+const props = defineProps(['user']);
+const userInfo = ref(props.user);
 const supabase = useSupabaseClient();
 let realtimeChannel;
 
@@ -7,7 +9,7 @@ const { data: chatusers, refresh: refreshProducts } = await useAsyncData('CHAT_A
   if (error) console.log('Error fetching products:', error);
   return data;
 });
-
+console.log(userInfo);
 onMounted(() => {
   // Real time listener for products table
   realtimeChannel = supabase.channel('public:CHAT_ALL_USERS')
@@ -20,9 +22,8 @@ onMounted(() => {
       if (status === 'SUBSCRIBED') {
         console.log('Subscribed to CHAT_ALL_USERS changes');
       }
-    });
+    });    
 });
-
 // Don't forget to unsubscribe when user leaves the page
 onUnmounted(() => {
   supabase.removeChannel(realtimeChannel);
@@ -42,6 +43,16 @@ onUnmounted(() => {
   <main class="container flex-1 flex flex-col !p-0 bg-gray-100 dark:bg-gray-950">
     
     <div class="chat-view w-full flex-1 flex flex-col justify-end p-4 pb-7">
+      <div v-if="user">
+        <p>환영합니다, {{ user.email }}!</p>
+        <p>환영합니다, {{ user.name }}!</p>
+        <!-- 로그인된 사용자에게 보여줄 내용 -->
+      </div>
+      <div v-else>
+        <p>로그인이 필요합니다.</p>
+        <!-- 로그인되지 않은 사용자에게 보여줄 내용 -->
+      </div>
+      
       <article  v-for="chat in chatusers" :key="chat.id" class="chmsg op flex relative w-full">
         <div class="name text-xt absolute -top-5 text-slate-500 dark:text-slate-400">
           {{chat.name}}
@@ -80,10 +91,15 @@ onUnmounted(() => {
       <div class="min-h-16 safe-bottom-pd box-content border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white fixed bottom-[65px] left-0 right-0">
         <div class="relative pl-14 pr-14 h-full pb-[11px] pt-[11px]">
           <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-4 bottom-[16px]">
-            <img src="https://cdn-icons-png.flaticon.com/128/1154/1154473.png" class="img dsfsd">
+            <img :src="userInfo.user_metadata.avatar_url" alt="" class="img dsfsd">
           </a>
-          <div class="form p-2 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
-            <textarea class="w-full h-6 bg-white inline-flex align-middle outline-none bg-transparent resize-none"></textarea>
+          <div class="form p-2 px-3 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
+            <textarea
+              placeholder="메시지를 입력해주세요"
+              class="w-full h-6 inline-flex align-middle outline-none bg-transparent resize-none"
+            >
+
+            </textarea>
           </div>
           <div class="bts absolute right-4 bottom-[16px]">
             <button class="h-8 w-8 rounded-full bg-gray-400 dark:bg-[#41b883] text-white">

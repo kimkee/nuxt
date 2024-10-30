@@ -1,8 +1,13 @@
 <script setup>
-const user = useSupabaseUser(); 
-const userInfo = ref(null)
-userInfo.value = user.value
-console.log(userInfo.value);
+// const user = useSupabaseUser(); 
+// const userInfo = ref(null)
+// userInfo.value = user.value
+// console.log(userInfo.value);
+
+
+const props = defineProps(['user']);
+const userInfo = ref(props.user);
+console.log(props.user);
 
 </script>
 <template>

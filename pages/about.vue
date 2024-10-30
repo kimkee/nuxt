@@ -23,11 +23,18 @@ function hexToLuminance(hex) {
   return Math.round(l * 100);
 }
 const luminance = hexToLuminance('#777777');
-console.log(`명도 값: ${luminance}`);
+// console.log(`명도 값: ${luminance}`);
 
 const color = (hex)=>{
-alert( `명도 수치는  ${hexToLuminance(hex)}  % 입니다.`)
+alert( `${userRef.email}명도 수치는  ${hexToLuminance(hex)}  % 입니다.`)
 }
+
+const props = defineProps(['user']);
+const userRef = ref(props.user);
+console.log(props.user);
+console.log(props.user.email);
+watchEffect(() => {
+});
 </script>
 <template>
   <main class="container flex-1 items-center justify-center flex flex-col">
