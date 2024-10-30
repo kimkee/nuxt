@@ -28,18 +28,17 @@ onMounted(() => {
 onUnmounted(() => {
   supabase.removeChannel(realtimeChannel);
 });
+const msgbox = ref(null);
+const autoHeight = ()=> { // 댓글에 자동높이 기능
+  const $el = msgbox.value;
+  if ($el) {
+    $el.style.height = '1px';
+    $el.style.height = $el.scrollHeight + 'px';
+  }
+}
 </script>
 <template>
-  <!-- <p class="text-xt">text-xt - 11</p>
-  <p class="text-xs">text-xs - 12</p>
-  <p class="text-ss">text-ss - 13</p>
-  <p class="text-sm">text-sm - 14</p>
-  <p class="text-md">text-md - 15</p>
-  <p class="text-base">text-base - 16</p>
-  <p class="text-lg">text-lg - 18</p>
-  <p class="text-xl">text-xl - 20</p>
-  <p class="text-xx">text-xx - 22</p>
-  <p class="text-2xl">text-2xl - 24</p> -->
+
   <main class="container flex-1 flex flex-col !p-0 bg-gray-100 dark:bg-gray-950">
     
     <div class="chat-view w-full flex-1 flex flex-col justify-end p-4 pb-7">
@@ -96,7 +95,9 @@ onUnmounted(() => {
           <div class="form p-2 px-3 pr-1 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
             <textarea
               placeholder="메시지를 입력해주세요"
-              class="w-full h-6 inline-flex align-middle outline-none bg-transparent resize-none"
+              class="w-full h-6 max-h-20 text-sm inline-flex align-middle outline-none bg-transparent resize-none"
+              ref="msgbox"
+              @input="autoHeight"
             ></textarea>
           </div>
           <div class="bts absolute right-4 bottom-[16px]">
