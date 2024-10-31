@@ -97,12 +97,12 @@ const chatWrite = async ()=>{
     console.log("데이터 입력 성공 Data inserted successfully:", data);
   }
   
+  msgbox.value.focus();  // 입력창 포커싱
+  msgbox.value.value = '';  // 입력창 비우기
+  msgbox.value.style.height = "";
   await nextTick(() => {
     window.setTimeout(()=>{
       chatView.value.scrollTop = chatView.value.scrollHeight;  //  스크롤창 맨 하단으로 
-      msgbox.value.value = '';  // 입력창 비우기
-      msgbox.value.style.height = "";
-      msgbox.value.focus();  // 입력창 포커싱
     },500)  ;
   });
 }
