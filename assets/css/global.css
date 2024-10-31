@@ -112,6 +112,7 @@ html.is-lock {height: 100%;width: 100%;overflow: hidden;position: fixed;}
 .ui-alert>.pbd>.phd{display:none;padding: 1rem 1.25rem 0rem 1.25rem;box-sizing:border-box;background-color:#fff;text-align: center;font-size: 1rem;font-weight: 700;margin-bottom: -17rem;}
 .ui-alert>.pbd>.phd .ptit{font-weight: 700;font-size:1rem;color: #333333;}
 .ui-alert>.pbd>.phd.is-tit{display: inline-block; width: 100%;}
+.ui-alert>.pbd>.phd.is-tit+.pct{padding-top: 1.6rem;}
 .ui-alert>.pbd>.pct{overflow:auto;padding: 1.875rem 1.25rem 1.875rem 1.25rem;text-align:center;font-size: 0.9375rem;color: #000000;line-height: 1.5;min-height: 6.375rem;display: flex;justify-content: center;align-items: center;}
 .ui-alert>.pbd>.pct .msg{word-break: break-all;}
 .ui-alert>.pbd>.pct p{}

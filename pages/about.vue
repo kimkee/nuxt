@@ -57,16 +57,17 @@ const color = (hex)=>{
             }
           );
         }">알럿</button>
-        <button class="btn" @click="() => {
-          $ui.confirm('공통 컨펌창 UI 입니다.',{
+        <button class="btn" 
+          @click="() => {
+            $ui.confirm('공통 컨펌창 UI 입니다. <br>공통 컨펌창 UI 입니다. <br>공통 컨펌창 UI 입니다.',{
               tit : '타이틀',
               ybt : '확인',
               nbt : '취소',
               ycb : ()=>{ console.log('컨펌확인') },
               ncb : ()=>{ console.log('컨펌취소') }
             })
-
-        }">컨펌</button>
+          }"
+        >컨펌</button>
       </p>
       <p class="grid grid-flow-col gap-4">
         <button class="btn btn-xs">버튼 btn-xs</button>
@@ -94,16 +95,19 @@ const color = (hex)=>{
         <button class="btn btn-xl">버튼 btn-xl</button>
         <button class="btn btn-xl btn-primary">버튼 btn-xl</button>
       </p>
-      <p class="text-xt">text-xt - 11</p>
-      <p class="text-xs">text-xs - 12</p>
-      <p class="text-ss">text-ss - 13</p>
-      <p class="text-sm">text-sm - 14</p>
-      <p class="text-md">text-md - 15</p>
-      <p class="text-base">text-base - 16</p>
-      <p class="text-lg">text-lg - 18</p>
-      <p class="text-xl">text-xl - 20</p>
-      <p class="text-xx">text-xx - 22</p>
-      <p class="text-2xl">text-2xl - 24</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <p class="text-10">text-10 - 10</p>
+        <p class="text-xt">text-xt - 11</p>
+        <p class="text-xs">text-xs - 12</p>
+        <p class="text-ss">text-ss - 13</p>
+        <p class="text-sm">text-sm - 14</p>
+        <p class="text-md">text-md - 15</p>
+        <p class="text-base">text-base - 16</p>
+        <p class="text-lg">text-lg - 18</p>
+        <p class="text-xl">text-xl - 20</p>
+        <p class="text-xx">text-xx - 22</p>
+        <p class="text-2xl">text-2xl - 24</p>
+      </div>
     </div>
   </main>
 </template>
