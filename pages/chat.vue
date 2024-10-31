@@ -106,11 +106,8 @@ const chatWrite = async ()=>{
     },500)  ;
   });
 }
-const isMyChat = (chatID)=>{
-  console.log(user.value?.id === chatID);
-  
-  return user.value?.id === chatID
-}
+const isMyChat = (chatID) => user.value?.id === chatID ;
+
 </script>
 <template>
 
@@ -128,8 +125,15 @@ const isMyChat = (chatID)=>{
           <div class="name text-xt absolute -top-5 text-slate-500 dark:text-slate-400">
             {{chat.name}}
           </div>
-          <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute  top-0">
-            <img :src="`${chat.profile_picture || '/icon_app.png'}`" class="img block h-full bg-slate-500">
+          <a href="javascript:;" class="usr block w-8 h-8 absolute  top-0">
+            <img :src="`${chat.profile_picture || '/icon_app.png'}`" class="img block h-full bg-slate-500 rounded-full">
+            <i class="text-xt absolute -bottom-1 -right-1">
+              <IconProvider :provider="{ name: chat.provider, cate:'fab', class:`${
+                chat.provider =='kakao' ? 'text-yellow-300' : 'text-gray-500 dark:text-white/80'
+            } ${
+                chat.provider =='google' ? 'text-10' : 'text-xt'
+             }`}" />
+            </i>
           </a>
           <div class="msg  text-sm relative rounded-3xl drop-shadow-sm">
             <div 
