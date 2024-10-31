@@ -116,14 +116,22 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
 
   <main class="container flex-1 flex flex-col h-full relative !p-0">
     <div class="flex flex-col justify-end absolute left-0 top-0 right-0 bottom-0">
+
       <div 
         class="chat-view w-full flex-col justify-end p-4 pb-7 overflow-y-auto overflow-x-hidden" 
         ref="chatView"
       >
         
         <article 
-          v-for="chat in chatusers" :key="chat.id" :uid="`${chat.user_id}`" 
-          :class="`chmsg ${ isMyChat(chat.user_id) ? 'me' : 'op'} flex relative w-full`"
+          v-for="(chat, index) in chatusers" 
+          :key="chat.id" 
+          class="chmsg flex relative w-full"
+          :class="{
+            'me': isMyChat(chat.user_id),
+            'op': !isMyChat(chat.user_id),
+            'same': index > 0 && chat.user_id === chatusers[index - 1].user_id
+          }"
+          :uid="`${chat.user_id}`"
         >
           <div class="name text-xt absolute -top-5 text-slate-500 dark:text-slate-400">
             {{chat.name}}
@@ -138,9 +146,9 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
              }`}" />
             </i>
           </a>
-          <div class="msg  text-sm relative rounded-3xl drop-shadow-sm">
+          <div class="msg  text-sm relative drop-shadow-sm">
             <div 
-              class="txt text-sm p-3 px-4 max-w-100vh break-all" 
+              class="txt text-sm p-2 px-4 max-w-100vh break-all" 
               v-html="$ui.textHtml(chat.message,'incode')"
             ></div>
             <time class="tm absolute bottom-0 whitespace-nowrap mx-1 mt-1 space-x-1">
@@ -159,7 +167,7 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
           <div class="relative pl-14 pr-14 h-full pb-[11px] pt-[11px]">
             <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-4 bottom-[14px]">
               <img 
-                alt=""
+                :alt="user?.email"
                 class="img bg-gray-300/40 dark:bg-gray-300/30"
                 :src="user?.user_metadata?.avatar_url || '/img/user.png'"
                 @error="handleError"
@@ -193,19 +201,16 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
 
 /* 챗팅 */
 .chat-view{}
-.chat-view .chmsg{@apply mt-8;}
+.chat-view .chmsg{@apply mt-10;}
 .chat-view .chmsg+.chmsg{}
 .chat-view .chmsg .name{}
-.chat-view .chmsg .msg{
-  @apply bg-slate-200/50 dark:bg-slate-700;
-  max-width: calc(100vw - 11rem); 
-}
+.chat-view .chmsg .msg{ @apply bg-slate-200/50 dark:bg-slate-700 rounded-2xl;}
+.chat-view .chmsg .msg{ max-width: calc(100vw - 11rem); }
 
 /* 상대편 메시지 */
-.chat-view .chmsg.op{@apply pl-10; }
+.chat-view .chmsg.op{@apply pl-11; }
 .chat-view .chmsg.op + .chmsg.op.same .usr{}
 .chat-view .chmsg.op + .chmsg.op{}
-.chat-view .chmsg.op + .chmsg.op.same{ @apply mt-3;}
 .chat-view .chmsg.op + .chmsg.op .msg{}
 .chat-view .chmsg.op .usr{@apply left-0}
 .chat-view .chmsg.op .name{@apply left-10}
@@ -216,4 +221,9 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
 .chat-view .chmsg.me .msg{ @apply bg-green-200 dark:bg-[#41b883]  rounded-tr-none;  }
 .chat-view .chmsg.me .usr{@apply right-0}
 .chat-view .chmsg.me .name{@apply right-10 hidden}
+
+.chat-view .chmsg.same{ @apply mt-1;}
+.chat-view .chmsg.same .usr { @apply hidden;}
+.chat-view .chmsg.same .name { @apply hidden;}
+.chat-view .chmsg.same .msg { @apply rounded-2xl;}
 </style>
