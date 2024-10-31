@@ -26,7 +26,7 @@ const isBtnBack = computed(() => isBAckPath.includes(route.path));
           <img class="w-8 mr-1" src="~/assets/img/logo.svg" alt="dd">
           <span class="text-gray-600 dark:text-white font-bold text-2xl">Nuxton</span>
         </NuxtLink>
-        <button v-if="isBtnBack" @click="router.back(-1)" class="text-center py-1 -ml-2 inline-flex items-center text-2xl">
+        <button v-if="isBtnBack" @click="router.back(-1)" class="h-8 w-8 text-center py-1 -ml-2 inline-flex items-center justify-center text-2xl">
           <i><font-awesome :icon="['fas', 'arrow-left']" /></i>
         </button>
       </div>

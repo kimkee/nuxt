@@ -41,7 +41,7 @@ const color = (hex)=>{
 </script>
 <template>
   <main class="container flex-1 items-center justify-center flex flex-col">
-    <div class="flex flex-col items-center gap-6">
+    <div class="flex flex-col items-center gap-6 py-10">
       <h1 class="text-4xl">About</h1>
       <p>{{user?.name}}</p>
       <!-- <pre class="text-sm p-10 overflow-hidden w-[400px] ">{{JSON.stringify(user, null, 1)}}</pre> -->
