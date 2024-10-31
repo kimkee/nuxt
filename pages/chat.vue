@@ -2,10 +2,12 @@
 const props = defineProps(['user']);
 const user = ref(props.user || null);
 const supabase = useSupabaseClient();
+const router = useRouter();
+
 let realtimeChannel;
 
 const { data: chatusers, refresh: refreshProducts } = await useAsyncData('CHAT_ALL_USERS', async () => {
-  const { data, error } = await supabase.from('CHAT_ALL_USERS').select('*').order('id', { ascending: false });
+  const { data, error } = await supabase.from('CHAT_ALL_USERS').select('*').order('created_at', { ascending: true });
   if (error) console.log('Error fetching products:', error);
   return data;
 });
@@ -23,12 +25,14 @@ onMounted(() => {
       if (status === 'SUBSCRIBED') {
         console.log('Subscribed to CHAT_ALL_USERS changes');
       }
-    });    
+    });
+  chatView.value.scrollTop = chatView.value.scrollHeight;   
 });
 // Don't forget to unsubscribe when user leaves the page
 onUnmounted(() => {
   supabase.removeChannel(realtimeChannel);
 });
+
 const msgbox = ref(null);
 const autoHeight = ()=> { // 댓글에 자동높이 기능
   const $el = msgbox.value;
@@ -37,18 +41,94 @@ const autoHeight = ()=> { // 댓글에 자동높이 기능
     $el.style.height = $el.scrollHeight + 'px';
   }
 }
+
+const comFocus = ()=> { 
+  if (user.value?.email) { return; }
+  $ui.confirm("채팅은 로그인이 필요합니다.<br>로그인페이지로 이동하시겠습니까?", {
+    ycb: () => { router.push('/login'); return; },
+    ccb: () => { return; },
+    ybt: "예",
+    nbt: "아니오",
+  });
+}
+
+const chatView = ref(null);
+const chatWrite = async ()=>{
+
+  console.log(`입력-${msgbox.value.value.trim()}-`);
+  console.table(
+      { 
+        user_id: user.value?.id,
+        email: user.value?.email,
+        name: user.value?.user_metadata.full_name || user.value?.user_metadata.user_name,
+        message: $ui.textHtml( msgbox.value.value , "incode"),
+        created_at: new Date().toISOString(),
+        provider: user.value?.app_metadata.provider,
+        profile_picture: user.value?.user_metadata.avatar_url, 
+      }
+  );
+  
+  if (msgbox.value.value.trim() == '') {
+    $ui.alert("댓글을 입력하세요", {
+      ycb: () => {
+        msgbox.value.value = '';
+        msgbox.value.focus();
+      }
+    });
+    return;
+  }
+  const { data, error } = await supabase
+    .from('CHAT_ALL_USERS')
+    .insert([
+      { 
+        user_id: user.value?.id,
+        email: user.value?.email,
+        name: user.value?.user_metadata.full_name,
+        message: $ui.textHtml( msgbox.value.value , "incode"),
+        created_at: new Date().toISOString(),
+        provider: user.value?.app_metadata.provider,
+        profile_picture: user.value?.user_metadata.avatar_url, 
+      },
+    ])
+    .select('*')
+  if (error) {
+    console.error("데이터 입력 에러 Error inserting data:", error.message);
+  } else {
+    console.log("데이터 입력 성공 Data inserted successfully:", data);
+  }
+  
+  await nextTick(() => {
+    window.setTimeout(()=>{
+      chatView.value.scrollTop = chatView.value.scrollHeight;  //  스크롤창 맨 하단으로 
+      msgbox.value.value = '';  // 입력창 비우기
+      msgbox.value.style.height = "";
+      msgbox.value.focus();  // 입력창 포커싱
+    },500)  ;
+  });
+}
+const isMyChat = (chatID)=>{
+  console.log(user.value?.id === chatID);
+  
+  return user.value?.id === chatID
+}
 </script>
 <template>
 
   <main class="container flex-1 flex flex-col h-full relative !p-0">
     <div class="flex flex-col justify-end absolute left-0 top-0 right-0 bottom-0">
-      <div class="chat-view w-full flex-col justify-end p-4 pb-7 overflow-y-auto overflow-x-hidden">
+      <div 
+        class="chat-view w-full flex-col justify-end p-4 pb-7 overflow-y-auto overflow-x-hidden" 
+        ref="chatView"
+      >
         
-        <article  v-for="chat in chatusers" :key="chat.id" class="chmsg op flex relative w-full">
+        <article 
+          v-for="chat in chatusers" :key="chat.id" :uid="`${chat.user_id}`" 
+          :class="`chmsg ${ isMyChat(chat.user_id) ? 'me' : 'op'} flex relative w-full`"
+        >
           <div class="name text-xt absolute -top-5 text-slate-500 dark:text-slate-400">
             {{chat.name}}
           </div>
-          <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-0 top-0">
+          <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute  top-0">
             <img :src="`${chat.profile_picture || '/icon_app.png'}`" class="img block h-full bg-slate-500">
           </a>
           <div class="msg  text-sm relative rounded-3xl drop-shadow-sm">
@@ -56,30 +136,19 @@ const autoHeight = ()=> { // 댓글에 자동높이 기능
               class="txt text-sm p-3 px-4 max-w-100vh break-all" 
               v-html="$ui.textHtml(chat.message,'incode')"
             ></div>
-            <time class="tm absolute left-full bottom-0 whitespace-nowrap mx-1 mt-1 space-x-1">
+            <time class="tm absolute bottom-0 whitespace-nowrap mx-1 mt-1 space-x-1">
               <i class="text-10 text-slate-500 dark:text-slate-400">
                 {{$ui.timeForm(chat.created_at,true)}}
               </i>
             </time>
           </div>
         </article>
-        <article  class="chmsg me flex justify-end relative w-full">
-          <div class="name text-xt absolute -top-5 text-slate-500 dark:text-slate-400">
-            홍길동
-          </div>
-          <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute right-0 top-0"><img src="https://cdn-icons-png.flaticon.com/128/1154/1154473.png" class="img dsfsd"></a>
-          <div class="msg  text-sm relative rounded-3xl drop-shadow-sm">
-            <div class="txt text-sm p-3 px-4 max-w-100vh break-all">동해 물과 백두산이 마르고 닳도록</div>
-            <time class="tm absolute right-full bottom-0 whitespace-nowrap mx-1 mt-1 space-x-1">
-              <i class="text-10 text-slate-500 dark:text-slate-400">방금 전</i>
-            </time>
-          </div>
-        </article>
+        
       </div>
 
 
-      <div class="min-h-16 box-content">
-        <div class="min-h-16 box-content safe-bottom-pd border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
+      <div class="box-content">
+        <div class="min-h-16 -mt-[1px] box-content safe-bottom-pd border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
           <div class="relative pl-14 pr-14 h-full pb-[11px] pt-[11px]">
             <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-4 bottom-[14px]">
               <img 
@@ -95,10 +164,14 @@ const autoHeight = ()=> { // 댓글에 자동높이 기능
                 class="w-full h-5 max-h-20 text-sm inline-flex align-middle outline-none bg-transparent resize-none"
                 ref="msgbox"
                 @input="autoHeight"
+                @focus="comFocus"
               ></textarea>
             </div>
             <div class="bts absolute right-4 bottom-[14px]">
-              <button class="h-8 w-8 rounded-full bg-gray-400 dark:bg-[#41b883] text-white">
+              <button 
+                class="h-8 w-8 rounded-full bg-gray-400 dark:bg-[#41b883] disabled:opacity-50 text-white"
+                :disabled="(user?.email) ? false : true" @click="chatWrite"
+              >
                 <i><font-awesome class="-scale-x-100" :icon="['fas', 'paper-plane']" /></i>
               </button>
             </div>
@@ -127,11 +200,13 @@ const autoHeight = ()=> { // 댓글에 자동높이 기능
 .chat-view .chmsg.op + .chmsg.op{}
 .chat-view .chmsg.op + .chmsg.op.same{ @apply mt-3;}
 .chat-view .chmsg.op + .chmsg.op .msg{}
-.chat-view .chmsg.op .usr{}
+.chat-view .chmsg.op .usr{@apply left-0}
 .chat-view .chmsg.op .name{@apply left-10}
 .chat-view .chmsg.op .msg{@apply rounded-tl-none}
-.chat-view .chmsg.op .tm{}
-.chat-view .chmsg.me{@apply pr-10 mt-6; }
+.chat-view .chmsg.op .tm{@apply left-full}
+.chat-view .chmsg.me{@apply pr-10 mt-6 justify-end; }
+.chat-view .chmsg.me .tm{@apply right-full}
 .chat-view .chmsg.me .msg{ @apply bg-green-200 dark:bg-[#41b883]  rounded-tr-none;  }
+.chat-view .chmsg.me .usr{@apply right-0}
 .chat-view .chmsg.me .name{@apply right-10 hidden}
 </style>
