@@ -12,21 +12,24 @@ const { data: chatusers, refresh: refreshProducts } = await useAsyncData('CHAT_A
   return data;
 });
 console.log(user);
-
+const scrollDownChat = ()=>{
+  window.setTimeout(()=> chatView.value.scrollTop = chatView.value.scrollHeight, 100);
+}
 onMounted(() => {
   // Real time listener for products table
   realtimeChannel = supabase.channel('public:CHAT_ALL_USERS')
     .on('postgres_changes', { event: '*', schema: 'public', table: 'CHAT_ALL_USERS' }, () => {
       refreshProducts();
-      console.log("fdssdffsd");
-      
+      console.log("CHAT_ALL_USERS 업데이트");
+      scrollDownChat()
     })
     .subscribe((status) => {
       if (status === 'SUBSCRIBED') {
         console.log('Subscribed to CHAT_ALL_USERS changes');
+        scrollDownChat()
       }
     });
-  chatView.value.scrollTop = chatView.value.scrollHeight;   
+  
 });
 // Don't forget to unsubscribe when user leaves the page
 onUnmounted(() => {
@@ -100,11 +103,11 @@ const chatWrite = async ()=>{
   msgbox.value.focus();  // 입력창 포커싱
   msgbox.value.value = '';  // 입력창 비우기
   msgbox.value.style.height = "";
-  await nextTick(() => {
-    window.setTimeout(()=>{
-      chatView.value.scrollTop = chatView.value.scrollHeight;  //  스크롤창 맨 하단으로 
-    },500)  ;
-  });
+  // await nextTick(() => {
+  //   window.setTimeout(()=>{
+  //     chatView.value.scrollTop = chatView.value.scrollHeight;  //  스크롤창 맨 하단으로 
+  //   },500)  ;
+  // });
 }
 const isMyChat = (chatID) => user.value?.id === chatID ;
 
