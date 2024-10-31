@@ -100,6 +100,32 @@ i.ico{
     }
 }
 
+body.is-lock{height: 100%;overflow-y:initial;padding-right: var(--scrPad);}
+html.is-lock {height: 100%;width: 100%;overflow: hidden;position: fixed;}
+
+
+
+/* 팝업 알럿 */
+.ui-alert{white-space:nowrap;position:fixed;left:0rem;right:0rem;top:0rem;bottom:0;text-align:center;z-index:1500;background-color: rgba(0,0,0,0.5);outline:none; padding: 0rem 0rem calc(20vh + var(--safe-bottom)) 0rem}
+.ui-alert>.pbd{display:inline-block;max-width: 19.75rem;min-width: 19.75rem;vertical-align:bottom;text-align:left;position:relative;white-space:normal;z-index:200;background-color: #ffffff;border-radius: 1rem;overflow: hidden;box-shadow: rgba(0,0,0,0.2) 2rem 2rem 7rem;}
+.ui-alert:after{content:''; width:0; height:100%; display:inline-block; vertical-align:middle;}
+.ui-alert>.pbd>.phd{display:none;padding: 1rem 1.25rem 0rem 1.25rem;box-sizing:border-box;background-color:#fff;text-align: center;font-size: 1rem;font-weight: 700;margin-bottom: -17rem;}
+.ui-alert>.pbd>.phd .ptit{font-weight: 700;font-size:1rem;color: #333333;}
+.ui-alert>.pbd>.phd.is-tit{display: inline-block; width: 100%;}
+.ui-alert>.pbd>.pct{overflow:auto;padding: 1.875rem 1.25rem 1.875rem 1.25rem;text-align:center;font-size: 0.9375rem;color: #000000;line-height: 1.5;min-height: 6.375rem;display: flex;justify-content: center;align-items: center;}
+.ui-alert>.pbd>.pct .msg{word-break: break-all;}
+.ui-alert>.pbd>.pct p{}
+.ui-alert>.pbd>.pct .under{}
+.ui-alert>.pbd>.pct b{color: #f0344d;font-weight: 700;}
+.ui-alert>.pbd>.pbt{padding: 0rem 0rem 0rem 0rem;box-sizing:border-box;text-align:center;display: flex;}
+.ui-alert>.pbd>.pbt .btn {flex-shrink:1; width:100%;border-radius: 0rem;border: #33445c 0rem solid; box-shadow: none;  background: #33445c;color: #ffffff;height: 3.25rem;font-weight: 400;}
+.ui-alert>.pbd>.pbt .btn.btn-confirm:active{border-color: #898c9d;background-color: #898c9d;}
+.ui-alert>.pbd>.pbt .btn:disabled{border-color:#cccedb; background-color:#cccedb;}
+.ui-alert>.pbd>.pbt .btn-cancel{background: #aeb0bd;border: #aeb0bd 1rem solid;}
+.ui-alert>.pbd>.pbt .btn.btn-cancel:active{border-color:#898c9d; background-color:#898c9d;}
+.ui-alert>.pbd .btn-close{width: 24rem;height: 24rem;position:absolute;right: 10rem;top: 10rem;font-size: 1.125rem;overflow:hidden;}
+
+
 ::-webkit-scrollbar{  width:10px;  height:10px;}
 ::-webkit-scrollbar-track{background-color: #ededed;}
 ::-webkit-scrollbar-corner{background-color: transparent;}

@@ -49,6 +49,24 @@ const color = (hex)=>{
       <p class="grid grid-flow-col gap-2">
         <button class="btn" @click="copyToClipboard">복사</button>
         <button class="btn" @click="() => color('#FFFFFF')">#FFFFFF</button>
+        <button class="btn" @click="() => {
+          $ui.alert('공통 알럿창 UI 입니다.',{
+              tit : '타이틀',
+              ybt : '확인',
+              ycb : ()=>{ console.log('알럿확인') }
+            }
+          );
+        }">알럿</button>
+        <button class="btn" @click="() => {
+          $ui.confirm('공통 컨펌창 UI 입니다.',{
+              tit : '타이틀',
+              ybt : '확인',
+              nbt : '취소',
+              ycb : ()=>{ console.log('컨펌확인') },
+              ncb : ()=>{ console.log('컨펌취소') }
+            })
+
+        }">컨펌</button>
       </p>
       <p class="grid grid-flow-col gap-4">
         <button class="btn btn-xs">버튼 btn-xs</button>
