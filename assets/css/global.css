@@ -57,7 +57,7 @@ a, button, input {
 .safe-bottom-mg{margin-bottom: var(--safe-bottom);}
 
 .container{  
-    @apply px-6 py-4 my-auto max-w-full;
+    @apply px-6 py-4 my-auto !max-w-full m-auto;
 }
 
 i.ico{
