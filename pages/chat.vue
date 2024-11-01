@@ -107,7 +107,7 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
         @scroll="$event.target.classList.add('ing-scroll')"
         @scrollend="$event.target.classList.remove('ing-scroll')"
       >
-        <div v-if="!chatusers">로딩중</div>
+        <div v-if="!chatusers"><Loading :opts="{class:'full'}" /></div>
         <article v-else
           v-for="(chat, index) in chatusers" 
           :key="chat.id" 
