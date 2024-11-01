@@ -29,7 +29,7 @@ onMounted(() => {
         scrollDownChat()
       }
     });
-  
+  scrollDownChat()
 });
 // Don't forget to unsubscribe when user leaves the page
 onUnmounted(() => {
@@ -59,17 +59,6 @@ const chatView = ref(null);
 const chatWrite = async ()=>{
 
   console.log(`입력-${msgbox.value.value.trim()}-`);
-  console.table(
-      { 
-        user_id: user.value?.id,
-        email: user.value?.email,
-        name: user.value?.user_metadata.full_name || user.value?.user_metadata.user_name,
-        message: $ui.textHtml( msgbox.value.value , "incode"),
-        created_at: new Date().toISOString(),
-        provider: user.value?.app_metadata.provider,
-        profile_picture: user.value?.user_metadata.avatar_url, 
-      }
-  );
   
   if (msgbox.value.value.trim() == '') {
     $ui.alert("댓글을 입력하세요", {
@@ -80,34 +69,31 @@ const chatWrite = async ()=>{
     });
     return;
   }
+  const insertData = { 
+    user_id: user.value?.id,
+    email: user.value?.email,
+    name: user.value?.user_metadata.full_name || user.value?.user_metadata.user_name,
+    message: $ui.textHtml( msgbox.value.value , "incode"),
+    created_at: new Date().toISOString(),
+    provider: user.value?.app_metadata.provider,
+    profile_picture: user.value?.user_metadata.avatar_url, 
+  }
+  console.table(insertData);
+  
   const { data, error } = await supabase
     .from('CHAT_ALL_USERS')
-    .insert([
-      { 
-        user_id: user.value?.id,
-        email: user.value?.email,
-        name: user.value?.user_metadata.full_name,
-        message: $ui.textHtml( msgbox.value.value , "incode"),
-        created_at: new Date().toISOString(),
-        provider: user.value?.app_metadata.provider,
-        profile_picture: user.value?.user_metadata.avatar_url, 
-      },
-    ])
+    .insert([ insertData ])
     .select('*')
   if (error) {
     console.error("데이터 입력 에러 Error inserting data:", error.message);
   } else {
-    console.log("데이터 입력 성공 Data inserted successfully:", data);
+    console.table("데이터 입력 성공 Data inserted successfully:");
+    console.table(data[0]);
   }
-  
+ 
   msgbox.value.focus();  // 입력창 포커싱
   msgbox.value.value = '';  // 입력창 비우기
-  msgbox.value.style.height = "";
-  // await nextTick(() => {
-  //   window.setTimeout(()=>{
-  //     chatView.value.scrollTop = chatView.value.scrollHeight;  //  스크롤창 맨 하단으로 
-  //   },500)  ;
-  // });
+  msgbox.value.style.height = ""; // 입력창 높이리셋
 }
 const isMyChat = (chatID) => user.value?.id === chatID ;
 
@@ -117,10 +103,7 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
   <main class="container flex-1 flex flex-col h-full relative !p-0">
     <div class="flex flex-col justify-end absolute left-0 top-0 right-0 bottom-0">
 
-      <div 
-        class="chat-view w-full flex-col justify-end p-4 pb-7 overflow-y-auto overflow-x-hidden" 
-        ref="chatView"
-      >
+      <div ref="chatView" class="chat-view w-full h-full p-4 pb-7 overflow-y-auto overflow-x-hidden">
         
         <article 
           v-for="(chat, index) in chatusers" 
@@ -161,7 +144,6 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
         
       </div>
 
-
       <div class="box-content">
         <div class="min-h-16 -mt-[1px] box-content safe-bottom-pd border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
           <div class="relative pl-14 pr-14 h-full pb-[11px] pt-[11px]">
@@ -193,6 +175,7 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
           </div>
         </div>
       </div>
+
     </div>  
   </main>
 </template>
