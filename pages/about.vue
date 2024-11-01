@@ -44,9 +44,11 @@ const color = (hex)=>{
       <!-- <pre class="text-sm p-10 overflow-hidden w-[400px] ">{{JSON.stringify(user, null, 1)}}</pre> -->
       <GithubButtons />
       
-      <p><IconProvider :provider="{ name:'google', cate:'fab', class:'abc def'}" /></p>
-      <p><IconProvider :provider="{ name:'github', cate:'fab', class:'abc def'}" /></p>
-      <p><IconProvider :provider="{ name:'kakao', cate:'fas', class:'text-yellow-300 dark:text-white'}" /></p>
+      <p class="flex gap-3">
+        <IconProvider :provider="{ name:'google', cate:'fab', class:'abc def'}" />
+        <IconProvider :provider="{ name:'github', cate:'fab', class:'abc def'}" />
+        <IconProvider :provider="{ name:'kakao', cate:'fas', class:'text-yellow-300 dark:text-white'}" />
+      </p>
 
       <p class="grid grid-flow-col gap-2">
         <button class="btn" @click="copyToClipboard">복사</button>
