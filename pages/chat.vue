@@ -103,7 +103,9 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
   <main class="container flex-1 flex flex-col h-full relative !p-0">
     <div class="flex flex-col justify-end absolute left-0 top-0 right-0 bottom-0">
 
-      <div ref="chatView" class="chat-view w-full h-full p-4 pb-7 overflow-y-auto overflow-x-hidden">
+      <div ref="chatView" class="chat-view w-full h-full p-4 pb-7 overflow-y-auto overflow-x-hidden" 
+        @scroll="$event.target.classList.add('ing-scroll')"
+        @scrollend="$event.target.classList.remove('ing-scroll')">
         
         <article 
           v-for="(chat, index) in chatusers" 
@@ -157,7 +159,7 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
             </a>
             <div class="form p-[6px] px-3 pr-1 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
               <textarea
-                :placeholder="`${user?.email ? '메시지를 입력해주세요' : '로그인이 필요합니다'}`"
+                :placeholder="`메시지를 입력해주세요`"
                 class="w-full h-5 max-h-20 text-sm inline-flex align-middle outline-none bg-transparent resize-none"
                 ref="msgbox"
                 @input="autoHeight"
@@ -209,4 +211,8 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
 .chat-view .chmsg.same .usr { @apply hidden;}
 .chat-view .chmsg.same .name { @apply hidden;}
 .chat-view .chmsg.same .msg { @apply rounded-2xl;}
+
+.chat-view::-webkit-scrollbar-thumb{background-color: transparent; transition:background-color 1.4s ;}
+.chat-view.ing-scroll::-webkit-scrollbar-thumb{background-color: #00000044; transition:background-color 1.4s ;}
+.dark .chat-view.ing-scroll::-webkit-scrollbar-thumb{background-color: #ffffff22; transition:background-color 1.4s ;}
 </style>
