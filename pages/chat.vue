@@ -103,7 +103,7 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
   <main class="container flex-1 flex flex-col h-full relative !p-0">
     <div class="flex flex-col justify-end absolute left-0 top-0 right-0 bottom-0">
 
-      <div ref="chatView" class="chat-view w-full h-full p-4 pb-7 overflow-y-auto overflow-x-hidden" 
+      <div ref="chatView" class="chat-view w-full h-full p-4 pb-7 overflow-y-auto overflow-x-hidden"
         @scroll="$event.target.classList.add('ing-scroll')"
         @scrollend="$event.target.classList.remove('ing-scroll')"
       >
