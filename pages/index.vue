@@ -1,5 +1,5 @@
 <script setup>
-import GithubButton from "./components/GithuButton.vue";
+
 useSeoMeta({
   title: '넉스토어:Nuxtore',
   ogTitle: 'My Amazing Site',
@@ -21,7 +21,7 @@ useSeoMeta({
       </p>
 
       <p class="text-lg text-gray-500 leading-10 mt-6">
-        <GithubButton />
+        <GithubButtons />
       </p>
     </div>
   </main>

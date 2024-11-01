@@ -1,7 +1,4 @@
 <script setup>
-import GithubButton from "./components/GithuButton.vue";
-
-
 const props = defineProps(['user']);
 const user = ref(props.user || null);
 
@@ -45,7 +42,7 @@ const color = (hex)=>{
       <h1 class="text-4xl">About</h1>
       <p>{{user?.name}}</p>
       <!-- <pre class="text-sm p-10 overflow-hidden w-[400px] ">{{JSON.stringify(user, null, 1)}}</pre> -->
-      <GithubButton />
+      <GithubButtons />
       
       <p><IconProvider :provider="{ name:'google', cate:'fab', class:'abc def'}" /></p>
       <p><IconProvider :provider="{ name:'github', cate:'fab', class:'abc def'}" /></p>
