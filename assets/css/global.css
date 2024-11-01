@@ -128,6 +128,7 @@ html.is-lock {height: 100%;width: 100%;overflow: hidden;position: fixed;}
 .ui-alert>.pbd .btn-close{width: 24rem;height: 24rem;position:absolute;right: 10rem;top: 10rem;font-size: 1.125rem;overflow:hidden;}
 
 
+
 ::-webkit-scrollbar{  width:10px;  height:10px;}
 ::-webkit-scrollbar-track{background-color: #ededed;}
 ::-webkit-scrollbar-corner{background-color: transparent;}

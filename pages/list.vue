@@ -1,4 +1,6 @@
 <script setup>
+
+
 const config = useRuntimeConfig();
 const SUPABASE_URL = config.public.SUPABASE_URL;
 const supabase = useSupabaseClient()
@@ -29,45 +31,27 @@ if (process.env.NODE_ENV === 'development') {
     
     <div class="mb-3 flex justify-between items-center">
       <div class=""><i class="mr-2"><font-awesome :icon="['fas', 'bars']" /></i> <span class="text-sm">Total : {{products.length}}</span> </div>
-      <div class="">
-        <button @click="()=>{
-          products.unshift({
-              'title': '무선 라우터',
-              'description': 'Netgear Nighthawk AX12 Wi-Fi 6',
-              'price': 350000,
-              'category': '네트워크 장비',
-              'condition': '중고',
-              'location': '울산',
-              'images': '[Image of Netgear Nighthawk AX12]',
-              'created_at': '2023-09-09T00:00:00+00:00',
-              'updated_at': '2023-09-10T00:00:00+00:00',
-              'status': '판매중',
-              'images_url': [
-                  '/storage/v1/object/public/products/goods_2.jpg',
-                  '/storage/v1/object/public/products/goods_6.jpg'
-              ],
-              'user_id': null,
-              'id': 43,
-              'location_id': '8',
-              'condition_id': '2',
-              'category_id': '1',
-              'status_id': '1'
-          })
-        }"
-        class="btn btn-sm">추가</button>
-      </div>
+      <div class=""></div>
     </div>
-    <ul class="grid grid-cols-3 gap-4">
+    
+    <div v-if="products === undefined">
+      <Loading :opts="{class:'full'}" />
+    </div>
+    <ul v-else-if="products && products.length > 0" class="grid grid-cols-3 gap-4">
       <li v-for="item in products" :key="item.id" class="relative">
         <div class="relative pb-[100%] block overflow-hidden rounded-md border dark:border-transparent">
-          <!-- <img :src="SUPABASE_URL+item.images_url[0]" :alt="item.title" class="h-full w-full object-cover absolute left-0 top-0"> -->
           <NuxtImg :src="SUPABASE_URL+item.images_url[0]" format="webp" :alt="item.title" class="h-full w-full object-cover absolute left-0 top-0" />
         </div>
-        <!-- <span class="absolute right-2 bottom-2 text-xs">{{ item.id }}</span> -->
         <h1 class="text-sm mt-3 leading-tight line-clamp-2"> {{ item.title }}</h1> 
         <p class="text-sm line-clamp-2 mt-1 font-['Spoqa_Han_Sans_Neo']">{{ $ui.commas.add(item.price) }} <i class="text-2xs">원</i></p>
       </li>
     </ul>
+    <div v-else>상품이 없습니다.</div>
+
+
+
+
+
     <h1 class="font-['Roboto']        font-normal text-xl">NuxT - 넉스트률걁 - 0123456</h1>
     <h1 class="font-['Noto_Sans_KR']  font-normal text-xl">NuxT - 넉스트률걁 - 0123456</h1>
     <h1 class="font-['Spoqa_Han_Sans_Neo']  font-normal text-xl">NuxT - 넉스트률걁 - 0123456</h1>

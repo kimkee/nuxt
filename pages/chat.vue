@@ -105,9 +105,10 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
 
       <div ref="chatView" class="chat-view w-full h-full p-4 pb-7 overflow-y-auto overflow-x-hidden" 
         @scroll="$event.target.classList.add('ing-scroll')"
-        @scrollend="$event.target.classList.remove('ing-scroll')">
-        
-        <article 
+        @scrollend="$event.target.classList.remove('ing-scroll')"
+      >
+        <div v-if="!chatusers">로딩중</div>
+        <article v-else
           v-for="(chat, index) in chatusers" 
           :key="chat.id" 
           class="chmsg flex relative w-full"
@@ -126,9 +127,10 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
             <i class="text-xt absolute -bottom-1 -right-1">
               <IconProvider :provider="{ name: chat.provider, cate:'fab', class:`${
                 chat.provider =='kakao' ? 'text-yellow-300' : 'text-gray-500 dark:text-white/80'
-            } ${
+                } ${
                 chat.provider =='google' ? 'text-10' : 'text-xt'
-             }`}" />
+                }`}"
+              />
             </i>
           </a>
           <div class="msg  text-sm relative drop-shadow-sm">
