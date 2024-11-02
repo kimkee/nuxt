@@ -1,5 +1,5 @@
 <script setup>
-useSeoMeta({ title: '로그인 | 넉스트:Nuxt' })
+useSeoMeta({ title: '로그인 | 넉스톤:Nuxton' })
 const config = useRuntimeConfig();
 const SITE_URL = config.public.SITE_URL;
 const supabase = useSupabaseClient()

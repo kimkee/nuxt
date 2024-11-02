@@ -1,5 +1,5 @@
 <script setup>
-useSeoMeta({ title: '넉스트:Nuxt' })
+useSeoMeta({ title: '넉스톤:Nuxton' })
 </script>
 
 <template>

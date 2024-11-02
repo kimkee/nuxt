@@ -1,5 +1,5 @@
 <script setup>
-useSeoMeta({ title: 'LIST | 넉스트:Nuxt' })
+useSeoMeta({ title: 'LIST | 넉스톤:Nuxton' })
 const config = useRuntimeConfig();
 const SUPABASE_URL = config.public.SUPABASE_URL;
 const supabase = useSupabaseClient()

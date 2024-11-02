@@ -1,5 +1,5 @@
 <script setup>
-useSeoMeta({ title: '회원정보 | 넉스트:Nuxt' })
+useSeoMeta({ title: '회원정보 | 넉스톤:Nuxton' })
 
 const supabase = useSupabaseClient()
 const router = useRouter();

@@ -1,5 +1,5 @@
 <script setup>
-useSeoMeta({ title: 'ABOUT | 넉스트:Nuxt' })
+useSeoMeta({ title: 'ABOUT | 넉스톤:Nuxton' })
 
 const props = defineProps(['user']);
 const user = ref(props.user || null);
