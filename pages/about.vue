@@ -1,7 +1,8 @@
 <script setup>
+useSeoMeta({ title: 'ABOUT | 넉스트:Nuxt' })
+
 const props = defineProps(['user']);
 const user = ref(props.user || null);
-
 
 const copyToClipboard = () => {
   navigator.clipboard.writeText('kkkk')
@@ -31,9 +32,6 @@ const luminance = hexToLuminance('#777777');
 const color = (hex)=>{
   alert( `명도 수치는  ${hexToLuminance(hex)}  % 입니다.`)
 }
-
-
-
 
 </script>
 <template>

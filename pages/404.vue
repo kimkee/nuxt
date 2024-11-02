@@ -1,5 +1,5 @@
 <script setup>
-
+useSeoMeta({ title: '넉스트:Nuxt' })
 </script>
 
 <template>

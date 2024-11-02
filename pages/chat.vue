@@ -1,4 +1,5 @@
 <script setup >
+useSeoMeta({ title: 'CHAT | 넉스트:Nuxt' })
 const props = defineProps(['user']);
 const user = ref(props.user || null);
 const supabase = useSupabaseClient();

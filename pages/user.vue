@@ -1,6 +1,6 @@
 <script setup>
-// import { useRouter } from 'vue-router';
-// import { useSupabaseClient, useSupabaseUser } from '@supabase/auth-helpers-nuxt';
+useSeoMeta({ title: '회원정보 | 넉스트:Nuxt' })
+
 const supabase = useSupabaseClient()
 const router = useRouter();
 const user = useSupabaseUser(); 

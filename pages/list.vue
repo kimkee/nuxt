@@ -1,6 +1,5 @@
 <script setup>
-
-
+useSeoMeta({ title: 'LIST | 넉스트:Nuxt' })
 const config = useRuntimeConfig();
 const SUPABASE_URL = config.public.SUPABASE_URL;
 const supabase = useSupabaseClient()
@@ -44,10 +43,6 @@ if (process.env.NODE_ENV === 'development') {
         <p class="text-sm line-clamp-2 mt-1 font-['Spoqa_Han_Sans_Neo']">{{ $ui.commas.add(item.price) }} <i class="text-2xs">원</i></p>
       </li>
     </ul>
-
-
-
-
 
   </main>
 </template>
