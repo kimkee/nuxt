@@ -1,10 +1,11 @@
 <script setup>
 useSeoMeta({
   title: '넉스트:Nuxt',
-  ogTitle: 'My Amazing Site',
-  description: 'This is my amazing site, let me tell you all about it.',
-  ogDescription: 'This is my amazing site, let me tell you all about it.',
-  ogImage: 'https://example.com/image.png',
+  ogTitle: '넉스트:Nuxt',
+  description: 'Nuxt.js PWA 앱',
+  ogDescription: 'Nuxt.js PWA 앱',
+  ogImage: 'https://nuxton.pages.dev/img/ogimage.png',
+  ogUrl: 'https://nuxton.pages.dev/',
   twitterCard: 'summary_large_image',
 })
 </script>

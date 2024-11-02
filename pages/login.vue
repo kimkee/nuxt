@@ -26,7 +26,7 @@ const signInWithKakao = async () => {
 };
 
 const signUpNewUser = async ()=> {
-  $ui.alert('준비중 입니다!')
+  $ui.alert('Email은 준비중 입니다! <br> 소셜 로그인을 이용해주세요')
   // const { data, error } = await supabase.auth.signUp({
   //   email: 'kimkeenet@daum.net',
   //   password: '123456',
