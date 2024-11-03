@@ -30,21 +30,19 @@ const ico_provider = ()=>{
 
 </script>
 <template>
-  <main class="container flex-1 items-start justify-start flex flex-col">
-    <div class="flex flex-col gap-6 py-6 items-start">
-      <div class="relative inline-flex">
+  <main class="container flex-1 items-center justify-center flex flex-col">
+    <div class="w-full flex flex-col gap-6 py-6 items-center justify-center text-center">
+      <div class="relative">
         <img :src="userInfo.user_metadata.avatar_url" alt="" class="h-20 rounded-full">
         <i class="text-base absolute right-0 bottom-0 bg-slate-400 rounded-full w-7 h-7 text-center flex  justify-center items-center">
           <IconProvider :provider="{ name: userInfo.app_metadata.provider, cate:'fab', class:`text-white`}" 
           />
         </i>
       </div>
-      <div class="grid gap-2 dark:text-gray-300">
-        <p class="flex items-center gap-2">
-          <span>계정 :</span> {{ userInfo.user_metadata.email }}  
-        </p>
-        <p class="flex items-center gap-2">이름 : {{ userInfo.user_metadata.name || userInfo.user_metadata.user_name }}</p>
-        <p class="flex items-center gap-2">가입 : {{userInfo.app_metadata.provider}} - {{ userInfo.created_at }} </p>
+      <div class="flex flex-col justify-center gap-2 dark:text-gray-300">
+        <p> {{ userInfo.user_metadata.email }} </p>
+        <p> {{ userInfo.user_metadata.name || userInfo.user_metadata.user_name }}</p>
+        <p> {{userInfo.app_metadata.provider}} - {{ userInfo.created_at }} </p>
       </div>
       <div class="mt-2">
         <button class="btn" @click="signOut">
@@ -52,7 +50,6 @@ const ico_provider = ()=>{
           <me>로그아웃</me>
         </button>
       </div>
-      
     </div>
   </main>
 </template>
