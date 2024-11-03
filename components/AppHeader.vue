@@ -1,5 +1,5 @@
 <script setup>
-const isBAckPath = ['/chat' ];
+const isBAckPath = ['/chat/room' ];
 
 // 현재 경로를 가져옵니다
 const route = useRoute();
