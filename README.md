@@ -2,7 +2,9 @@
 
 https://nuxton.pages.dev/
 
-![image](https://github.com/user-attachments/assets/94427cd4-189b-4367-944b-406761836fc8)
+![image](https://github.com/user-attachments/assets/413c4afc-f569-4acf-9266-b0020168f701)
+
+
 
 <img src="https://github.com/user-attachments/assets/a6a682a6-23c5-4cdc-9e54-b391c302fda6" width="50%">
 
