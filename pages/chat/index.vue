@@ -26,7 +26,7 @@ const router = useRouter();
               <font-awesome :icon="['fas', 'chevron-right']" class="absolute right-8 text-gray-700 dark:text-gray-400" />
             </NuxtLink>
           </li>
-          <li v-for="(room, index) in ['']" class="opacity-50">
+          <li v-for="(room, index) in []" class="opacity-50">
             <NuxtLink @click="$ui.alert('준비중')" class="border border-gray-300 shadow-sm dark:border-gray-700 bg-white/80 dark:bg-gray-800/70 p-3 flex rounded-xl gap-6 items-center relative">
               <div class="flex flex-wrap items-start border border-gray-300 dark:border-gray-800 w-16 h-16 rounded-xl p-2">
                 <img class=" w-1/2" src="/img/user.png">
