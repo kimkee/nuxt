@@ -42,7 +42,10 @@ const ico_provider = ()=>{
       <div class="flex flex-col justify-center gap-2 dark:text-gray-300">
         <p> {{ userInfo.user_metadata.email }} </p>
         <p> {{ userInfo.user_metadata.name || userInfo.user_metadata.user_name }}</p>
-        <p> {{userInfo.app_metadata.provider}} - {{ userInfo.created_at }} </p>
+        <div class="inline-flex gap-1"> 
+          <p class="first-letter:uppercase">{{userInfo.app_metadata.provider}}</p> - 
+          <p class="first-letter:uppercase">{{ $ui.dateForm(userInfo.created_at) }}</p>
+        </div>
       </div>
       <div class="mt-2">
         <button class="btn" @click="signOut">

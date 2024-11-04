@@ -9,6 +9,23 @@ const ui = {
     add: (str)=> str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','),
     del: (str)=> parseInt(str.replace(/,/g , '') || 0)
   },
+  dateForm: (date, opt = 'medium')=> {
+    date = new Date(date);
+    return new Intl.DateTimeFormat('ko-KR', { dateStyle: opt, timeStyle: opt }).format(date);
+  },
+  timeVer: function (params) {
+    const d = new Date();
+    let opt = Object.assign({
+        YY: d.getFullYear(),
+        MM: d.getMonth() + 1,
+        DD: d.getDate(),
+        HH: d.getHours(),
+        MN: d.getMinutes(),
+        SC: d.getSeconds(),
+    }, params);
+
+    return opt.YY + "" + opt.MM + "" + opt.DD + "" + opt.HH + "" + opt.MN + "" + opt.SC;
+  },
   timeForm: function (date, opt) {
     const start = new Date(date);
     const end = new Date(); // 현재 날짜
