@@ -7,7 +7,7 @@
 
 const props = defineProps(['user']);
 const user = ref(props.user);
-console.log(props.user);
+// console.log(props.user);
 
 </script>
 <template>
