@@ -15,7 +15,7 @@ body{
     background-position: 0px 0px;
     background-attachment : fixed ;
     background-color: #ffffff;
-    color: #334155;
+    color: #444444;
     transition: background-color 0.2s;
 
 }
@@ -24,7 +24,7 @@ em,i{
 }
 .dark body{
     background-color: #0d111b;
-    color: #ffffff;
+    color: #dddddd;
 }
 .border-custom {
     background-image: linear-gradient(0deg, #000000, #1c1c1c), linear-gradient(90deg, #00dc82, #1de0b1, #36e4da);
