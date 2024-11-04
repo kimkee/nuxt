@@ -15,25 +15,25 @@ const router = useRouter();
       <div class="overflow-y-auto">
         <ul class="grid grid-cols-1 p-6 py-8 gap-4">
           <li class="">
-            <NuxtLink :to="`./chat/room`" class="border border-gray-300 shadow-sm dark:border-gray-700 bg-white/80 dark:bg-gray-800/70 p-3 flex rounded-xl gap-6 items-center relative">
+            <NuxtLink :to="`./chat/room`" class="border border-gray-300 shadow-sm dark:border-gray-700 bg-white/80 dark:bg-gray-800/70 p-3 pr-8 flex rounded-xl gap-6 items-center relative">
               <div class="flex flex-wrap items-start border border-gray-300 dark:border-gray-800 w-16 h-16 rounded-xl p-2">
                 <img class=" w-1/2" src="/img/user.png">
                 <img class=" w-1/2" src="/img/user.png">
                 <img class=" w-1/2" src="/img/user.png">
                 <img class=" w-1/2" src="/img/user.png">
               </div>
-              <div class=" text-lg">All member chat room</div>
-              <font-awesome :icon="['fas', 'chevron-right']" class="absolute right-8 text-gray-700 dark:text-gray-400" />
+              <div class="text-lg leading-tight">All member chat room</div>
+              <font-awesome :icon="['fas', 'chevron-right']" class="absolute right-5 text-gray-700 dark:text-gray-400" />
             </NuxtLink>
           </li>
           <li v-for="(room, index) in []" class="opacity-50">
-            <NuxtLink @click="$ui.alert('준비중')" class="border border-gray-300 shadow-sm dark:border-gray-700 bg-white/80 dark:bg-gray-800/70 p-3 flex rounded-xl gap-6 items-center relative">
+            <NuxtLink @click="$ui.alert('준비중')" class="border border-gray-300 shadow-sm dark:border-gray-700 bg-white/80 dark:bg-gray-800/70 p-3 pr-8 flex rounded-xl gap-6 items-center relative">
               <div class="flex flex-wrap items-start border border-gray-300 dark:border-gray-800 w-16 h-16 rounded-xl p-2">
                 <img class=" w-1/2" src="/img/user.png">
                 <img class=" w-1/2" src="/img/user.png">
               </div>
-              <div class="  text-lg">{{room}} {{ index+1 }}</div>
-              <font-awesome :icon="['fas', 'chevron-right']" class="absolute right-8 text-gray-700 dark:text-gray-400" />
+              <div class="text-lg leading-tight">{{room}} {{ index+1 }}</div>
+              <font-awesome :icon="['fas', 'chevron-right']" class="absolute right-5 text-gray-700 dark:text-gray-400" />
             </NuxtLink>
           </li>
         </ul>
