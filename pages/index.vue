@@ -4,7 +4,7 @@ useSeoMeta({ })
 <template>
   <main class="container flex-1 items-center justify-center flex flex-col">
     <div class="flex flex-col  items-center justify-center py-6 text-center">
-      <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <h1 class="text-5xl font-bold tracking-tight text-gray-700 dark:text-white">
         The Intuitive<br>
         <span class="text-primary block lg:inline-block">Vue Framework</span>
       </h1>
@@ -23,7 +23,7 @@ useSeoMeta({ })
 .container {
   h1 {
     &:hover {
-      @apply text-yellow-500;
+      /* @apply text-yellow-500; */
     }
   }
 }
