@@ -111,7 +111,7 @@ const color = (hex)=>{
         <p class="text-2xl">text-2xl - 24</p>
       </div>
 
-      <div class="flex flex-wrap justify-center gap-4">
+      <div class="flex flex-wrap flex-col text-center justify-stretch w-full items-stretch gap-4">
         <h1 class="font-['Roboto']        font-normal text-xl">NuxT - 넉스트률걁 - 0123456</h1>
         <h1 class="font-['Noto_Sans_KR']  font-normal text-xl">NuxT - 넉스트률걁 - 0123456</h1>
         <h1 class="font-['Spoqa_Han_Sans_Neo']  font-normal text-xl">NuxT - 넉스트률걁 - 0123456</h1>
