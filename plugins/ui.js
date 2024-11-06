@@ -1,4 +1,8 @@
 const ui = {
+  init(){
+    console.log("ui.init");
+    document?.addEventListener("contextmenu",(e)=> e.preventDefault());
+  },
   greet(name) {
     alert(name)
   },
@@ -190,7 +194,7 @@ const ui = {
   },
 
 };
-
+ui.init();
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.provide('ui', ui);
   if (typeof window !== 'undefined') {
