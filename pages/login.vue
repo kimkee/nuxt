@@ -46,8 +46,8 @@ const signUpNewUser = async ()=> {
       <div class="my-4 text-center mb-7 relative before:absolute before:left-0 before:right-0 before:border-t before:border-gray-500/40 before:top-1/2 before:z-0 w-full">
         <em class="text-green-600 dark:text-green-400 relative px-2 z-1 bg-white dark:bg-[#0d111b]">로그인</em>
       </div>
-      <p class="text-xs mb-4">{{ SITE_URL  }}</p>
-      <div class="grid grid-cols-2 gap-4 w-full">
+      
+      <div class="grid grid-cols-1 gap-4 w-full">
         <button class="btn btn-lg" @click="signInWithOAuth('google')">
           <i><font-awesome :icon="['fab', 'google']" /></i>
           <em>Google</em>
@@ -60,11 +60,12 @@ const signUpNewUser = async ()=> {
           <i><font-awesome :icon="['fab', 'github']" /></i>
           <em>Github</em>
         </button>
-        <button class="btn btn-lg" @click="signUpNewUser()">
+        <!-- <button class="btn btn-lg" @click="signUpNewUser()">
           <i><font-awesome :icon="['fas', 'envelope']" /></i>
           <em>Email</em>
-        </button>
+        </button> -->
       </div>
+      <p class="text-xs mt-6">{{ SITE_URL  }}</p>
     </div>
   </main>
 </template>

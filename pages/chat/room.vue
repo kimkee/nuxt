@@ -155,7 +155,7 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
             <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-4 bottom-[14px]">
               <img 
                 :alt="user?.email"
-                class="img bg-gray-300/40 dark:bg-gray-300/30"
+                class="img w-8 h-8 bg-gray-300/40 dark:bg-gray-300/30"
                 :src="user?.user_metadata?.avatar_url || '/img/user.png'"
                 @error="handleError"
               >

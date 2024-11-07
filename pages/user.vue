@@ -33,7 +33,7 @@ const ico_provider = ()=>{
   <main class="container flex-1 items-center justify-center flex flex-col">
     <div class="w-full flex flex-col gap-6 py-6 items-center justify-center text-center">
       <div class="relative">
-        <img :src="userInfo.user_metadata.avatar_url" alt="" class="h-20 rounded-full">
+        <img :src="userInfo.user_metadata.avatar_url" alt="" class="w-20 h-20 rounded-full bg-gray-300">
         <i class="text-base absolute right-0 bottom-0 bg-slate-400 rounded-full w-7 h-7 text-center flex  justify-center items-center">
           <IconProvider :provider="{ name: userInfo.app_metadata.provider, cate:'fab', class:`text-white`}" 
           />

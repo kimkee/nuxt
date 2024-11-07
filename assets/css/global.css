@@ -16,7 +16,7 @@ body{
     background-attachment : fixed ;
     background-color: #ffffff;
     color: #444444;
-    transition: background-color 0.2s;
+    /* transition: background-color 0.2s; */
 
 }
 em,i{
