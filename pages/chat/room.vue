@@ -106,7 +106,7 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
   <main class="container flex-1 flex flex-col h-full relative !p-0">
     <div class="flex flex-col justify-end absolute left-0 top-0 right-0 bottom-0">
 
-      <div ref="chatView" class="chat-view w-full h-full p-4 pb-7 overflow-y-auto overflow-x-hidden"
+      <div ref="chatView" class="chat-view w-full p-4 pb-7 pr-4 overflow-y-auto overflow-x-hidden"
         @scroll="$event.target.classList.add('ing-scroll')"
         @scrollend="$event.target.classList.remove('ing-scroll')"
       >
@@ -136,7 +136,7 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
               />
             </i>
           </a>
-          <div class="msg  text-sm relative drop-shadow-sm">
+          <div class="msg text-sm relative drop-shadow-sm">
             <div 
               class="txt text-sm p-2 px-4 max-w-100vh break-all" 
               v-html="$ui.textHtml(chat.message,'incode')"
@@ -174,7 +174,7 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
             </div>
             <div class="bts absolute right-4 bottom-[14px]">
               <button 
-                class="h-8 w-8 rounded-full bg-gray-400 dark:bg-[#41b883] disabled:opacity-50 text-white"
+                class="h-8 w-8 rounded-full bg-primary disabled:opacity-50 text-white"
                 :disabled="(user?.email) ? false : true" @click="chatWrite"
               >
                 <i><font-awesome class="-scale-x-100" :icon="['fas', 'paper-plane']" /></i>
@@ -207,11 +207,11 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
 .chat-view .chmsg.op .name{@apply left-10}
 .chat-view .chmsg.op .msg{@apply rounded-tl-none}
 .chat-view .chmsg.op .tm{@apply left-full}
-.chat-view .chmsg.me{@apply pr-10 mt-6 justify-end; }
+.chat-view .chmsg.me{@apply pr-0 mt-6 justify-end; }
 .chat-view .chmsg.me .tm{@apply right-full}
-.chat-view .chmsg.me .msg{ @apply bg-green-200 dark:bg-primary  rounded-tr-none;  }
-.chat-view .chmsg.me .msg .txt{ @apply dark:drop-shadow-[1px_1px_1px_rgba(0,0,0,0.3)]}
-.chat-view .chmsg.me .usr{@apply right-0}
+.chat-view .chmsg.me .msg{ @apply bg-green-200 dark:bg-primary/90  rounded-tr-none;  }
+.chat-view .chmsg.me .msg .txt{@apply dark:drop-shadow-[0px_0px_1px_rgba(0,0,0,0.3)] }
+.chat-view .chmsg.me .usr{@apply right-0 hidden}
 .chat-view .chmsg.me .name{@apply right-10 hidden}
 
 .chat-view .chmsg.same{ @apply mt-1;}
