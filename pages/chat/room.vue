@@ -12,7 +12,8 @@ const { data: chatusers, refresh: refreshProducts } = await useAsyncData('CHAT_A
   if (error) console.log('Error fetching products:', error);
   return data;
 });
-console.log(user);
+console.log(`%c Room 회원ID : ${user.value.id}`, 'color: yellow;');
+
 const scrollDownChat = ()=>{
   window.setTimeout(()=> chatView.value.scrollTop = chatView.value.scrollHeight, 100);
 }
@@ -66,6 +67,7 @@ const chatWrite = async ()=>{
       ycb: () => {
         msgbox.value.value = '';
         msgbox.value.focus();
+        autoHeight();
       }
     });
     return;
@@ -125,11 +127,11 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
           </div>
           <a href="javascript:;" class="usr block w-8 h-8 absolute  top-0">
             <img :src="`${chat.profile_picture || '/icon_app.png'}`" class="img block h-full bg-slate-500 rounded-full">
-            <i class="text-xt absolute -bottom-1 -right-1">
-              <IconProvider :provider="{ name: chat.provider, cate:'fab', class:`${
-                chat.provider =='kakao' ? 'text-yellow-300' : 'text-gray-500 dark:text-white/80'
-                } ${
-                chat.provider =='google' ? 'text-10' : 'text-xt'
+            <i class="w-4 h-4 rounded-full text-9 absolute -bottom-1 -right-1 flex items-center justify-center bg-slate-600/50 text-white dark:bg-slate-200/70 dark:text-gray-800">
+              <IconProvider :provider="{ name: chat.provider, cate:'fab', class:`
+                ${/*  chat.provider =='kakao' ? 'text-yellow-300' : 'text-gray-500 dark:text-white/80'  */'' }
+                ${
+                 /* chat.provider =='google' ? 'text-10' : 'text-xt'  */ ''
                 }`}"
               />
             </i>
@@ -149,17 +151,18 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
         
       </div>
 
+      <!-- 메시지 입력 UI -->
       <div class="box-content">
         <div class="min-h-16 -mt-[1px] box-content safe-bottom-pd border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
           <div class="relative pl-14 pr-14 h-full pb-[11px] pt-[11px]">
-            <a href="javascript:;" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-4 bottom-[14px]">
+            <NuxtLink :to="`${user?.email ? '/user' : ''}`" class="usr rounded-full overflow-hidden block w-8 h-8 absolute left-4 bottom-[14px]">
               <img 
                 :alt="user?.email"
                 class="img w-8 h-8 bg-gray-300/40 dark:bg-gray-300/30"
                 :src="user?.user_metadata?.avatar_url || '/img/user.png'"
                 @error="handleError"
               >
-            </a>
+            </NuxtLink>
             <div class="form p-[6px] px-3 pr-1 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
               <textarea
                 :placeholder="`메시지를 입력해주세요`"

@@ -5,7 +5,7 @@ if (provider.value.name == 'kakao') {
     provider.value.name = 'comment'
     provider.value.cate = 'fas'
 }
-console.log(`${provider.value.name} ${provider.value.cate} ${provider.value.class}`);
+// console.log(`${provider.value.name} ${provider.value.cate} ${provider.value.class}`);
 
 </script>
 
