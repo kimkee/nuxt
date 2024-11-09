@@ -209,7 +209,8 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
 .chat-view .chmsg.op .tm{@apply left-full}
 .chat-view .chmsg.me{@apply pr-10 mt-6 justify-end; }
 .chat-view .chmsg.me .tm{@apply right-full}
-.chat-view .chmsg.me .msg{ @apply bg-green-200 dark:bg-[#41b883]  rounded-tr-none;  }
+.chat-view .chmsg.me .msg{ @apply bg-green-200 dark:bg-primary  rounded-tr-none;  }
+.chat-view .chmsg.me .msg .txt{ @apply dark:drop-shadow-[1px_1px_1px_rgba(0,0,0,0.3)]}
 .chat-view .chmsg.me .usr{@apply right-0}
 .chat-view .chmsg.me .name{@apply right-10 hidden}
 
