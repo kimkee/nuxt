@@ -38,13 +38,22 @@ onUnmounted(() => {
   supabase.removeChannel(realtimeChannel);
 });
 
-const msgbox = ref(null);
-const autoHeight = ()=> { // 댓글에 자동높이 기능
-  const $el = msgbox.value;
+const textArea = ref(null);
+const btnSend = ref(null);
+const inputMsg = ()=> { // 댓글에 자동높이 기능
+  const $el = textArea.value;
   if ($el) {
     $el.style.height = '1px';
     $el.style.height = $el.scrollHeight + 'px';
   }
+  
+  console.log(textArea.value.value);
+  if (textArea.value.value.trim() == '') {
+    btnSend.value.disabled = true
+  }else{
+    btnSend.value.disabled = false
+  }
+  
 }
 
 const comFocus = ()=> { 
@@ -60,14 +69,14 @@ const comFocus = ()=> {
 const chatView = ref(null);
 const chatWrite = async ()=>{
 
-  console.log(`입력-${msgbox.value.value.trim()}-`);
+  console.log(`입력-${textArea.value.value.trim()}-`);
   
-  if (msgbox.value.value.trim() == '') {
+  if (textArea.value.value.trim() == '') {
     $ui.alert("댓글을 입력하세요", {
       ycb: () => {
-        msgbox.value.value = '';
-        msgbox.value.focus();
-        autoHeight();
+        textArea.value.value = '';
+        textArea.value.focus();
+        inputMsg();
       }
     });
     return;
@@ -76,7 +85,7 @@ const chatWrite = async ()=>{
     user_id: user.value?.id,
     email: user.value?.email,
     name: user.value?.user_metadata.full_name || user.value?.user_metadata.user_name,
-    message: $ui.textHtml( msgbox.value.value , "incode"),
+    message: $ui.textHtml( textArea.value.value , "incode"),
     created_at: new Date().toISOString(),
     provider: user.value?.app_metadata.provider,
     profile_picture: user.value?.user_metadata.avatar_url, 
@@ -94,12 +103,15 @@ const chatWrite = async ()=>{
     console.table(data[0]);
   }
  
-  msgbox.value.focus();  // 입력창 포커싱
-  msgbox.value.value = '';  // 입력창 비우기
-  msgbox.value.style.height = ""; // 입력창 높이리셋
+  textArea.value.focus();  // 입력창 포커싱
+  textArea.value.value = '';  // 입력창 비우기
+  textArea.value.style.height = ""; // 입력창 높이리셋
 }
 const isMyChat = (chatID) => user.value?.id === chatID ;
 
+onMounted(()=>{
+  inputMsg();
+})
 </script>
 <template>
 
@@ -163,11 +175,7 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
                 @error="handleError"
               >
               <i v-if="user?.email" class="w-4 h-4 rounded-full text-9 absolute -bottom-1 -right-1 flex items-center justify-center bg-slate-600/50 text-white dark:bg-slate-200/70 dark:text-gray-800">
-                <IconProvider :provider="{ name: user?.app_metadata.provider, cate:'fab', class:`
-                  ${/*  chat.provider =='kakao' ? 'text-yellow-300' : 'text-gray-500 dark:text-white/80'  */'' }
-                  ${
-                  /* chat.provider =='google' ? 'text-10' : 'text-xt'  */ ''
-                  }`}"
+                <IconProvider :provider="{ name: user?.app_metadata.provider, cate:'fab', class:``}"
                 />
               </i>
             </NuxtLink>
@@ -175,15 +183,16 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
               <textarea
                 :placeholder="`메시지를 입력해주세요`"
                 class="w-full h-5 max-h-20 text-sm inline-flex align-middle outline-none bg-transparent resize-none"
-                ref="msgbox"
-                @input="autoHeight"
+                ref="textArea"
+                @input="inputMsg"
                 @focus="comFocus"
               ></textarea>
             </div>
             <div class="bts absolute right-4 bottom-[14px]">
               <button 
+                ref="btnSend"
                 class="h-8 w-8 rounded-full bg-primary disabled:opacity-50 text-white"
-                :disabled="(user?.email) ? false : true" @click="chatWrite"
+                :disabled="true" @click="chatWrite"
               >
                 <i><font-awesome class="-scale-x-100" :icon="['fas', 'paper-plane']" /></i>
               </button>

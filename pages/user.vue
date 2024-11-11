@@ -50,7 +50,7 @@ const ico_provider = ()=>{
       <div class="mt-2">
         <button class="btn" @click="signOut">
           <me>로그아웃</me>
-          <i><font-awesome :icon="['fas', 'right-to-bracket']" /></i>
+          <i><font-awesome :icon="['fas', 'power-off']" /></i>
         </button>
       </div>
     </div>

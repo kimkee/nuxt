@@ -60,6 +60,10 @@ const signUpNewUser = async ()=> {
           <i><font-awesome :icon="['fab', 'github']" /></i>
           <em>Github</em>
         </button>
+        <!-- <button class="btn btn-lg" @click="signInWithOAuth('facebook')">
+          <i><font-awesome :icon="['fab', 'facebook']" /></i>
+          <em>Facebook</em>
+        </button> -->
         <!-- <button class="btn btn-lg" @click="signUpNewUser()">
           <i><font-awesome :icon="['fas', 'envelope']" /></i>
           <em>Email</em>
