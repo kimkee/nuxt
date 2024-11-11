@@ -47,7 +47,7 @@ const inputMsg = ()=> { // 댓글에 자동높이 기능
     $el.style.height = $el.scrollHeight + 'px';
   }
   
-  console.log(textArea.value.value);
+  // console.log(textArea.value.value);
   if (textArea.value.value.trim() == '') {
     btnSend.value.disabled = true
   }else{
@@ -70,7 +70,7 @@ const chatView = ref(null);
 const chatWrite = async ()=>{
 
   console.log(`입력-${textArea.value.value.trim()}-`);
-  
+  textArea.value.focus();
   if (textArea.value.value.trim() == '') {
     $ui.alert("댓글을 입력하세요", {
       ycb: () => {
@@ -166,8 +166,8 @@ onMounted(()=>{
       <!-- 메시지 입력 UI -->
       <div class="box-content">
         <div class="min-h-16 -mt-[1px] box-content safe-bottom-pd border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
-          <div class="relative pl-14 pr-14 h-full pb-[11px] pt-[11px]">
-            <NuxtLink :to="`${user?.email ? '/user' : ''}`" class="usr rounded-full block w-8 h-8 absolute left-4 bottom-[14px]">
+          <div class="relative min-h-16 pl-14 pr-14 h-full pb-[15px] pt-[11px]">
+            <NuxtLink :to="`${user?.email ? '/user' : ''}`" class="usr rounded-full block w-8 h-8 absolute left-4 bottom-[18px]">
               <img 
                 :alt="user?.email"
                 class="img w-8 h-8 bg-gray-300/40 dark:bg-gray-300/30 rounded-full"
@@ -188,7 +188,7 @@ onMounted(()=>{
                 @focus="comFocus"
               ></textarea>
             </div>
-            <div class="bts absolute right-4 bottom-[14px]">
+            <div class="bts absolute right-4 bottom-[18px]">
               <button 
                 ref="btnSend"
                 class="h-8 w-8 rounded-full bg-primary disabled:opacity-50 text-white"
