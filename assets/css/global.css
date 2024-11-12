@@ -10,22 +10,38 @@ body {
     font-family:'Roboto', 'Spoqa Han Sans Neo', 'Noto Sans KR',sans-serif;
 }
 body{
+    
+    background-size:100% auto;
+    background-position: 0px 0px;
+    background-attachment : fixed ;
+    background-color: #f3f3f3;
+    color: #444444;
+    /* transition: background-color 0.2s; */
+
+}
+.dark body{
+    background-color: #111925;
+    color: #dddddd;
+}
+
+
+.wrap {
     background: url(https://tailwindcss.com/_next/static/media/docs-dark@tinypng.1bbe175e.png) no-repeat;
     background-size:100% auto;
     background-position: 0px 0px;
     background-attachment : fixed ;
     background-color: #ffffff;
-    color: #444444;
-    /* transition: background-color 0.2s; */
+    max-width: var(--mwide);
+    margin: auto;    
+    min-height: calc(100dvh);
 
 }
+.dark .wrap {background-color: #0d111b;}
+
 em,i{
     @apply not-italic
 }
-.dark body{
-    background-color: #0d111b;
-    color: #dddddd;
-}
+
 .border-custom {
     background-image: linear-gradient(0deg, #000000, #1c1c1c), linear-gradient(90deg, #00dc82, #1de0b1, #36e4da);
     background-clip: padding-box, border-box;

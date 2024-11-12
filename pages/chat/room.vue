@@ -4,30 +4,60 @@ const props = defineProps(['user']);
 const user = ref(props.user || null);
 const supabase = useSupabaseClient();
 const router = useRouter();
-
+const route = useRoute();
+const tableId = ref(route.query.id); 
 let realtimeChannel;
 
-const { data: chatusers, refresh: refreshProducts } = await useAsyncData('CHAT_ALL_USERS', async () => {
-  const { data, error } = await supabase.from('CHAT_ALL_USERS').select('*').order('created_at', { ascending: true });
-  if (error) console.log('Error fetching products:', error);
-  return data;
+// const { data: chatusers, refresh: refreshProducts } = await useAsyncData('CHAT_ALL_USERS', async () => {
+//   const { data, error } = await supabase.from('CHAT_ALL_USERS').select('*').order('created_at', { ascending: true });
+//   if (error) console.log('Error fetching products:', error);
+//   return data;
+// });
+
+const {  refresh: refreshProducts } = await useAsyncData('CHAT_ALL_USERS', async () => {
+  
 });
+
+const chatusers = ref();
+const tableName = ref(tableId);
+const fetchData = async () => {
+  try {
+    const response = await fetch(`/api/chat?table=${tableName.value}`);
+    const result = await response.json();
+    if (!result.error) {
+      refreshProducts()
+      window.setTimeout(()=>{ }, 1000); chatusers.value = result
+      scrollDownChat()
+      console.log(chatusers.value);
+      
+    } else {
+      console.error('Error fetching data:', result.error);
+    }
+  } catch (error) {
+    console.error('Fetch error:', error);
+  }
+};
+
+
+
 console.log(user?.value);
 
 const scrollDownChat = ()=>{
   window.setTimeout(()=> chatView.value.scrollTop = chatView.value.scrollHeight, 100);
 }
 onMounted(() => {
+  fetchData()
   // Real time listener for products table
-  realtimeChannel = supabase.channel('public:CHAT_ALL_USERS')
-    .on('postgres_changes', { event: '*', schema: 'public', table: 'CHAT_ALL_USERS' }, () => {
-      refreshProducts();
-      console.log("CHAT_ALL_USERS 업데이트");
+  realtimeChannel = supabase.channel(`public:${tableName}`)
+    .on('postgres_changes', { event: '*', schema: 'public', table: tableName }, () => {
+      fetchData();
+      refreshProducts()
+      console.log(`${tableName} 업데이트`);
       scrollDownChat()
     })
     .subscribe((status) => {
       if (status === 'SUBSCRIBED') {
-        console.log('Subscribed to CHAT_ALL_USERS changes');
+        console.log(`Subscribed to ${tableName} changes`);
         scrollDownChat()
       }
     });
@@ -102,7 +132,8 @@ const chatWrite = async ()=>{
     console.table("데이터 입력 성공 Data inserted successfully:");
     console.table(data[0]);
   }
- 
+  fetchData()
+  refreshProducts()
   textArea.value.focus();  // 입력창 포커싱
   textArea.value.value = '';  // 입력창 비우기
   textArea.value.style.height = ""; // 입력창 높이리셋
@@ -164,9 +195,9 @@ onMounted(()=>{
       </div>
 
       <!-- 메시지 입력 UI -->
-      <div class="box-content">
-        <div class="min-h-16 -mt-[1px] box-content safe-bottom-pd border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
-          <div class="relative min-h-16 pl-14 pr-14 h-full pb-[15px] pt-[11px]">
+      <div class="floatbots">
+        <div class="inr -mt-[1px] border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
+          <div class="ut-rpwrite relative pl-14 pr-14 h-full pb-[15px] pt-[11px]">
             <NuxtLink :to="`${user?.email ? '/user' : ''}`" class="usr rounded-full block w-8 h-8 absolute left-4 bottom-[18px]">
               <img 
                 :alt="user?.email"
@@ -206,7 +237,9 @@ onMounted(()=>{
 </template>
 
 <style scoped>
-
+.floatbots{}
+.floatbots>.inr{min-height: calc(4rem + var(--safe-bottom)); padding-bottom: var(--safe-bottom);}
+.ut-rpwrite { min-height: 4rem; }
 /* 챗팅 */
 .chat-view{}
 .chat-view .chmsg{@apply mt-10;}

@@ -11,8 +11,8 @@ const user = ref(props.user);
 
 </script>
 <template>
-  <nav class="min-h-16 safe-bottom-pd box-content">
-    <div class="min-h-16 safe-bottom-pd box-content border-t border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white fixed bottom-0 left-0 right-0">
+  <nav class="nav">
+    <div class="inr border-t border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white fixed bottom-0 left-0 right-0">
       <div class="flex text-center pt-2 px-5">
         <NuxtLink to="/" class="w-full h-12 flex flex-col justify-start gap-1">
           <i><font-awesome :icon="['fas', 'house']" /></i>
@@ -43,14 +43,16 @@ const user = ref(props.user);
   </nav>
 </template>
 <style scoped>
-.dark .active-link {
-  @apply text-primary;
+.nav{height: calc(4rem + var(--safe-bottom));}
+.nav .inr{
+  height: calc(4rem + var(--safe-bottom));
+  left: 50%;
+  width: 100%;
+  max-width: var(--mwide);
+  transform: translateX(-50%);
+  margin-left: calc(0rem - var(--scrPad) / 2);
 }
-.active-link {
-  @apply text-primary;
-}
-a:active {
-  /* -webkit-tap-highlight-color: transparent; */
-  @apply scale-90 transition duration-300;
-}
+.dark .active-link { @apply text-primary; }
+.active-link { @apply text-primary; }
+a:active { @apply scale-90 transition duration-300; }
 </style>

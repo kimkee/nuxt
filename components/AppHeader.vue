@@ -11,9 +11,9 @@ const isBtnBack = computed(() => isBAckPath.includes(route.path));
 
 </script>
 <template>
-  <header class="flex flex-col justify-center min-h-14 safe-top-pd box-content">
-    <div class="
-      flex items-center justify-between safe-top-pd px-5 min-h-14 box-content 
+  <header class="header flex flex-col justify-center  ">
+    <div class="inr
+      flex items-center justify-between safe-top-pd px-5   
       bg-gradient-to-t from-white/80 to-white 
       dark:bg-gradient-to-t dark:from-gray-800/80 dark:to-[#1f2937] 
       backdrop-blur-sm fixed top-0 left-0 right-0 z-50
@@ -36,3 +36,13 @@ const isBtnBack = computed(() => isBAckPath.includes(route.path));
     </div>
   </header>
 </template>
+<style>
+.header{ height: calc(3.5rem + var(--safe-top));}
+.header .inr{
+    height: calc(3.5rem + var(--safe-top));
+    left: 50%;
+    width: 100%;
+    max-width: var(--mwide);
+    transform: translateX(-50%);
+    margin-left: calc(0rem - var(--scrPad) / 2);}
+</style>
