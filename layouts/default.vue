@@ -21,5 +21,6 @@ const showAppNav = computed(() => !hiddenPathsForNav.includes(route.path));
 // 로그인 상태 확인
 
 const user = useSupabaseUser(); 
+
 console.log(`%c Layout 회원ID : ${user.value?.id}`, 'color: yellow;');
 </script>

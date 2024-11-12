@@ -35,10 +35,24 @@ const fetchData = async () => {
     console.error('Fetch error:', error);
   }
 };
-
-
+const myInfo = ref();
+const fetchMyInfo = async () => {
+  try {
+    const response = await fetch(`/api/user?id=${user?.value.id}`);
+    const result = await response.json();
+    if (!result.error) {
+      console.log(result[0]);
+      myInfo.value = result[0]
+    } else {
+      console.error('Error fetching data:', result.error);
+    }
+  } catch (error) {
+    console.error('Fetch error:', error);
+  }
+};
 
 console.log(user?.value);
+
 
 const scrollDownChat = ()=>{
   window.setTimeout(()=> chatView.value.scrollTop = chatView.value.scrollHeight, 100);
@@ -81,7 +95,7 @@ onMounted(() => {
       }
     }); */
   scrollDownChat()
-
+  fetchMyInfo()
   if (tableId.value) {
     fetchData();
     setupRealtimeListener(tableId.value);
@@ -139,6 +153,7 @@ const chatWrite = async ()=>{
   }
   const insertData = { 
     user_id: user.value?.id,
+    // user_num: myInfo?.value.id,
     email: user.value?.email,
     name: user.value?.user_metadata.full_name || user.value?.user_metadata.user_name,
     message: $ui.textHtml( textArea.value.value , "incode"),
@@ -147,6 +162,7 @@ const chatWrite = async ()=>{
     profile_picture: user.value?.user_metadata.avatar_url, 
   }
   console.table(insertData);
+  
   
   const { data, error } = await supabase
     .from('CHAT_ALL_USERS')
@@ -190,16 +206,17 @@ onMounted(()=>{
             'same': index > 0 && chat.user_id === chatusers[index - 1].user_id
           }"
           :uid="`${chat.user_id}`"
+          :user_num="`${chat.user_num}`"
         >
           <div class="name text-xt absolute -top-5 text-slate-500 dark:text-slate-400">
             {{chat.name}}
           </div>
-          <a href="javascript:;" class="usr block w-8 h-8 absolute  top-0">
+          <NuxtLink :to="`/user?id=${chat.user_num}`" class="usr block w-8 h-8 absolute  top-0">
             <img :src="`${chat.profile_picture || '/icon_app.png'}`" class="img block h-full bg-slate-500 rounded-full">
             <i class="w-4 h-4 rounded-full text-9 absolute -bottom-1 -right-1 flex items-center justify-center bg-slate-600/50 text-white dark:bg-slate-200/70 dark:text-gray-800">
               <IconProvider :provider="{ name: chat.provider, cate:'fab', class:``}" />
             </i>
-          </a>
+          </NuxtLink>
           <div class="msg text-sm relative drop-shadow-sm">
             <div 
               class="txt text-sm p-3 px-4 max-w-100vh break-all" 
@@ -216,10 +233,12 @@ onMounted(()=>{
       </div>
 
       <!-- 메시지 입력 UI -->
-      <div class="floatbots">
+      <div class="floatbots relative">
+        
         <div class="inr -mt-[1px] border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
           <div class="ut-rpwrite relative pl-14 pr-14 h-full pb-[15px] pt-[11px]">
-            <NuxtLink :to="`${user?.email ? '/user' : ''}`" class="usr rounded-full block w-8 h-8 absolute left-4 bottom-[18px]">
+            <NuxtLink :to="`${user?.email ? `/user?id=${myInfo?.id}` : ''}`" :user_num="`${myInfo?.id}`" class="usr rounded-full block w-8 h-8 absolute left-4 bottom-[18px]">
+              <div class="absolute top-0 text-transparent">{{ myInfo?.id }}</div>
               <img 
                 :alt="user?.email"
                 class="img w-8 h-8 bg-gray-300/40 dark:bg-gray-300/30 rounded-full"
