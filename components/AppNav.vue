@@ -44,10 +44,10 @@ const user = ref(props.user);
 </template>
 <style scoped>
 .dark .active-link {
-  @apply text-green-400;
+  @apply text-primary;
 }
 .active-link {
-  @apply text-green-600;
+  @apply text-primary;
 }
 a:active {
   /* -webkit-tap-highlight-color: transparent; */
