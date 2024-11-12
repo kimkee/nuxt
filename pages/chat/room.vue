@@ -6,7 +6,7 @@ const supabase = useSupabaseClient();
 const router = useRouter();
 const route = useRoute();
 const tableId = ref(route.query.id); 
-let realtimeChannel;
+
 
 // const { data: chatusers, refresh: refreshProducts } = await useAsyncData('CHAT_ALL_USERS', async () => {
 //   const { data, error } = await supabase.from('CHAT_ALL_USERS').select('*').order('created_at', { ascending: true });
@@ -14,9 +14,7 @@ let realtimeChannel;
 //   return data;
 // });
 
-const {  refresh: refreshProducts } = await useAsyncData('CHAT_ALL_USERS', async () => {
-  
-});
+
 
 const chatusers = ref();
 const tableName = ref(tableId);
@@ -25,7 +23,7 @@ const fetchData = async () => {
     const response = await fetch(`/api/chat?table=${tableName.value}`);
     const result = await response.json();
     if (!result.error) {
-      refreshProducts()
+      // refreshProducts()
       window.setTimeout(()=>{ }, 1000); chatusers.value = result
       scrollDownChat()
       console.log(chatusers.value);
@@ -45,10 +43,31 @@ console.log(user?.value);
 const scrollDownChat = ()=>{
   window.setTimeout(()=> chatView.value.scrollTop = chatView.value.scrollHeight, 100);
 }
-onMounted(() => {
-  fetchData()
-  // Real time listener for products table
+
+let realtimeChannel;
+const setupRealtimeListener = (tableName) => {
   realtimeChannel = supabase.channel(`public:${tableName}`)
+    .on('postgres_changes', { event: '*', schema: 'public', table: tableName }, () => {
+      fetchData();
+      // refreshProducts();
+      console.log(`${tableName} 업데이트`);
+      scrollDownChat();
+    })
+    .subscribe((status) => {
+      if (status === 'SUBSCRIBED') {
+        console.log(`Subscribed to ${tableName} changes`);
+        scrollDownChat();
+      }
+    });
+};
+
+
+
+
+onMounted(() => {
+  // fetchData()
+  // Real time listener for products table
+/*   realtimeChannel = supabase.channel(`public:${tableName}`)
     .on('postgres_changes', { event: '*', schema: 'public', table: tableName }, () => {
       fetchData();
       refreshProducts()
@@ -60,8 +79,15 @@ onMounted(() => {
         console.log(`Subscribed to ${tableName} changes`);
         scrollDownChat()
       }
-    });
+    }); */
   scrollDownChat()
+
+  if (tableId.value) {
+    fetchData();
+    setupRealtimeListener(tableId.value);
+  }
+
+
 });
 // Don't forget to unsubscribe when user leaves the page
 onUnmounted(() => {
@@ -133,7 +159,7 @@ const chatWrite = async ()=>{
     console.table(data[0]);
   }
   fetchData()
-  refreshProducts()
+  // refreshProducts()
   textArea.value.focus();  // 입력창 포커싱
   textArea.value.value = '';  // 입력창 비우기
   textArea.value.style.height = ""; // 입력창 높이리셋
@@ -171,12 +197,7 @@ onMounted(()=>{
           <a href="javascript:;" class="usr block w-8 h-8 absolute  top-0">
             <img :src="`${chat.profile_picture || '/icon_app.png'}`" class="img block h-full bg-slate-500 rounded-full">
             <i class="w-4 h-4 rounded-full text-9 absolute -bottom-1 -right-1 flex items-center justify-center bg-slate-600/50 text-white dark:bg-slate-200/70 dark:text-gray-800">
-              <IconProvider :provider="{ name: chat.provider, cate:'fab', class:`
-                ${/*  chat.provider =='kakao' ? 'text-yellow-300' : 'text-gray-500 dark:text-white/80'  */'' }
-                ${
-                 /* chat.provider =='google' ? 'text-10' : 'text-xt'  */ ''
-                }`}"
-              />
+              <IconProvider :provider="{ name: chat.provider, cate:'fab', class:``}" />
             </i>
           </a>
           <div class="msg text-sm relative drop-shadow-sm">
@@ -206,8 +227,7 @@ onMounted(()=>{
                 @error="handleError"
               >
               <i v-if="user?.email" class="w-4 h-4 rounded-full text-9 absolute -bottom-1 -right-1 flex items-center justify-center bg-slate-600/50 text-white dark:bg-slate-200/70 dark:text-gray-800">
-                <IconProvider :provider="{ name: user?.app_metadata.provider, cate:'fab', class:``}"
-                />
+                <IconProvider :provider="{ name: user?.app_metadata.provider, cate:'fab', class:``}" />
               </i>
             </NuxtLink>
             <div class="form p-[6px] px-3 pr-1 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
@@ -246,7 +266,7 @@ onMounted(()=>{
 .chat-view .chmsg+.chmsg{}
 .chat-view .chmsg .name{}
 .chat-view .chmsg .msg{ @apply bg-slate-200/50 dark:bg-slate-700 rounded-2xl;}
-.chat-view .chmsg .msg{ max-width: calc(100vw - 8rem); }
+.chat-view .chmsg .msg{ max-width: calc(100% - 3rem) }
 
 /* 상대편 메시지 */
 .chat-view .chmsg.op{@apply pl-11; }
