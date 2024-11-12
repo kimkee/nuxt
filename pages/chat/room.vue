@@ -150,7 +150,7 @@ onMounted(()=>{
           </a>
           <div class="msg text-sm relative drop-shadow-sm">
             <div 
-              class="txt text-sm p-2 px-4 max-w-100vh break-all" 
+              class="txt text-sm p-3 px-4 max-w-100vh break-all" 
               v-html="$ui.textHtml(chat.message,'incode')"
             ></div>
             <time class="tm absolute bottom-0 whitespace-nowrap mx-1 mt-1 space-x-1">
@@ -213,7 +213,7 @@ onMounted(()=>{
 .chat-view .chmsg+.chmsg{}
 .chat-view .chmsg .name{}
 .chat-view .chmsg .msg{ @apply bg-slate-200/50 dark:bg-slate-700 rounded-2xl;}
-.chat-view .chmsg .msg{ max-width: calc(100vw - 11rem); }
+.chat-view .chmsg .msg{ max-width: calc(100vw - 8rem); }
 
 /* 상대편 메시지 */
 .chat-view .chmsg.op{@apply pl-11; }
