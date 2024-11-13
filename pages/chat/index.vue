@@ -15,7 +15,7 @@ const router = useRouter();
       <div class="overflow-y-auto">
         <ul class="grid grid-cols-1 p-6 py-8 gap-4">
           <li class="">
-            <NuxtLink :to="`./chat/room?id=CHAT_ALL_USERS`" class="border border-gray-300 shadow-sm dark:border-gray-700 bg-white/80 dark:bg-gray-800/70 p-3 pr-8 flex rounded-xl gap-4 items-center relative">
+            <NuxtLink :to="`/chat/room?roomId=CHAT_ALL_USERS`" class="border border-gray-300 shadow-sm dark:border-gray-700 bg-white/80 dark:bg-gray-800/70 p-3 pr-8 flex rounded-xl gap-4 items-center relative">
               <div class="flex flex-wrap flex-none items-start border border-gray-300 dark:border-gray-800 w-16 h-16 rounded-xl p-2">
                 <img class=" w-1/2" src="/img/user.png">
                 <img class=" w-1/2" src="/img/user.png">

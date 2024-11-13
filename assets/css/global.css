@@ -34,6 +34,7 @@ body{
     max-width: var(--mwide);
     margin: auto;    
     min-height: calc(100dvh);
+    @apply shadow-2xl
 
 }
 .dark .wrap {background-color: #0d111b;}

@@ -5,7 +5,7 @@ const user = ref(props.user || null);
 const supabase = useSupabaseClient();
 const router = useRouter();
 const route = useRoute();
-const tableId = ref(route.query.id); 
+const tableId = ref(route.query.roomId); 
 
 
 // const { data: chatusers, refresh: refreshProducts } = await useAsyncData('CHAT_ALL_USERS', async () => {
@@ -185,11 +185,40 @@ const isMyChat = (chatID) => user.value?.id === chatID ;
 onMounted(()=>{
   inputMsg();
 })
+
+
+
+const roomId = ref(route.query.roomId);
+const pop = ref(route.query.pop);
+const showPopup = ref(!!pop.value);
+
+watch(() => route.query.pop, (newPop) => {
+  pop.value = newPop;
+  showPopup.value = !!newPop;
+});
+
+const openPopup = (num) => {
+  router.push({ path: '/chat/room', query: { roomId: roomId.value, pop: num } });
+  showPopup.value = true;
+};
+
+const closePopup = () => {
+  router.back(-1)
+  showPopup.value = false;
+};
 </script>
 <template>
-
+  <Popup v-if="showPopup" @close="closePopup">
+    <p>ID: {{ pop }}</p>
+  </Popup>
   <main class="container flex-1 flex flex-col h-full relative !p-0">
+    <div class="absolute right-4 top-2 z-50">
+      <button @click="openPopup('456')">Open Popup</button>
+      
+    </div>
     <div class="flex flex-col justify-end absolute left-0 top-0 right-0 bottom-0">
+      
+
 
       <div ref="chatView" class="chat-view w-full p-4 pb-7 pr-4 overflow-y-auto overflow-x-hidden"
         @scroll="$event.target.classList.add('ing-scroll')"
@@ -211,7 +240,7 @@ onMounted(()=>{
           <div class="name text-xt absolute -top-5 text-slate-500 dark:text-slate-400">
             {{chat.name}}
           </div>
-          <NuxtLink :to="`/user?id=${chat.user_num}`" class="usr block w-8 h-8 absolute  top-0">
+          <NuxtLink :to="`./room?roomId=${tableId}&pop=${chat?.user_num}`" class="usr block w-8 h-8 absolute  top-0">
             <img :src="`${chat.profile_picture || '/icon_app.png'}`" class="img block h-full bg-slate-500 rounded-full">
             <i class="w-4 h-4 rounded-full text-9 absolute -bottom-1 -right-1 flex items-center justify-center bg-slate-600/50 text-white dark:bg-slate-200/70 dark:text-gray-800">
               <IconProvider :provider="{ name: chat.provider, cate:'fab', class:``}" />
@@ -237,7 +266,7 @@ onMounted(()=>{
         
         <div class="inr -mt-[1px] border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
           <div class="ut-rpwrite relative pl-14 pr-14 h-full pb-[15px] pt-[11px]">
-            <NuxtLink :to="`${user?.email ? `/user?id=${myInfo?.id}` : ''}`" :user_num="`${myInfo?.id}`" class="usr rounded-full block w-8 h-8 absolute left-4 bottom-[18px]">
+            <NuxtLink :to="`${user?.email ? `./room?roomId=${tableId}&pop=${myInfo?.id}` : ''}`" :user_num="`${myInfo?.id}`" class="usr rounded-full block w-8 h-8 absolute left-4 bottom-[18px]">
               <div class="absolute top-0 text-transparent">{{ myInfo?.id }}</div>
               <img 
                 :alt="user?.email"
