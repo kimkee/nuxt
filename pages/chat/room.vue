@@ -153,7 +153,7 @@ const chatWrite = async ()=>{
   }
   const insertData = { 
     user_id: user.value?.id,
-    // user_num: myInfo?.value.id,
+    user_num: myInfo?.value.id,
     email: user.value?.email,
     name: user.value?.user_metadata.full_name || user.value?.user_metadata.user_name,
     message: $ui.textHtml( textArea.value.value , "incode"),
