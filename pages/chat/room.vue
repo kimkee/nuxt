@@ -212,10 +212,9 @@ const closePopup = () => {
     <p>ID: {{ pop }}</p>
   </Popup>
   <main class="container flex-1 flex flex-col h-full relative !p-0">
-    <div class="absolute right-4 top-2 z-50">
+    <!-- <div class="absolute right-4 top-2 z-50">
       <button @click="openPopup('456')">Open Popup</button>
-      
-    </div>
+    </div> -->
     <div class="flex flex-col justify-end absolute left-0 top-0 right-0 bottom-0">
       
 
