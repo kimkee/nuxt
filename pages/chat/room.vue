@@ -32,8 +32,8 @@ const fetchMyInfo = async () => {
   fetch(`/api/user?id=${user?.value.id}`)
     .then(respon => respon.json())
     .then(result => {
-      console.log(result[0]);
-      myInfo.value = result[0]
+      console.log(result);
+      myInfo.value = result
     })
     .catch(error => {
       console.error('Fetch error:', error);
