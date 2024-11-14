@@ -17,7 +17,7 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico' }
       ]
     },
-    buildAssetsDir: `_nuxt/${dayjs().format('YYYY-MM-DD-HH-mm-ss')}/`,
+    buildAssetsDir: `_nuxt/${dayjs().format('YYYY-MM-DD-hh-mm-ss')}/`,
   },
   runtimeConfig: {
     public: {
