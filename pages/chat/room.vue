@@ -77,6 +77,7 @@ onMounted(() => {
     }
   }); */
   
+  fetchMyInfo();
   if (tableId.value) {
     fetchData();
     setupRealtimeListener(tableId.value);
