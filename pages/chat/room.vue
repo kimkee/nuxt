@@ -7,63 +7,48 @@ const router = useRouter();
 const route = useRoute();
 const tableId = ref(route.query.roomId); 
 
-
 // const { data: chatusers, refresh: refreshProducts } = await useAsyncData('CHAT_ALL_USERS', async () => {
 //   const { data, error } = await supabase.from('CHAT_ALL_USERS').select('*').order('created_at', { ascending: true });
 //   if (error) console.log('Error fetching products:', error);
 //   return data;
 // });
 
-
-
 const chatusers = ref();
 const tableName = ref(tableId);
 const fetchData = async () => {
-  try {
-    const response = await fetch(`/api/chat?table=${tableName.value}`);
-    const result = await response.json();
-    if (!result.error) {
-      // refreshProducts()
-      window.setTimeout(()=>{ }, 1000); chatusers.value = result
+  fetch(`/api/chat?table=${tableName.value}`)
+    .then(respon => respon.json())
+    .then(result => {
+      chatusers.value = result
       scrollDownChat()
-      console.log(chatusers.value);
-      
-    } else {
-      console.error('Error fetching data:', result.error);
-    }
-  } catch (error) {
-    console.error('Fetch error:', error);
-  }
+      console.log(chatusers.value)
+    })
+    .catch(error => {
+      console.error('Fetch error:', error)
+    })
 };
 const myInfo = ref();
 const fetchMyInfo = async () => {
-  try {
-    const response = await fetch(`/api/user?id=${user?.value.id}`);
-    const result = await response.json();
-    if (!result.error) {
+  fetch(`/api/user?id=${user?.value.id}`)
+    .then(respon => respon.json())
+    .then(result => {
       console.log(result[0]);
       myInfo.value = result[0]
-    } else {
-      console.error('Error fetching data:', result.error);
-    }
-  } catch (error) {
-    console.error('Fetch error:', error);
-  }
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
 };
 
 console.log(user?.value);
 
-
-const scrollDownChat = ()=>{
-  window.setTimeout(()=> chatView.value.scrollTop = chatView.value.scrollHeight, 100);
-}
+const scrollDownChat = ()=> setTimeout( ()=> chatView.value.scrollTop = chatView.value.scrollHeight ); 
 
 let realtimeChannel;
 const setupRealtimeListener = (tableName) => {
   realtimeChannel = supabase.channel(`public:${tableName}`)
     .on('postgres_changes', { event: '*', schema: 'public', table: tableName }, () => {
       fetchData();
-      // refreshProducts();
       console.log(`${tableName} 업데이트`);
       scrollDownChat();
     })
@@ -75,32 +60,27 @@ const setupRealtimeListener = (tableName) => {
     });
 };
 
-
-
-
 onMounted(() => {
   // fetchData()
   // Real time listener for products table
-/*   realtimeChannel = supabase.channel(`public:${tableName}`)
-    .on('postgres_changes', { event: '*', schema: 'public', table: tableName }, () => {
-      fetchData();
-      refreshProducts()
-      console.log(`${tableName} 업데이트`);
+  /*   realtimeChannel = supabase.channel(`public:${tableName}`)
+  .on('postgres_changes', { event: '*', schema: 'public', table: tableName }, () => {
+    fetchData();
+    refreshProducts()
+    console.log(`${tableName} 업데이트`);
+    scrollDownChat()
+  })
+  .subscribe((status) => {
+    if (status === 'SUBSCRIBED') {
+      console.log(`Subscribed to ${tableName} changes`);
       scrollDownChat()
-    })
-    .subscribe((status) => {
-      if (status === 'SUBSCRIBED') {
-        console.log(`Subscribed to ${tableName} changes`);
-        scrollDownChat()
-      }
-    }); */
-  scrollDownChat()
-  fetchMyInfo()
+    }
+  }); */
+  
   if (tableId.value) {
     fetchData();
     setupRealtimeListener(tableId.value);
   }
-
 
 });
 // Don't forget to unsubscribe when user leaves the page
