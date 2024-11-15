@@ -41,7 +41,7 @@ export default defineNuxtConfig({
   image: {
     domains: ['avfgnkfopixyabmqqrqv.supabase.co'],
   },
-  plugins: ['~/plugins/ui.js',{ src: '~/plugins/google-analytics.client.js', mode: 'client' }],
+  plugins: ['~/plugins/ui.js',{ src: '~/plugins/google-tag-manager.client.js', mode: 'client' }],
   googleFonts: {
     families: {
       'Noto+Sans+KR': [100,300,400, 500, 700,900],
