@@ -14,7 +14,7 @@
 
 <script setup>
 const nowSize = ref()
-const size = ref([13,16,20]);
+const size = ref([13,16,20,16]);
 const setTextSize = (val)=>{
   console.log(`${val} = font-size: ${size.value[val] + 'px'}`);
   document.documentElement.style.fontSize = size.value[val]+'px'
