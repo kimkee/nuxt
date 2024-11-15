@@ -72,7 +72,7 @@ export default defineNuxtConfig({
   },
   fontawesome: {
     icons: {
-      solid: ['power-off','angle-left','chevron-right','arrow-left','paper-plane','pen','calendar-days','clock','comment','comments','right-to-bracket','envelope','user','sun','moon','magnifying-glass','dollar-sign','bars','box','house', 'cog', 'circle', 'check', 'calendar','coffee'],
+      solid: ['font','power-off','angle-left','chevron-right','arrow-left','paper-plane','pen','calendar-days','clock','comment','comments','right-to-bracket','envelope','user','sun','moon','magnifying-glass','dollar-sign','bars','box','house', 'cog', 'circle', 'check', 'calendar','coffee'],
       regular: ['user','comments' ],
       brands: ['facebook','github', 'google', 'kickstarter-k', 'twitter']
     }

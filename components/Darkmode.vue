@@ -4,7 +4,7 @@
     @click="toggleDarkMode"
   >
     <span class="w-6 h-6 rounded-full bg-white dark:bg-gray-900 text-yellow-400 inline-flex justify-center items-center text-sm overflow-hidden relative">
-      <i class="sun-moon leading-3 absolute left-1.55 -top-[1.3rem] dark:top-[0.3rem] flex flex-col gap-3 transition-all ease-in duration-300">
+      <i class="sun-moon leading-3 absolute left-1.55 -top-[1.3rem] dark:top-[0.3rem] flex flex-col gap-3 transition-top ease-in duration-300">
         <font-awesome :icon="['fas', 'moon']" />
         <font-awesome :icon="['fas', 'sun']" />
       </i>  

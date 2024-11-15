@@ -30,8 +30,9 @@ const isBtnBack = computed(() => isBAckPath.includes(route.path));
           <i><font-awesome :icon="['fas', 'angle-left']" /></i>
         </button>
       </div>
-      <div>
+      <div class="flex gap-3">
         <Darkmode />
+        <Textsize />
       </div>
     </div>
   </header>
