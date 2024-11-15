@@ -14,14 +14,11 @@ export default defineEventHandler(async (event) => {
     return { error: 'Invalid table name' };
   }
 
-  const { data, error } = await supabase
-    .from(table)
-    .select('*')
-    .order('created_at', { ascending: true });
+  const { data, error } = await supabase.from(table).select('*').order('created_at', { ascending: true });
 
   if (error) {
-    console.error('Error fetching users:', error);
-    return { error: 'Error fetching users' };
+    console.error('Error fetching 챗메시지리스트:', error);
+    return { error: 'Error fetching 챗메시지리스트' };
   }
   return data;
 });

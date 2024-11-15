@@ -13,16 +13,16 @@ export default defineEventHandler(async (event) => {
   if(id){
     const { data, error } = await supabase.from('MEMBERS').select("*").eq('user_id', id).order('created_at', { ascending: true });
     if (error) {
-      console.error('Error fetching users:', error);
-      return { error: 'Error fetching users' };
+      console.error('Error fetching 회원정보:', error);
+      return { error: 'Error fetching 회원정보' };
     }
     return data[0];
   }
   if(num){
     const { data, error } = await supabase.from('MEMBERS').select("*").eq('id', num).order('created_at', { ascending: true });
     if (error) {
-      console.error('Error fetching users:', error);
-      return { error: 'Error fetching users' };
+      console.error('Error fetching 회원정보:', error);
+      return { error: 'Error fetching 회원정보' };
     }
     return data[0];
   }
