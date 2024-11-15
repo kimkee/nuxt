@@ -125,7 +125,7 @@ html.is-lock {height: 100%;width: 100%;overflow: hidden;position: fixed;}
 /* 팝업 알럿 */
 .ui-alert{white-space:nowrap;position:fixed;left:0rem;right:0rem;top:0rem;bottom:0;text-align:center;z-index:1500;background-color: rgba(0,0,0,0.5);outline:none; padding: 0rem 0rem calc(20vh + var(--safe-bottom)) 0rem}
 .ui-alert>.pbd{
-    display:inline-block;max-width: 19.75rem;min-width: 19.75rem;vertical-align:bottom;text-align:left;position:relative;white-space:normal;z-index:200;background-color: #ffffff;border-radius: 1rem;overflow: hidden;box-shadow: rgba(0,0,0,0.2) 2rem 2rem 7rem;
+    display:inline-block; max-width: calc(100vw - 1.6rem); width: 19.75rem;vertical-align:bottom;text-align:left;position:relative;white-space:normal;z-index:200;background-color: #ffffff;border-radius: 1rem;overflow: hidden;box-shadow: rgba(0,0,0,0.2) 2rem 2rem 7rem;
     @apply bg-white dark:bg-slate-800 dark:text-white
 }
 .ui-alert:after{content:''; width:0; height:100%; display:inline-block; vertical-align:middle;}

@@ -245,8 +245,10 @@ const closePopup = () => {
       <div class="floatbots relative">
         
         <div class="inr -mt-[1px] border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
-          <div class="ut-rpwrite relative pl-14 pr-14 h-full pb-[15px] pt-[11px]">
-            <NuxtLink :to="`${user?.email ? `./room?roomId=${tableId}&pop=${myInfo?.id}` : ''}`" :user_num="`${myInfo?.id}`" class="usr rounded-full block w-8 h-8 absolute left-4 bottom-[18px]">
+          <div class="ut-rpwrite relative pl-14 pr-14 h-full pb-4 pt-4">
+            <NuxtLink :to="`${user?.email ? `./room?roomId=${tableId}&pop=${myInfo?.id}` : ''}`" :user_num="`${myInfo?.id}`" 
+              class="usr rounded-full block w-8 h-8 absolute left-4 bottom-5"
+            >
               <div class="absolute top-0 text-transparent">{{ myInfo?.id }}</div>
               <img 
                 :alt="user?.email"
@@ -258,7 +260,7 @@ const closePopup = () => {
                 <IconProvider :provider="{ name: user?.app_metadata.provider, cate:'fab', class:``}" />
               </i>
             </NuxtLink>
-            <div class="form p-[6px] px-3 pr-1 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
+            <div class="form p-1.5 px-3 pr-1 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
               <textarea
                 :placeholder="`메시지를 입력해주세요`"
                 class="w-full h-5 max-h-20 text-sm inline-flex align-middle outline-none bg-transparent resize-none"
@@ -267,7 +269,7 @@ const closePopup = () => {
                 @focus="comFocus"
               ></textarea>
             </div>
-            <div class="bts absolute right-4 bottom-[18px]">
+            <div class="bts absolute right-4 bottom-5">
               <button 
                 ref="btnSend"
                 class="h-8 w-8 rounded-full bg-primary disabled:opacity-50 text-white"
