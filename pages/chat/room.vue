@@ -160,6 +160,7 @@ const chatWrite = async ()=>{
   textArea.value.focus();  // 입력창 포커싱
   textArea.value.value = '';  // 입력창 비우기
   textArea.value.style.height = ""; // 입력창 높이리셋
+  inputMsg();
 }
 const isMyChat = (chatID) => user.value?.id === chatID ;
 
