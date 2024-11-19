@@ -1,12 +1,12 @@
 <script setup>
 const eMsg = ref('')
-const client = useSupabaseClient();
+const supabase = useSupabaseClient();
 const user = useSupabaseUser();
 
 const addUserToDatabase = async () => {
   if (user.value) {
     // 기존 회원인지 확인
-    const { data, error: fetchError } = await client
+    const { data, error: fetchError } = await supabase
       .from('MEMBERS')
       .select('*')
       .eq('email', user.value.email);
@@ -22,7 +22,7 @@ const addUserToDatabase = async () => {
       return;
     } else {
       // 새로운 회원인 경우, 추가
-      const { data, error: insertError } = await client.from('MEMBERS').insert([
+      const { data, error: insertError } = await supabase.from('MEMBERS').insert([
         {
           user_id: user.value.id,
           email: user.value.email,
