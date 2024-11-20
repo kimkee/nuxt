@@ -215,8 +215,9 @@ const closePopup = () => {
             'op': !isMyChat(chat.user_id),
             'same': index > 0 && chat.user_id === chatusers[index - 1].user_id
           }"
-          :uid="`${chat.user_id}`"
+          :chatID="`${chat.id}`"
           :user_num="`${chat.user_num}`"
+          :uid="`${chat.user_id}`"
         >
           <div class="name text-xt absolute -top-5 text-slate-500 dark:text-slate-400">
             {{chat.name}}
