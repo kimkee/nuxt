@@ -109,11 +109,11 @@ const inputMsg = ()=> { // 댓글에 자동높이 기능
 
 const comFocus = ()=> { 
   if (user.value?.email) { return; }
-  $ui.confirm("채팅은 로그인이 필요합니다.<br>로그인페이지로 이동하시겠습니까?", {
+  $ui.confirm("로그인이 필요합니다.", {
     ycb: () => { router.push('/login'); return; },
     ccb: () => { return; },
-    ybt: "예",
-    nbt: "아니오",
+    ybt: "로그인 하기",
+    nbt: "닫기",
   });
 }
 
