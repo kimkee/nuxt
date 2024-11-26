@@ -18,6 +18,7 @@ export default defineNuxtConfig({
       ]
     },
     buildAssetsDir: `_nuxt/${dayjs().format('YYYY-MM-DD-hh-mm-ss')}/`,
+    // pageTransition:{ name: 'page', mode:'out-in'},
   },
   runtimeConfig: {
     public: {
