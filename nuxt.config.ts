@@ -13,8 +13,8 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#1f2937' }
       ],
       link: [
-        { rel: 'manifest', href: '/manifest.json' },
-        { rel: 'icon', type: 'image/x-icon', href: '/img/favicon.ico' }
+        { rel: 'manifest', href: `${process.env.SITE_URL}/manifest.json` },
+        { rel: 'icon', type: 'image/x-icon', href: `${process.env.SITE_URL}/img/favicon.ico` }
       ]
     },
     buildAssetsDir: `_nuxt/${dayjs().format('YYYY-MM-DD-hh-mm-ss')}/`,
