@@ -1,11 +1,13 @@
 <script setup>
+const config = useRuntimeConfig();
+const SITE_URL = config.public.SITE_URL;
 useSeoMeta({
   title: '넉스톤:Nuxton',
   ogTitle: '넉스톤:Nuxton',
   description: 'Nuxt.js + Supabase PWA 앱',
   ogDescription: 'Nuxt.js + Supabase PWA 앱',
-  ogImage: 'https://nuxton.pages.dev/img/ogimage.png',
-  ogUrl: 'https://nuxton.pages.dev/',
+  ogImage: `${SITE_URL}img/ogimage.png`,
+  ogUrl: `${SITE_URL}`,
   twitterCard: 'summary_large_image',
 })
 </script>
