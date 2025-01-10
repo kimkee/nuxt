@@ -1,5 +1,8 @@
 <script setup>
 useSeoMeta({ })
+onMounted(() => {
+  window.location.replace('/chat/');
+});
 </script>
 <template>
   <main class="container flex-1 items-center justify-center flex flex-col">
