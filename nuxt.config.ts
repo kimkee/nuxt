@@ -42,11 +42,11 @@ export default defineNuxtConfig({
   image: {
     domains: ['avfgnkfopixyabmqqrqv.supabase.co'],
   },
-  plugins: ['~/plugins/ui.js',{ src: '~/plugins/google-tag-manager.client.js', mode: 'client' }],
+  plugins: ['~/plugins/ui.js', { src: '~/plugins/google-tag-manager.client.js', mode: 'client' }],
   googleFonts: {
     families: {
-      'Noto+Sans+KR': [100,300,400, 500, 700,900],
-      'Roboto': [100,300,400,500, 700,900]
+      'Noto+Sans+KR': [100, 300, 400, 500, 700, 900],
+      'Roboto': [100, 300, 400, 500, 700, 900]
     }
   },
   nitro: {
@@ -64,18 +64,18 @@ export default defineNuxtConfig({
       }
     },
     css: {
-        preprocessorOptions: {
-            scss: {
-                api: "modern-compiler"
-            }
+      preprocessorOptions: {
+        scss: {
+          api: "modern-compiler"
         }
+      }
     }
   },
   fontawesome: {
     icons: {
-      solid: ['font','power-off','angle-left','chevron-right','arrow-left','paper-plane','pen','calendar-days','clock','comment','comments','right-to-bracket','envelope','user','sun','moon','magnifying-glass','dollar-sign','bars','box','house', 'cog', 'circle', 'check', 'calendar','coffee'],
-      regular: ['user','comments' ],
-      brands: ['facebook','github', 'google', 'kickstarter-k', 'twitter']
+      solid: ['font', 'power-off', 'angle-left', 'chevron-right', 'arrow-left', 'paper-plane', 'pen', 'calendar-days', 'clock', 'comment', 'comments', 'right-to-bracket', 'envelope', 'user', 'sun', 'moon', 'magnifying-glass', 'dollar-sign', 'bars', 'box', 'house', 'cog', 'circle', 'check', 'calendar', 'coffee'],
+      regular: ['user', 'comments'],
+      brands: ['facebook', 'github', 'google', 'kickstarter-k', 'twitter']
     }
   },
   router: {
