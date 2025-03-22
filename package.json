@@ -15,7 +15,7 @@
     "@nuxtjs/supabase": "^1.4.1",
     "@vesp/nuxt-fontawesome": "^1.1.0",
     "dayjs": "^1.11.13",
-    "nuxt": "^3.15.4",
+    "nuxt": "^3.16.0",
     "spoqa-han-sans": "^3.3.0",
     "vue": "latest",
     "vue-github-button": "^3.1.3",
