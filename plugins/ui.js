@@ -1,7 +1,7 @@
 const ui = {
   init(){
     console.log("ui.init");
-    /* document?.addEventListener("contextmenu",(e)=> e.preventDefault()); */
+ 
   },
   greet(name) {
     alert(name)
