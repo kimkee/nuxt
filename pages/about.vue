@@ -49,7 +49,7 @@ const color = (hex)=>{
       </p>
 
       <p class="grid grid-flow-col gap-2">
-        <button class="btn" @click="copyToClipboard">복사</button>
+        <button class="btn" @click="copyToClipboard">복사.</button>
         <button class="btn" @click="() => color('#FFFFFF')">#FFFFFF</button>
         <button class="btn" @click="() => {
           $ui.alert('공통 알럿창 UI 입니다.',{
