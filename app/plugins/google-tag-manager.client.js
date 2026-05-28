@@ -1,4 +1,4 @@
-export default ({ app }) => {
+export default defineNuxtPlugin((nuxtApp) => {
   if (process.client) {
     (function() {
       var script = document.createElement('script');
@@ -13,4 +13,4 @@ export default ({ app }) => {
       gtag('config', 'G-ZFPVJH3PJW');
     })();
   }
-};
+});

@@ -38,7 +38,6 @@ declare module '@nuxt/schema' {
     image?: any
     googleFonts?: any
     fontawesome?: any
-    tailwindcss?: any
     nitro?: any
   }
   interface DefineNuxtConfig {
@@ -52,7 +51,6 @@ declare module 'nuxt/schema' {
     image?: any
     googleFonts?: any
     fontawesome?: any
-    tailwindcss?: any
     nitro?: any
   }
   interface DefineNuxtConfig {

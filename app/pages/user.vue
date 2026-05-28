@@ -42,8 +42,7 @@ const ico_provider = ()=>{
       <div class="relative">
         <img :src="userInfo.user_metadata?.avatar_url || '/img/user.png'" alt="" class="w-20 h-20 rounded-full bg-gray-300">
         <i class="text-base absolute right-0 bottom-0 bg-slate-400 rounded-full w-7 h-7 text-center flex  justify-center items-center">
-          <IconProvider :provider="{ name: userInfo.app_metadata.provider, cate:'fab', class:`text-white`}" 
-          />
+          <IconProvider :provider="{ name: userInfo.app_metadata.provider, cate:'fab', class:`text-white`}" />
         </i>
       </div>
       <div class="flex flex-col justify-center gap-2 dark:text-gray-300">
@@ -56,7 +55,7 @@ const ico_provider = ()=>{
       </div>
       <div class="mt-2">
         <button class="btn" @click="signOut">
-          <me>로그아웃</me>
+          <em>로그아웃</em>
           <i><font-awesome :icon="['fas', 'power-off']" /></i>
         </button>
       </div>

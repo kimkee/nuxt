@@ -1,5 +1,36 @@
-@charset "utf-8";
 @import url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #41b883;
+  --color-secondary: #facc15;
+
+  --font-size-9: 0.5625rem;
+  --font-size-9--line-height: 1.4;
+  --font-size-10: 0.625rem;
+  --font-size-10--line-height: 1.4;
+  --font-size-xt: 0.6875rem;
+  --font-size-xt--line-height: 1.4;
+  --font-size-ss: 0.8125rem;
+  --font-size-ss--line-height: 1.4;
+  --font-size-md: 0.9375rem;
+  --font-size-md--line-height: 1.4;
+  --font-size-xx: 1.375rem;
+  --font-size-xx--line-height: 1.4;
+
+  --breakpoint-tablet: 640px;
+  --breakpoint-laptop: 1024px;
+  --breakpoint-desktop: 1280px;
+}
+.text-9{font-size: var(--font-size-9); line-height: var(--font-size-9--line-height);}
+.text-10{font-size: var(--font-size-10); line-height: var(--font-size-10--line-height);}
+.text-xt{font-size: var(--font-size-xt); line-height: var(--font-size-xt--line-height);}
+.text-ss{font-size: var(--font-size-ss); line-height: var(--font-size-ss--line-height);}
+.text-md{font-size: var(--font-size-md); line-height: var(--font-size-md--line-height);}
+.text-lg{font-size: var(--font-size-lg); line-height: var(--font-size-lg--line-height);}
+.text-xx{font-size: var(--font-size-xx); line-height: var(--font-size-xx--line-height);}
 
 
 html{ font-size: 16px; max-width: 100%; }
@@ -10,16 +41,10 @@ body{
     background-attachment : fixed ;
     background-color: #f3f3f3;
     color: #444444;
-    /* transition: background-color 0.2s; */
-
 }
 .dark body{ background-color: #111925; color: #dddddd; }
 
 .wrap {
-    background: url(https://tailwindcss.com/_next/static/media/docs-dark@tinypng.1bbe175e.png) no-repeat;
-    background-size:100% auto;
-    background-position: 0px 0px;
-    background-attachment : fixed ;
     background-color: #ffffff;
     max-width: var(--mwide);
     margin: auto;    
@@ -64,7 +89,7 @@ a, button, input {
 .safe-bottom-mg{margin-bottom: var(--safe-bottom);}
 
 .container{  
-    @apply px-6 py-4 my-auto !max-w-full m-auto;
+    @apply px-6 py-4 my-auto max-w-full! m-auto;
 }
 
 i.ico{
@@ -82,7 +107,7 @@ i.ico{
     }
 }
 .btn{
-    @apply flex-shrink-0 rounded-md text-sm gap-x-1.5 px-2.5 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 text-gray-700 dark:text-gray-200 bg-gray-50 hover:bg-gray-100 disabled:bg-gray-50 aria-disabled:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700/50 dark:disabled:bg-gray-800 dark:aria-disabled:bg-gray-800 focus-visible:ring-2 inline-flex items-center justify-center;
+    @apply shrink-0 rounded-md text-sm gap-x-1.5 px-2.5 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 text-gray-700 dark:text-gray-200 bg-gray-50 hover:bg-gray-100 disabled:bg-gray-50 aria-disabled:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700/50 dark:disabled:bg-gray-800 dark:aria-disabled:bg-gray-800 focus-visible:ring-2 inline-flex items-center justify-center;
     &.btn-primary{
         @apply  text-white bg-primary hover:bg-green-500/90  dark:bg-primary dark:hover:bg-green-600/90 ring-green-900/20
     }
@@ -102,7 +127,7 @@ i.ico{
         @apply text-base px-5 py-3
     }
     &:disabled{
-        @apply opacity-70 text-opacity-50 cursor-not-allowed;
+        @apply opacity-70 text-current/50 cursor-not-allowed;
         
     }
 }
