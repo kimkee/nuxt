@@ -42,7 +42,7 @@ const signInWithKakao = async () => {
           <em>Google</em>
         </button>
         <button class="btn btn-lg" @click="signInWithKakao()">
-          <i><font-awesome :icon="['fas', 'comment']" /></i>
+          <i><font-awesome :icon="['fab', 'kakao-talk']" /></i>
           <em>Kakao</em>
         </button>
         <button class="btn btn-lg" @click="signInWithOAuth('github')">

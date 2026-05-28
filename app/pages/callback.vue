@@ -4,31 +4,32 @@ const supabase = useSupabaseClient();
 const user = useSupabaseUser();
 
 const addUserToDatabase = async () => {
-  if (user.value) {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user) {
     // 기존 회원인지 확인
     const { data, error: fetchError } = await supabase
       .from('MEMBERS')
       .select('*')
-      .eq('email', user.value.email);
+      .eq('email', user.email);
 
     if (fetchError) {
       console.error('Error fetching user data:', fetchError);
       return;
     }
 
-    if (data.length > 0) {
+    if (data && data.length > 0) {
       console.log('Existing user:', data[0]);
       // 기존 회원인 경우, 추가 로직 수행하지 않음
       return;
     } else {
       // 새로운 회원인 경우, 추가
-      const { data, error: insertError } = await supabase.from('MEMBERS').insert([
+      const { error: insertError } = await supabase.from('MEMBERS').insert([
         {
-          user_id: user.value.id,
-          email: user.value.email,
-          username: user.value.user_metadata.full_name || user.value.user_metadata.user_name,
-          provider: user.value.app_metadata.provider,
-          profile_picture : user.value.user_metadata.avatar_url,
+          user_id: user.id,
+          email: user.email,
+          username: user.user_metadata?.full_name || user.user_metadata?.user_name,
+          provider: user.app_metadata?.provider,
+          profile_picture : user.user_metadata?.avatar_url,
           level : 10,
           created_at: new Date(),
         },
@@ -38,9 +39,9 @@ const addUserToDatabase = async () => {
         console.error('Error inserting new user:', insertError);
         console.log(insertError.code);
         // alert(insertError.code)
-        eMsg.value = insertError
+        eMsg.value = insertError.message || insertError
       } else {
-        console.log('User added successfully:', data);
+        console.log('User added successfully');
       }
     }
   }
@@ -59,7 +60,7 @@ onMounted(() => {
         <!-- <p>Processing login...</p> -->
         <!-- <p>{{eMsg }}</p> -->
         <!-- <p>{{user.id }}</p> -->
-        <p class="mt-4">{{user.email }}</p>
+        <p class="mt-4">{{user?.email }}</p>
     </div>
   </main>
 </template>

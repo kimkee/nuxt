@@ -6,7 +6,7 @@ useSeoMeta({
   ogTitle: '넉스톤:Nuxton',
   description: 'Nuxt.js + Supabase PWA 앱',
   ogDescription: 'Nuxt.js + Supabase PWA 앱',
-  ogImage: `${SITE_URL}img/ogimage.png`,
+  ogImage: `${SITE_URL}/img/ogimage.png`,
   ogUrl: `${SITE_URL}`,
   twitterCard: 'summary_large_image',
 })
