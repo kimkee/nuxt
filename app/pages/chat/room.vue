@@ -194,12 +194,16 @@ const closePopup = () => {
   router.back(-1)
   showPopup.value = false;
 };
+
+const handleError = (e) => {
+  e.target.src = '/img/user.png';
+};
 </script>
 <template>
   <Popup v-if="showPopup" @close="closePopup">
     <p>ID: {{ pop }}</p>
   </Popup>
-  <main class="container flex-1 flex flex-col h-full relative !p-0">
+  <main class="container flex-1 flex flex-col h-full relative p-0!">
     <!-- <div class="absolute right-4 top-2 z-50">
       <button @click="openPopup('456')">Open Popup</button>
     </div> -->
@@ -252,7 +256,7 @@ const closePopup = () => {
       <!-- 메시지 입력 UI -->
       <div class="floatbots relative">
         
-        <div class="inr -mt-[1px] border-t border-gray-200 dark:border-gray-700 bg-white/100 dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
+        <div class="inr -mt-px border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/90 backdrop-blur-sm text-gray-600 dark:text-white ">
           <div class="ut-rpwrite relative pl-14 pr-14 h-full pb-4 pt-4">
             <NuxtLink :to="`${user?.email ? `./room?roomId=${tableId}&pop=${myInfo?.id}` : ''}`" :user_num="`${myInfo?.id}`" 
               class="usr rounded-full block w-8 h-8 absolute left-4 bottom-5"
@@ -295,6 +299,7 @@ const closePopup = () => {
 </template>
 
 <style scoped>
+@reference "~/assets/css/global.css";
 .floatbots{}
 .floatbots>.inr{min-height: calc(4rem + var(--safe-bottom)); padding-bottom: var(--safe-bottom);}
 .ut-rpwrite { min-height: 4rem; }

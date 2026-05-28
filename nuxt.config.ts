@@ -2,6 +2,7 @@
 /// <reference path="./global.d.ts" />
 import { defineNuxtConfig } from "nuxt/config";
 import dayjs from "dayjs";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
   compatibilityDate: '2026-05-27',
@@ -22,7 +23,7 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: `${process.env.SITE_URL}/img/favicon.ico` }
       ]
     },
-    buildAssetsDir: `_nuxt/${dayjs().format('YYYY-MM-DD-hh-mm-ss')}/`,
+    buildAssetsDir: process.env.NODE_ENV === 'production' ? `_nuxt/${dayjs().format('YYYY-MM-DD-hh-mm-ss')}/` : '_nuxt/',
     // pageTransition:{ name: 'page', mode:'out-in'},
   },
   runtimeConfig: {
@@ -35,6 +36,7 @@ export default defineNuxtConfig({
   },
   supabase: {
     // Options
+    types: false,
     redirectOptions: {
       login: '/login',
       callback: '/callback',
@@ -43,7 +45,7 @@ export default defineNuxtConfig({
       saveRedirectToCookie: true,
     },
   },
-  modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts', '@nuxtjs/supabase', '@nuxt/image'],
+  modules: ['@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts', '@nuxtjs/supabase', '@nuxt/image'],
   image: {
     domains: ['avfgnkfopixyabmqqrqv.supabase.co'],
   },
@@ -63,6 +65,9 @@ export default defineNuxtConfig({
     '~/assets/css/global.css'
   ],
   vite: {
+    plugins: [
+      tailwindcss()
+    ],
     server: {
       hmr: {
         overlay: false

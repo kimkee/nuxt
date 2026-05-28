@@ -43,6 +43,7 @@ const user = ref(props.user);
   </nav>
 </template>
 <style scoped>
+@reference "~/assets/css/global.css";
 .nav{height: calc(4rem + var(--safe-bottom));}
 .nav .inr{
   height: calc(4rem + var(--safe-bottom));
