@@ -1,6 +1,6 @@
 <template>
     <AppHeader :user="user || {}" v-if="showAppHeader" />
-    <NuxtPage :user="user || {}" />
+    <slot />
     <AppNav :user="user || {}" v-if="showAppNav" />
 </template>
 

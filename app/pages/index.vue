@@ -1,7 +1,7 @@
 <script setup>
 useSeoMeta({ })
 onMounted(() => {
-  window.location.replace('/chat/');
+  // window.location.replace('/chat/');
 });
 </script>
 <template>

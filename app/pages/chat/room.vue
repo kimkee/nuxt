@@ -1,8 +1,8 @@
 <script setup >
 useSeoMeta({ title: 'CHAT | 넉스톤:Nuxton' })
 const props = defineProps(['user']);
-const user = ref(props.user || null);
 const supabase = useSupabaseClient();
+const user = useSupabaseUser();
 const router = useRouter();
 const route = useRoute();
 const tableId = ref(route.query.roomId); 
@@ -29,7 +29,8 @@ const fetchData = async () => {
 };
 const myInfo = ref();
 const fetchMyInfo = async () => {
-  fetch(`/api/user?id=${user?.value.id}`)
+  if (!user.value?.id) return;
+  fetch(`/api/user?id=${user.value.id}`)
     .then(respon => respon.json())
     .then(result => {
       console.log(result);
@@ -39,6 +40,12 @@ const fetchMyInfo = async () => {
       console.error('Fetch error:', error);
     });
 };
+
+watch(user, (newUser) => {
+  if (newUser?.id) {
+    fetchMyInfo();
+  }
+}, { immediate: true });
 
 console.log(user?.value);
 
@@ -77,7 +84,6 @@ onMounted(() => {
     }
   }); */
   
-  fetchMyInfo();
   if (tableId.value) {
     fetchData();
     setupRealtimeListener(tableId.value);
@@ -134,13 +140,13 @@ const chatWrite = async ()=>{
   }
   const insertData = { 
     user_id: user.value?.id,
-    user_num: myInfo?.value.id,
+    user_num: myInfo?.value?.id,
     email: user.value?.email,
-    name: user.value?.user_metadata.full_name || user.value?.user_metadata.user_name,
+    name: user.value?.user_metadata?.full_name || user.value?.user_metadata?.user_name || 'Anonymous',
     message: $ui.textHtml( textArea.value.value , "incode"),
     created_at: new Date().toISOString(),
-    provider: user.value?.app_metadata.provider,
-    profile_picture: user.value?.user_metadata.avatar_url, 
+    provider: user.value?.app_metadata?.provider,
+    profile_picture: user.value?.user_metadata?.avatar_url, 
   }
   console.table(insertData);
   
@@ -259,7 +265,7 @@ const closePopup = () => {
                 @error="handleError"
               >
               <i v-if="user?.email" class="w-4 h-4 rounded-full text-9 absolute -bottom-1 -right-1 flex items-center justify-center bg-slate-600/50 text-white dark:bg-slate-200/70 dark:text-gray-800">
-                <IconProvider :provider="{ name: user?.app_metadata.provider, cate:'fab', class:``}" />
+                <IconProvider :provider="{ name: user?.app_metadata?.provider, cate:'fab', class:``}" />
               </i>
             </NuxtLink>
             <div class="form p-1.5 px-3 pr-1 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">

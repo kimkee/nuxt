@@ -1,8 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+/// <reference path="./global.d.ts" />
+import { defineNuxtConfig } from "nuxt/config";
 import dayjs from "dayjs";
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: '2026-05-27',
+  future: {
+    compatibilityVersion: 4,
+  },
   devtools: { enabled: false },
   ssr: true,
   app: {
@@ -35,7 +40,7 @@ export default defineNuxtConfig({
       callback: '/callback',
       include: ['/user'],
       exclude: [],
-      cookieRedirect: true,
+      saveRedirectToCookie: true,
     },
   },
   modules: ['@nuxtjs/tailwindcss', '@vesp/nuxt-fontawesome', '@nuxtjs/google-fonts', '@nuxtjs/supabase', '@nuxt/image'],
@@ -63,19 +68,19 @@ export default defineNuxtConfig({
         overlay: false
       }
     },
-    css: {
-      preprocessorOptions: {
-        scss: {
-          api: "modern-compiler"
-        }
-      }
+    optimizeDeps: {
+      include: [
+        '@fortawesome/free-brands-svg-icons',
+        '@fortawesome/free-regular-svg-icons',
+        '@fortawesome/free-solid-svg-icons'
+      ]
     }
   },
   fontawesome: {
     icons: {
       solid: ['font', 'power-off', 'angle-left', 'chevron-right', 'arrow-left', 'paper-plane', 'pen', 'calendar-days', 'clock', 'comment', 'comments', 'right-to-bracket', 'envelope', 'user', 'sun', 'moon', 'magnifying-glass', 'dollar-sign', 'bars', 'box', 'house', 'cog', 'circle', 'check', 'calendar', 'coffee'],
       regular: ['user', 'comments'],
-      brands: ['facebook', 'github', 'google', 'kickstarter-k', 'twitter']
+      brands: ['facebook', 'github', 'google', 'kickstarter-k', 'twitter', 'kakao-talk']
     }
   },
   router: {

@@ -1,8 +1,7 @@
 <script setup>
 useSeoMeta({ title: 'ABOUT | 넉스톤:Nuxton' })
 
-const props = defineProps(['user']);
-const user = ref(props.user || null);
+const user = useSupabaseUser();
 
 const copyToClipboard = () => {
   navigator.clipboard.writeText('kkkk')
@@ -38,14 +37,14 @@ const color = (hex)=>{
   <main class="container flex-1 items-center justify-center flex flex-col">
     <div class="flex flex-col items-center gap-6 py-10">
       <h1 class="text-4xl">About</h1>
-      <p>{{user?.name}}</p>
+      <p>{{user?.user_metadata?.full_name || user?.user_metadata?.name || user?.email}}</p>
       <!-- <pre class="text-sm p-10 overflow-hidden w-[400px] ">{{JSON.stringify(user, null, 1)}}</pre> -->
       <GithubButtons />
       
       <p class="flex gap-3">
         <IconProvider :provider="{ name:'google', cate:'fab', class:'abc def'}" />
         <IconProvider :provider="{ name:'github', cate:'fab', class:'abc def'}" />
-        <IconProvider :provider="{ name:'kakao', cate:'fas', class:'text-yellow-300 dark:text-white'}" />
+        <IconProvider :provider="{ name:'kakao-talk', cate:'fab', class:'abc def'}" />
       </p>
 
       <p class="grid grid-flow-col gap-2">
