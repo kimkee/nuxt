@@ -272,7 +272,7 @@ const handleError = (e) => {
                 <IconProvider :provider="{ name: user?.app_metadata?.provider, cate:'fab', class:``}" />
               </i>
             </NuxtLink>
-            <div class="form p-1.5 px-3 pr-1 rounded-md border dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
+            <div class="form p-1.5 px-3 pr-1 rounded-md border border-gray-300 dark:border-gray-700 shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.1)] dark:shadow-[inset_1px_1px_2px_0px_rgba(0,0,0,0.3)] dark:bg-gray-900">
               <textarea
                 :placeholder="`메시지를 입력해주세요`"
                 class="w-full h-5 max-h-20 text-sm inline-flex align-middle outline-none bg-transparent resize-none"
