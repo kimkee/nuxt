@@ -92,44 +92,42 @@ a, button, input {
     @apply px-6 py-4 my-auto max-w-full! m-auto;
 }
 
-i.ico{
-    &-google{
-        @apply w-4 h-4 bg-no-repeat inline-flex;
-        background-image: url(/img/ico_google.svg);
-    }
-    &-github{
-        @apply w-4 h-4 bg-no-repeat inline-flex;
-        background-image: url(/img/ico_github.svg);
-    }
-    &-kakao{
-        @apply w-4 h-4 bg-no-repeat inline-flex;
-        background-image: url(/img/ico_kakao.svg);
-    }
+i.ico.ico-google{
+    @apply w-4 h-4 bg-no-repeat inline-flex;
+    background-image: url(/img/ico_google.svg);
 }
+i.ico.ico-github{
+    @apply w-4 h-4 bg-no-repeat inline-flex;
+    background-image: url(/img/ico_github.svg);
+}
+i.ico.ico-kakao{
+    @apply w-4 h-4 bg-no-repeat inline-flex;
+    background-image: url(/img/ico_kakao.svg);
+}
+
 .btn{
     @apply shrink-0 rounded-md text-sm gap-x-1.5 px-2.5 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 text-gray-700 dark:text-gray-200 bg-gray-50 hover:bg-gray-100 disabled:bg-gray-50 aria-disabled:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700/50 dark:disabled:bg-gray-800 dark:aria-disabled:bg-gray-800 focus-visible:ring-2 inline-flex items-center justify-center;
-    &.btn-primary{
-        @apply  text-white bg-primary hover:bg-green-500/90  dark:bg-primary dark:hover:bg-green-600/90 ring-green-900/20
-    }
-    &-xs{
-        @apply text-[0.7rem] px-1.5 py-0.5 rounded font-normal
-    }
-    &-sm{
-        @apply text-xs px-1.5 py-1.5 rounded font-normal
-    }
-    &-md{
-        @apply text-sm px-2.5 py-1.5
-    }
-    &-lg{
-        @apply text-sm px-3.5 py-2
-    }
-    &-xl{
-        @apply text-base px-5 py-3
-    }
-    &:disabled{
-        @apply opacity-70 text-current/50 cursor-not-allowed;
-        
-    }
+}
+.btn:disabled{
+    @apply opacity-70 text-current/50 cursor-not-allowed;
+}
+.btn.btn-primary{
+    @apply  text-white bg-primary hover:bg-green-500/90  dark:bg-primary dark:hover:bg-green-600/90 ring-green-900/20
+}
+.btn.btn-xs{
+    @apply text-[0.7rem] px-1.5 py-0.5 rounded font-normal
+}
+.btn.btn-sm{
+    @apply text-xs px-1.5 py-1.5 rounded font-normal
+}
+.btn.btn-md{
+    @apply text-sm px-2.5 py-1.5
+}
+.btn.btn-lg{
+    @apply text-sm px-3.5 py-2
+}
+.btn.btn-xl{
+    @apply text-base px-5 py-3
 }
 
 body.is-lock{height: 100%;overflow-y:initial;padding-right: var(--scrPad);}
